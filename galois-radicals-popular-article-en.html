@@ -94,7 +94,7 @@
 </head>
 <body>
 <h1>Why the General Quintic Has No Formula by Radicals</h1>
-<p>Author: GitHub @mathwo Date: October 8, 2026 Version: 1.0.1</p>
+<p>Author: GitHub @mathwo Date: October 8, 2026 Version: 1.0.2</p>
 <p>A popular exposition of <strong>Galois theory</strong> through <strong>radicals</strong>, <strong>symmetry</strong>, <strong>splitting fields</strong>, and <strong>solvable groups</strong>.</p>
 <p>This article follows one simple question: quadratic, cubic, and quartic equations all have formulas by radicals, so why is there no such formula for the general quintic? We start from concrete examples of roots and their symmetries, then introduce fields, splitting fields, Galois groups, normal subgroup chains, and solvable groups. The rigorous skeleton follows the route of Emil Artin&#x27;s lectures on Galois theory, but the presentation is deliberately example-first.</p>
 <h2>1. Quadratic, Cubic, and Quartic Equations, and Vieta&#x27;s Formulas</h2>
@@ -355,7 +355,8 @@ $$</div>
 \prod_{i<j}(r_i-r_j).
 $$</div>
 <p>Even permutations of the roots preserve this product, while odd permutations change its sign. Thus a nonsquare discriminant shows that the Galois group is not contained in \(A_5\); it contains an odd permutation.</p>
-<p>Now reduce modulo primes. Modulo \(3\), the polynomial \(x^5-x-1\) remains irreducible. By Dedekind&#x27;s theorem this shows that the Galois group contains a 5-cycle. Modulo \(2\),</p>
+<p>Now reduce modulo primes. Reducing modulo a prime \(p\) means replacing each integer coefficient by its residue modulo \(p\). We use primes because the residues modulo \(p\) form a field \(\mathbb F_p\), so one can factor polynomials in \(\mathbb F_p[x]\) in the usual algebraic way. A few bad primes must be avoided; in this application of Dedekind&#x27;s theorem, we avoid primes dividing the discriminant.</p>
+<p>Modulo \(3\), the polynomial \(x^5-x-1\) remains irreducible. By Dedekind&#x27;s theorem this shows that the Galois group contains a 5-cycle. Modulo \(2\),</p>
 <div class="math-block">$$
 x^5-x-1\equiv x^5+x+1\pmod2,
 $$</div>
@@ -374,12 +375,12 @@ $$</div>
 <div class="math-block">$$
 \operatorname{Gal}(M/\mathbb Q)\cong S_5.
 $$</div>
-<p>Modulo \(13\), the polynomial remains irreducible of degree \(5\), giving a 5-cycle. Modulo \(3\), it factors as</p>
+<p>Here we compute modulo \(13\) and modulo \(3\). As a small clarification, these two moduli are not chosen because the calculation must happen in that order, but because they reveal two different pieces of permutation data: modulo \(13\), the polynomial remains irreducible of degree \(5\), which gives a 5-cycle; modulo \(3\), it factors into a quadratic and a cubic factor, which gives an element of cycle type \((2)(3)\). Combining these two pieces of evidence is what pins down the full \(S_5\). Concretely, modulo \(3\) one has</p>
 <div class="math-block">$$
 x^5+x^4+x^3+x^2+x+2
 \equiv (x^2+2x+2)(x^3+2x^2+x+1)\pmod3.
 $$</div>
-<p>Thus the Galois group contains an element of cycle type \((2)(3)\). As in Equation 2, this forces the full \(S_5\), and so the equation is not solvable by radicals.</p>
+<p>As in Equation 2, this forces the full \(S_5\), and so the equation is not solvable by radicals.</p>
 <p>Now consider a less trivial special quintic that is solvable by radicals.</p>
 <p><strong>Equation 4: \(x^5+5x^3+5x-1=0\).</strong></p>
 <p>This is not the direct form \(x^5-a=0\). It is solvable because it hides a useful substitution. Let</p>

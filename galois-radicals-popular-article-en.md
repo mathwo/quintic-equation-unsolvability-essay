@@ -2,7 +2,7 @@
 
 Author: GitHub @mathwo  
 Date: October 8, 2026  
-Version: 1.0.1
+Version: 1.0.2
 
 A popular exposition of **Galois theory** through **radicals**, **symmetry**, **splitting fields**, and **solvable groups**.
 
@@ -411,7 +411,9 @@ $$
 
 Even permutations of the roots preserve this product, while odd permutations change its sign. Thus a nonsquare discriminant shows that the Galois group is not contained in \(A_5\); it contains an odd permutation.
 
-Now reduce modulo primes. Modulo \(3\), the polynomial \(x^5-x-1\) remains irreducible. By Dedekind's theorem this shows that the Galois group contains a 5-cycle. Modulo \(2\),
+Now reduce modulo primes. Reducing modulo a prime \(p\) means replacing each integer coefficient by its residue modulo \(p\). We use primes because the residues modulo \(p\) form a field \(\mathbb F_p\), so one can factor polynomials in \(\mathbb F_p[x]\) in the usual algebraic way. A few bad primes must be avoided; in this application of Dedekind's theorem, we avoid primes dividing the discriminant.
+
+Modulo \(3\), the polynomial \(x^5-x-1\) remains irreducible. By Dedekind's theorem this shows that the Galois group contains a 5-cycle. Modulo \(2\),
 
 $$
 x^5-x-1\equiv x^5+x+1\pmod2,
@@ -441,14 +443,14 @@ $$
 \operatorname{Gal}(M/\mathbb Q)\cong S_5.
 $$
 
-Modulo \(13\), the polynomial remains irreducible of degree \(5\), giving a 5-cycle. Modulo \(3\), it factors as
+Here we compute modulo \(13\) and modulo \(3\). As a small clarification, these two moduli are not chosen because the calculation must happen in that order, but because they reveal two different pieces of permutation data: modulo \(13\), the polynomial remains irreducible of degree \(5\), which gives a 5-cycle; modulo \(3\), it factors into a quadratic and a cubic factor, which gives an element of cycle type \((2)(3)\). Combining these two pieces of evidence is what pins down the full \(S_5\). Concretely, modulo \(3\) one has
 
 $$
 x^5+x^4+x^3+x^2+x+2
 \equiv (x^2+2x+2)(x^3+2x^2+x+1)\pmod3.
 $$
 
-Thus the Galois group contains an element of cycle type \((2)(3)\). As in Equation 2, this forces the full \(S_5\), and so the equation is not solvable by radicals.
+As in Equation 2, this forces the full \(S_5\), and so the equation is not solvable by radicals.
 
 Now consider a less trivial special quintic that is solvable by radicals.
 
