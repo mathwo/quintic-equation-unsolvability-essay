@@ -39,17 +39,17 @@ $$
 再取两个立方根
 
 $$
-A=
-\sqrt[3]{-\frac q2+\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}
-=
-\sqrt[3]{-\frac q2+\sqrt{\Delta}},
+\begin{aligned}
+A&=\sqrt[3]{-\frac q2+\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}\\
+ &=\sqrt[3]{-\frac q2+\sqrt{\Delta}},
+\end{aligned}
 $$
 
 $$
-B=
-\sqrt[3]{-\frac q2-\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}
-=
-\sqrt[3]{-\frac q2-\sqrt{\Delta}}.
+\begin{aligned}
+B&=\sqrt[3]{-\frac q2-\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}\\
+ &=\sqrt[3]{-\frac q2-\sqrt{\Delta}}.
+\end{aligned}
 $$
 
 再引入三次**单位根**（Root of Unity） \(\omega=\dfrac{-1+i\sqrt3}{2}\)，于是 \(\omega^2=\dfrac{-1-i\sqrt3}{2}=\overline{\omega}\)，并且 \(\omega^3=1\)，\(\omega\neq 1\)。
@@ -435,9 +435,10 @@ $$
 更具体地说，
 
 $$
+\begin{aligned}
 \operatorname{Gal}(K/F)
-=
-\{\sigma:K\to K\mid \sigma \text{ 是域自同构，且对所有 } a\in F,\ \sigma(a)=a\}.
+&=\{\sigma:K\to K\mid \sigma \text{ 是域自同构，且对所有 } a\in F,\ \sigma(a)=a\}.
+\end{aligned}
 $$
 
 这里的自同构可以理解为一种严格的“重新对应”：自同构保持加法、乘法和原来的系数不变，只可能重新安排那些新加入的数，尤其是重新安排方程的根。
