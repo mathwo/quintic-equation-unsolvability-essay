@@ -62,15 +62,15 @@ x_1+x_2+x_3+x_4+x_5=-a_4,
 $$
 
 $$
-\sum_{i<j}x_ix_j=a_3,
+\sum_{i\lt j}x_ix_j=a_3,
 $$
 
 $$
-\sum_{i<j<k}x_ix_jx_k=-a_2,
+\sum_{i\lt j\lt k}x_ix_jx_k=-a_2,
 $$
 
 $$
-\sum_{i<j<k<\ell}x_ix_jx_kx_\ell=a_1,
+\sum_{i\lt j\lt k\lt \ell}x_ix_jx_kx_\ell=a_1,
 $$
 
 $$
@@ -406,7 +406,7 @@ $$
 The discriminant \(2869\) is not a rational square. The square root of the discriminant is, up to sign, the product
 
 $$
-\prod_{i<j}(r_i-r_j).
+\prod_{i\lt j}(r_i-r_j).
 $$
 
 Even permutations of the roots preserve this product, while odd permutations change its sign. Thus a nonsquare discriminant shows that the Galois group is not contained in \(A_5\); it contains an odd permutation.

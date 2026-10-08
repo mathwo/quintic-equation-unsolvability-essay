@@ -105,15 +105,15 @@ $$
 $$
 
 $$
-\sum_{1\le i<j\le 5}x_ix_j=\frac ca,
+\sum_{1\le i\lt j\le 5}x_ix_j=\frac ca,
 $$
 
 $$
-\sum_{1\le i<j<k\le 5}x_ix_jx_k=-\frac da,
+\sum_{1\le i\lt j\lt k\le 5}x_ix_jx_k=-\frac da,
 $$
 
 $$
-\sum_{1\le i<j<k<l\le 5}x_ix_jx_kx_l=\frac ea,
+\sum_{1\le i\lt j\lt k\lt l\le 5}x_ix_jx_kx_l=\frac ea,
 $$
 
 以及
@@ -805,13 +805,13 @@ $$
 因此 \(x^5-x-1\) 的判别式是 \(2869\)，不是有理数平方。为什么这能判断 Galois 群里有没有奇置换？因为如果 \(r_1,\ldots,r_5\) 是五个根，那么判别式可以写成
 
 $$
-\Delta(f)=\prod_{i<j}(r_i-r_j)^2.
+\Delta(f)=\prod_{i\lt j}(r_i-r_j)^2.
 $$
 
 它的平方根本质上是
 
 $$
-\prod_{i<j}(r_i-r_j).
+\prod_{i\lt j}(r_i-r_j).
 $$
 
 偶置换保持这个乘积不变，奇置换会把它变成相反数。因此，如果判别式在 \(\mathbb Q\) 里是平方，那么这个平方根已经在基础域 \(\mathbb Q\) 里，被所有 Galois 自同构固定，Galois 群只能包含偶置换。反过来，如果判别式不是有理数平方，就说明 Galois 群不可能完全落在 \(A_5\) 里；换句话说，这个 Galois 群里一定有奇置换。
