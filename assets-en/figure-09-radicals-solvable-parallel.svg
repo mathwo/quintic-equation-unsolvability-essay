@@ -36,6 +36,6 @@
 <path d="M420 198 C475 185, 510 185, 560 198" fill="none" stroke="#5d83b3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
 <path d="M420 312 C475 312, 510 312, 560 312" fill="none" stroke="#5d83b3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
 <path d="M420 417 C475 430, 510 430, 560 417" fill="none" stroke="#5d83b3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<text x="490" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="24" font-weight="700" fill="#183f3a" text-anchor="middle">根式求解的每一步，对应群论中的一个Abelian quotient</text>
+<text x="490" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="24" font-weight="700" fill="#183f3a" text-anchor="middle">Each radical step corresponds to a step in the chain</text>
     </svg>
     

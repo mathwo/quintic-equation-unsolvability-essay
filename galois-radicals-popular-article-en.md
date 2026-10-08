@@ -2,7 +2,7 @@
 
 Author: GitHub @mathwo  
 Date: October 8, 2026  
-Version: 1.0.0
+Version: 1.0.1
 
 A popular exposition of **Galois theory** through **radicals**, **symmetry**, **splitting fields**, and **solvable groups**.
 
@@ -231,8 +231,8 @@ $$
 The larger the intermediate field, the more elements it asks automorphisms to fix, so the smaller the corresponding subgroup becomes.
 
 <figure>
-  <img src="assets-en/figure-07-galois-correspondence-towers.svg" alt="The Galois correspondence between field towers and subgroup chains">
-  <figcaption>Figure 6. Moving upward in the field tower makes the field larger; the corresponding fixed group becomes smaller.</figcaption>
+  <img src="assets-en/figure-07-galois-correspondence-towers.svg" alt="The Galois correspondence between field chains and subgroup chains">
+  <figcaption>Figure 6. Moving upward in the chain makes the field larger; the corresponding fixed group becomes smaller.</figcaption>
 </figure>
 
 There is an especially important condition here. If an intermediate field \(B\) is itself a splitting field over \(F\), then the corresponding subgroup is a **normal subgroup**. Conversely, normal subgroups correspond to intermediate fields that behave well over the base field.
@@ -304,11 +304,11 @@ Here is the intuitive content of the two directions.
 
 **First: solvable by radicals \(\Rightarrow\) solvable Galois group**
 
-If the roots can be obtained by radicals, then the splitting field sits inside a tower obtained by repeatedly adjoining radicals. Each radical step has a relatively simple Galois-theoretic effect: it contributes an Abelian quotient. Translating the whole tower through the Galois correspondence gives a normal subgroup chain with Abelian quotients. Therefore the Galois group is solvable.
+If the roots can be obtained by radicals, then the splitting field sits inside a chain obtained by repeatedly adjoining radicals. Each radical step has a relatively simple Galois-theoretic effect: it contributes an Abelian quotient. Translating the whole chain through the Galois correspondence gives a normal subgroup chain with Abelian quotients. Therefore the Galois group is solvable.
 
 **Second: solvable Galois group \(\Rightarrow\) solvable by radicals**
 
-If the Galois group has such a normal subgroup chain, the Fundamental Theorem of Galois Theory converts it back into a tower of intermediate fields. When the quotients are Abelian, the corresponding field extensions can be constructed using radicals, after adjoining the necessary roots of unity. Thus the roots can be expressed by radicals.
+If the Galois group has such a normal subgroup chain, the Fundamental Theorem of Galois Theory converts it back into a chain of intermediate fields. When the quotients are Abelian, the corresponding field extensions can be constructed using radicals, after adjoining the necessary roots of unity. Thus the roots can be expressed by radicals.
 
 <figure>
   <img src="assets-en/figure-09-radicals-solvable-parallel.svg" alt="Solution by radicals and solvable groups as parallel processes">
@@ -417,10 +417,18 @@ $$
 x^5-x-1\equiv x^5+x+1\pmod2,
 $$
 
-and
+This factorization is meant in the polynomial ring \(\mathbb F_2[x]\), not as an ordinary identity over the integers. Here \(\mathbb F_2\) is the field with two elements, \(0\) and \(1\), with addition and multiplication taken modulo \(2\). The notation \(\mathbb F_2[x]\) means the ring of polynomials in \(x\) whose coefficients lie in \(\mathbb F_2\), with polynomial addition and multiplication also computed modulo \(2\).
+
+Over the integers, expanding the right hand side gives
 
 $$
-x^5+x+1=(x^2+x+1)(x^3+x^2+1).
+(x^2+x+1)(x^3+x^2+1)=x^5+2x^4+2x^3+2x^2+x+1.
+$$
+
+But modulo \(2\), every coefficient \(2\) becomes \(0\). Thus
+
+$$
+x^5+x+1\equiv(x^2+x+1)(x^3+x^2+1)\pmod2.
 $$
 
 This gives an element of cycle type \((2)(3)\). Combining these facts with the classification of transitive subgroups of \(S_5\), one obtains the full group \(S_5\). Since \(S_5\) is not solvable, the equation \(x^5-x-1=0\) is not solvable by radicals.

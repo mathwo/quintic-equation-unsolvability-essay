@@ -11,7 +11,7 @@
     </defs>
     
     <text x="490.0" y="54" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="30" font-weight="700" fill="#183f3a" text-anchor="middle">Figure 6: The Galois Correspondence</text>
-    <text x="265" y="120" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="28" font-weight="700" fill="#183f3a" text-anchor="middle">field tower</text>
+    <text x="265" y="120" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="28" font-weight="700" fill="#183f3a" text-anchor="middle">chain</text>
 <text x="715" y="120" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="28" font-weight="700" fill="#183f3a" text-anchor="middle">group chain</text>
 <rect x="160" y="155" width="210" height="65" rx="12" fill="#fff" stroke="#c9ddd6" stroke-width="2"/>
 <rect x="160" y="270" width="210" height="65" rx="12" fill="#fff" stroke="#c9ddd6" stroke-width="2"/>

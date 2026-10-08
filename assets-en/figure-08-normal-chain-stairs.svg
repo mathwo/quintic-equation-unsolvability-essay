@@ -26,7 +26,7 @@
 <text x="425" y="382" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="20" font-weight="700" fill="#63736f" text-anchor="middle">quotient</text>
 <text x="595" y="317" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="20" font-weight="700" fill="#63736f" text-anchor="middle">quotient</text>
 <text x="765" y="252" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="20" font-weight="700" fill="#63736f" text-anchor="middle">quotient</text>
-<text x="490" y="492" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="23" font-weight="700" fill="#183f3a" text-anchor="middle">如果每一级quotient都是Abel群，G 就是可解群</text>
-<text x="490" y="525" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="18" font-weight="400" fill="#183f3a" text-anchor="middle">图 7：正规子群链把一个群分解成若干节；每一节用相邻两级的quotient来描述。</text>
+<text x="490" y="492" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="23" font-weight="700" fill="#183f3a" text-anchor="middle">If every quotient is Abelian, G is solvable</text>
+<text x="490" y="525" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="18" font-weight="400" fill="#183f3a" text-anchor="middle">Figure 7: A normal chain decomposes a group into successive quotient sections.</text>
     </svg>
     
