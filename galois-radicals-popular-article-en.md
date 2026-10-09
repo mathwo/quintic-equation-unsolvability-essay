@@ -1,14 +1,20 @@
-# Why the General Quintic Has No Formula by Radicals
+# Things About Solving Equations
+
+**-- On Radical Solutions of Low-Degree Equations and the Theoretical Boundary and Decision Methods for Quintics**
 
 Author: GitHub @mathwo  
 Date: October 8, 2026  
-Version: 1.0.2
+Version: 1.0.3
 
-A popular exposition of **Galois theory** through **radicals**, **symmetry**, **splitting fields**, and **solvable groups**.
+A popular exposition that begins with concrete methods for solving low-degree equations and then moves toward **Galois theory**, the theoretical boundary at the quintic, and practical decision methods for concrete quintic equations.
 
-This article follows one simple question: quadratic, cubic, and quartic equations all have formulas by radicals, so why is there no such formula for the general quintic? We start from concrete examples of roots and their symmetries, then introduce fields, splitting fields, Galois groups, normal subgroup chains, and solvable groups. The rigorous skeleton follows the route of Emil Artin's lectures on Galois theory, but the presentation is deliberately example-first.
+This article follows the plain question "how do we solve equations?" The first half gives a fairly complete account of **radical solution methods** for quadratic, cubic, and quartic equations. The quadratic formula can be derived by the "average $\pm$ offset" method; cubic equations lead to Cardano's formula, the triple-angle substitution, and a substitution by a quadratic-over-linear rational function; quartic equations are handled by Ferrari's method, which reduces the problem to an auxiliary cubic and two quadratic equations.
 
-## 1. Quadratic, Cubic, and Quartic Equations, and Vieta's Formulas
+The second half turns to quintic equations. Here the point is not to keep looking for a longer formula, but to explain why the general quintic has no radical formula that works in all cases. To do this, we start from **groups**, **fields**, **factorization**, and **permutations of roots**, then discuss **radical extensions** and splitting fields, and finally introduce **Galois groups**, **normal subgroup chains**, and solvable groups. This explains the structural reason behind the Abel-Ruffini theorem. We then give a practical decision route: for a specific quintic equation, how can one use factorization, reduction modulo primes, cycle types, and solvability of the Galois group to decide whether it is solvable by radicals?
+
+The phrase "theoretical boundary" refers to the following fact: radical solution remains a universal method for equations of degree at most four, but from degree five onward the general equation no longer has a universal radical formula. This boundary does not mean that every quintic is unsolvable by radicals. It means that a single radical formula applying to all quintics does not exist. Beyond the boundary there are still special solvable quintics; the key question is whether the concrete equation has a solvable Galois group.
+
+## 1. Low-Degree Equations and Vieta's Formulas
 
 The quadratic formula is familiar. For
 
@@ -22,22 +28,199 @@ $$
 x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}.
 $$
 
-There are also formulas by radicals for cubic and quartic equations. The cubic formula is already much less pleasant. After reducing a cubic to the form $x^3+px+q=0$, one expression for a root is
+There is also an old and very intuitive way to derive this formula. Po-Shen Loh has recently reorganized this idea: first divide by $a$ and write the equation as $x^2+Bx+C=0$, where $B=\dfrac ba$ and $C=\dfrac ca$. If the two roots are $r$ and $s$, then $r+s=-B$ and $rs=C$. When the sum of two numbers is known, the natural thing is to start from their average. Their average is $-\dfrac B2$, so they can be written as $-\dfrac B2+u$ and $-\dfrac B2-u$. Now use the product condition: $\left(-\dfrac B2+u\right)\left(-\dfrac B2-u\right)=\dfrac{B^2}{4}-u^2=C$, so $u^2=\dfrac{B^2}{4}-C$. Thus the two roots are $-\dfrac B2\pm\sqrt{\dfrac{B^2}{4}-C}$; substituting back $B=\dfrac ba$ and $C=\dfrac ca$ gives the usual quadratic formula. The advantage of this method is that one does not begin by memorizing a formula. One begins by writing "two numbers with known sum" as "average $\pm$ offset."
+
+There are also formulas by radicals for cubic and quartic equations. The formulas are much more complicated, but in principle they still use only addition, subtraction, multiplication, division, and extraction of roots.
+
+The history of the cubic formula is rather dramatic. In the early sixteenth century, the Italian mathematician Scipione del Ferro had already found a method for solving certain cubic equations, but he did not publish it. Later, Niccolò Tartaglia independently mastered a similar method and used it in mathematical contests. Gerolamo Cardano learned the method from Tartaglia, and after confirming that del Ferro had discovered it earlier, organized the solution of cubic equations and published it in *Ars Magna* in 1545. Thus what is now called **Cardano's formula** was not created by Cardano alone out of nowhere. It was the result of work pushed forward by del Ferro, Tartaglia, Cardano, and others; it bears Cardano's name mainly because Cardano was the first to publish it systematically.
+
+The usual solution of a cubic first uses a substitution to remove the quadratic term. The resulting form is called the **depressed cubic**:
 
 $$
-x=\sqrt[3]{-\frac q2+\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}
-  +\sqrt[3]{-\frac q2-\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}.
+y^3+py+q=0.
 $$
 
-If $\Delta=\left(q/2\right)^2+\left(p/3\right)^3$, this becomes
+**Cardano's formula** can be written as follows. Let
 
 $$
-x=\sqrt[3]{-\frac q2+\sqrt{\Delta}}+\sqrt[3]{-\frac q2-\sqrt{\Delta}}.
+\Delta=\left(\frac q2\right)^2+\left(\frac p3\right)^3,
 $$
 
-To get all three roots one also introduces a primitive cube root of unity, $\omega=\dfrac{-1+i\sqrt3}{2}$. Then $\omega^2=\dfrac{-1-i\sqrt3}{2}=\overline{\omega}$, $\omega^3=1$, and $\omega\ne1$. The other two roots are obtained by multiplying the cube-root pieces by $\omega$ and $\omega^2$ in the correct pattern.
+and take two cube roots
+
+$$
+\begin{aligned}
+A&=\sqrt[3]{-\frac q2+\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}=\sqrt[3]{-\frac q2+\sqrt{\Delta}},
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+B&=\sqrt[3]{-\frac q2-\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}=\sqrt[3]{-\frac q2-\sqrt{\Delta}}.
+\end{aligned}
+$$
+
+To get all three roots one also introduces a primitive cube root of unity, $\omega=\dfrac{-1+i\sqrt3}{2}$. Then $\omega^2=\dfrac{-1-i\sqrt3}{2}=\overline{\omega}$, $\omega^3=1$, and $\omega\ne1$.
+
+There is a small technical point here: a cube root has three possible values, so the choices of $A$ and $B$ must be paired correctly. In other words, one must choose the pair satisfying $AB=-\dfrac p3$ . With that choice, the three roots of the depressed cubic are $y_1=A+B$ , $y_2=\omega A+\omega^2B$ , and $y_3=\omega^2A+\omega B$ .
+
+This formula is already much more complicated than the quadratic formula. It uses not only square roots, but also cube roots, and complex numbers and roots of unity appear naturally. The point is not to memorize the formula itself. The important thing is that it still uses only arithmetic operations and extraction of roots, so it is still a **solution by radicals**.
+
+The first substitution method for solving a cubic by radicals uses the trigonometric triple-angle identity.
+
+Starting from the general cubic $ax^3+bx^2+cx+d=0$ (where $a\ne0$), set
+
+$$
+\begin{aligned}
+p&=\frac ca-\frac{b^2}{3a^2},\\
+q&=\frac{2b^3}{27a^3}-\frac{bc}{3a^2}+\frac da,\\
+x&=y-\frac b{3a}.
+\end{aligned}
+$$
+
+This removes the quadratic term, and the equation becomes $y^3+py+q=0$ .
+
+If $p=0$ , the equation has already reduced to $y^3+q=0$ and can be solved directly by taking a cube root. Now assume $p\ne0$ .
+
+Set $k^2=-\dfrac p3,\qquad r=\dfrac q{k^3},\qquad z=\dfrac yk$ . Then $y=kz$ and the equation becomes $z^3-3z+r=0$ .
+
+Now use the identity $(2\sin\theta)^3-3(2\sin\theta)=-2\sin 3\theta$ , and set $z=2\sin\theta,\qquad r=2\sin\phi,\qquad \phi=\arcsin\dfrac r2$ .
+
+Here $\theta$ and $\phi$ may be understood over the complex numbers. Substitution gives $-2\sin 3\theta+2\sin\phi=0$ , that is, $\sin 3\theta=\sin\phi$ .
+
+Take $\theta_j=\dfrac{\phi+2j\pi}{3}$ , where $j=0,1,2$ . Then the three solutions for $z$ are $z_j=2\sin\dfrac{\phi+2j\pi}{3}$ .
+
+Returning to $y$ and $x$ , we get $y_j=2k\sin\dfrac{\phi+2j\pi}{3}$ and $x_j=2k\sin\dfrac{\phi+2j\pi}{3}-\dfrac b{3a}$ , where $j=0,1,2$ .
+
+The purpose of this derivation is not to make the reader memorize yet another cubic formula. It shows that cubic substitutions naturally lead to a "trisecting an angle" structure. The three choices of angle correspond to the three roots, foreshadowing a theme that will return throughout the article: root-finding is also about which choices may be interchanged.
+
+The second method: after reducing to the depressed cubic, directly use a substitution by a **quadratic-over-linear rational function** of the form $\displaystyle f(x)=ax-\frac{b}{x}$ .
+
+Still start from $y^3+py+q=0$ . Let $y=z-\dfrac p{3z}$ .
+
+The point of this substitution is that the linear term and the reciprocal term cancel after expansion. Substituting it into $y^3+py+q=0$ gives
+
+$$
+\begin{aligned}
+0&=\left(z-\frac p{3z}\right)^3
+  +p\left(z-\frac p{3z}\right)+q\\
+&=z^3-pz+\frac{p^2}{3z}-\frac{p^3}{27z^3}
+  +pz-\frac{p^2}{3z}+q\\
+&=z^3-\frac{p^3}{27z^3}+q.
+\end{aligned}
+$$
+
+Multiplying both sides by $z^3$ gives $z^6+qz^3-\dfrac{p^3}{27}=0$ .
+
+This is a quadratic equation in $z^3$ , so
+
+$$
+z^3=-\frac q2\pm\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}.
+$$
+
+Set
+
+$$
+\begin{aligned}
+u&=\sqrt[3]{-\frac q2+\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}},\\
+v&=\sqrt[3]{-\frac q2-\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}.
+\end{aligned}
+$$
+
+Choose the pair of cube roots satisfying $uv=-\dfrac p3$ . Then $y=u+v$ gives one root of the depressed cubic.
+
+Using the cube root of unity $\omega$ introduced above, the three roots of the original cubic are
+
+$$
+\begin{aligned}
+x_1&=u+v-\frac b{3a},\\
+x_2&=\omega u+\omega^2v-\frac b{3a},\\
+x_3&=\omega^2u+\omega v-\frac b{3a}.
+\end{aligned}
+$$
+
+Seen this way, Cardano's formula does not appear out of nowhere. It comes from a purposeful substitution. That substitution turns the cubic into a quadratic equation in $z^3$ : first take a square root, then a cube root, and finally use cube roots of unity to account for all three choices.
 
 Now the word **radical** should be made precise. Here a radical is not a root of an equation in general, but an expression built using root signs, such as $\sqrt2$, $\sqrt[3]{5}$, or $\sqrt{b^2-4ac}$. A formula by radicals is a formula made from the coefficients by finitely many additions, subtractions, multiplications, divisions, and extractions of roots.
+
+The quartic equation goes one step further. The key idea of **Ferrari's method** is to turn the quartic into a difference of two squares, and then split it into two quadratic equations.
+
+Consider the monic quartic $x^4+ax^3+bx^2+cx+d=0$ . If the original leading coefficient is not $1$ , divide by it first. Set $x=y-\dfrac a4$ . This removes the cubic term and gives the depressed quartic
+
+$$
+y^4+py^2+qy+r=0,
+$$
+
+where
+
+$$
+\begin{aligned}
+p&=b-\frac{3a^2}{8},\\
+q&=c-\frac{ab}{2}+\frac{a^3}{8},\\
+r&=d-\frac{ac}{4}+\frac{a^2b}{16}-\frac{3a^4}{256}.
+\end{aligned}
+$$
+
+First complete part of the square:
+
+$$
+\left(y^2+\frac p2\right)^2+qy+\left(r-\frac{p^2}{4}\right)=0.
+$$
+
+Now introduce an auxiliary quantity $\alpha$ and rewrite the equation as
+
+$$
+\left(y^2+\frac p2+\alpha\right)^2-
+\left[
+2\alpha\left(y^2+\frac p2\right)+\alpha^2-qy+\frac{p^2}{4}-r
+\right]=0.
+$$
+
+The expression inside the brackets is a quadratic polynomial in $y$ :
+
+$$
+2\alpha y^2-qy+\left(\alpha p+\alpha^2+\frac{p^2}{4}-r\right).
+$$
+
+If this quadratic is also a perfect square, then the whole quartic becomes "a square minus a square," and it can be factored immediately. A quadratic is a perfect square exactly when its discriminant is zero. Therefore we require
+
+$$
+q^2-8\alpha\left(\alpha p+\alpha^2+\frac{p^2}{4}-r\right)=0.
+$$
+
+This is a cubic equation for $\alpha$ , equivalently
+
+$$
+\alpha^3+p\alpha^2+\left(\frac{p^2}{4}-r\right)\alpha-\frac{q^2}{8}=0.
+$$
+
+This auxiliary cubic can be solved by the cubic method already discussed. After choosing a suitable root $\alpha$ , the bracketed quadratic becomes a perfect square:
+
+$$
+\begin{aligned}
+2\alpha y^2-qy+\left(\alpha p+\alpha^2+\frac{p^2}{4}-r\right)
+&=\left(\sqrt{2\alpha}\,y-\frac{q}{2\sqrt{2\alpha}}\right)^2.
+\end{aligned}
+$$
+
+Thus the depressed quartic becomes
+
+$$
+\begin{aligned}
+\left(y^2+\frac p2+\alpha\right)^2
+&-\left(\sqrt{2\alpha}\,y-\frac{q}{2\sqrt{2\alpha}}\right)^2=0,
+\end{aligned}
+$$
+
+that is,
+
+$$
+\left(y^2+\frac p2+\alpha-\sqrt{2\alpha}\,y+\frac{q}{2\sqrt{2\alpha}}\right)\cdot\left(y^2+\frac p2+\alpha+\sqrt{2\alpha}\,y-\frac{q}{2\sqrt{2\alpha}}\right)=0.
+$$
+
+The original quartic has now been split into two quadratic equations. Solve those two quadratics and then return to the original variable by $x=y-\dfrac a4$ . If $q=0$ , the depressed quartic is already a quadratic equation in $y^2$ , so one may solve for $y^2$ first and then take square roots.
+
+So Ferrari's method has the structure: reduce the quartic to a form with no cubic term, solve an auxiliary cubic to complete the square, and finally split the quartic into two quadratics. This is why quartic equations can still be solved by radicals.
 
 It was natural to ask whether the general quintic
 
@@ -47,7 +230,7 @@ $$
 
 also has such a universal formula.
 
-The answer is no. But the reason is not that the formula is merely too long or that nobody has found it. The obstruction is structural.
+The answer is no. But the reason is not that the formula is merely too long or that nobody has found it. The reason is structural.
 
 Let the five roots be
 
@@ -79,13 +262,19 @@ $$
 
 These relations are symmetric. If the roots are merely renamed, the sums and products above do not change. However, one must be careful: the fact that the Vieta relations are symmetric does not mean that the roots are always freely interchangeable.
 
-For example, the equation $x^2-5x+6=0$ has roots $2$ and $3$. Over the base field $\mathbb Q$, both roots are already visible as rational numbers. So $\mathbb Q$ can express not only $r_1+r_2=5$ and $r_1r_2=6$, but also the more specific relations $r_1-2=0$ and $r_2-3=0$. Swapping $2$ and $3$ would destroy those finer relations.
+For example, consider the integer polynomial
 
-By contrast, the equation $x^2-2=0$ has roots $\sqrt2$ and $-\sqrt2$. Neither root lies in $\mathbb Q$. From the point of view of rational coefficients, the two roots satisfy the same algebraic relations and may still be interchanged.
+$$
+f(x)=(x-1)(x^2-3)(x^2+2).
+$$
+
+Its roots are $1,\quad \sqrt3,\quad -\sqrt3,\quad \sqrt{-2},\quad -\sqrt{-2}$ .
+
+Over the base field $\mathbb Q$, the rational root $1$ is already singled out. The two roots $\sqrt3$ and $-\sqrt3$ both come from the irreducible factor $x^2-3$ and satisfy the same $\mathbb Q$-coefficient equation $x^2-3=0$ ; similarly, $\sqrt{-2}$ and $-\sqrt{-2}$ both come from $x^2+2$ . Roots may be interchanged inside a pair, but they cannot be mixed across different factors.
 
 <figure>
-  <img src="assets-en/figure-03-two-quadratics-contrast.svg" alt="A comparison of whether two quadratic roots may be interchanged">
-  <figcaption>Figure 1. Vieta's relations are symmetric, but whether roots may actually be interchanged depends on what the current base field and allowed operations can already distinguish.</figcaption>
+  <img src="assets-en/figure-03-two-quadratics-contrast.svg" alt="Three types of roots in one quintic">
+  <figcaption>Figure 1. In this quintic, the rational root, the real irrational pair, and the conjugate complex pair behave as three stable packets over $\mathbb Q$.</figcaption>
 </figure>
 
 This is the first hint of the Galois-theoretic idea: solving an equation means adding enough information to distinguish roots that were previously indistinguishable.
@@ -104,27 +293,17 @@ One can think of a larger field as a place where more information is visible. Ov
 
 A polynomial is easiest to study when all of its roots are available. The smallest field containing the base field and all roots of the polynomial is called its **splitting field**.
 
-For example, $x^2-2$ has roots $\sqrt2$ and $-\sqrt2$. After adjoining $\sqrt2$ to $\mathbb Q$, we get $\mathbb Q(\sqrt2)$. This field already contains both roots, so it is the splitting field of $x^2-2$ over $\mathbb Q$. In that field,
+For the quintic $f(x)=(x-1)(x^2-3)(x^2+2)$ ,
 
-$$
-x^2-2=(x-\sqrt2)(x+\sqrt2).
-$$
+the rational root $1$ is already in $\mathbb Q$. If we adjoin $\sqrt3$, then both real irrational roots $\sqrt3$ and $-\sqrt3$ become visible. But the complex pair $\sqrt{-2}$ and $-\sqrt{-2}$ is still missing.
 
-Now consider $x^3-2$. Its three roots are
+To make the polynomial split completely, we must adjoin both $\sqrt3$ and $\sqrt{-2}$. Thus the splitting field over $\mathbb Q$ is $\mathbb Q(\sqrt3,\sqrt{-2})$ .
 
-$$
-\sqrt[3]{2},\qquad \omega\sqrt[3]{2},\qquad \omega^2\sqrt[3]{2},
-$$
-
-where $\omega$ is a primitive cube root of unity. Adjoining only $\sqrt[3]{2}$ gives the real root, but not the two complex roots. To make the polynomial split completely, we must also adjoin $\omega$. Thus the splitting field is
-
-$$
-\mathbb Q(\sqrt[3]{2},\omega).
-$$
+In this field, $f(x)=(x-1)(x-\sqrt3)(x+\sqrt3)(x-\sqrt{-2})(x+\sqrt{-2})$ .
 
 <figure>
-  <img src="assets-en/figure-04-splitting-field-cube-root.svg" alt="Why the splitting field of x^3-2 also needs a root of unity">
-  <figcaption>Figure 2. A splitting field must contain every root, not just one chosen root.</figcaption>
+  <img src="assets-en/figure-04-splitting-field-cube-root.svg" alt="The splitting field of the example quintic">
+  <figcaption>Figure 2. The splitting field is the smallest field in which all five roots of the quintic are present.</figcaption>
 </figure>
 
 The phrase "splitting field" is literal: it is the field in which the polynomial splits into linear factors.
@@ -178,22 +357,31 @@ is the group of all field automorphisms of $K$ that fix every element of $F$.
 
 An automorphism is an isomorphism from $K$ to itself. It may move roots around, but it is not allowed to move the coefficients in the base field.
 
-For the polynomial $x^2-2$, the splitting field over $\mathbb Q$ is $K=\mathbb Q(\sqrt2)$. There are two automorphisms of $K$ fixing $\mathbb Q$:
+For the polynomial
 
-- the identity automorphism, which sends $\sqrt2$ to $\sqrt2$;
-- the nontrivial automorphism, which sends $\sqrt2$ to $-\sqrt2$.
+$$
+f(x)=(x-1)(x^2-3)(x^2+2),
+$$
+
+the splitting field over $\mathbb Q$ is
+
+$$
+K=\mathbb Q(\sqrt3,\sqrt{-2}).
+$$
+
+An automorphism fixing $\mathbb Q$ must send $\sqrt3$ to either $\sqrt3$ or $-\sqrt3$, and must send $\sqrt{-2}$ to either $\sqrt{-2}$ or $-\sqrt{-2}$. These two choices are independent. The rational root $1$ is fixed.
 
 Thus
 
 $$
-\mathrm{Gal}(\mathbb Q(\sqrt2)/\mathbb Q)
+\mathrm{Gal}(K/\mathbb Q)\cong C_2\times C_2,
 $$
 
-has two elements.
+and this group has four elements.
 
 <figure>
   <img src="assets-en/figure-06-galois-group-swap.svg" alt="The Galois group as the allowed permutations of roots">
-  <figcaption>Figure 5. Over the rational numbers, this Galois group has two elements: one interchanges the two roots, and the other is the identity map on the splitting field.</figcaption>
+  <figcaption>Figure 5. In this example, the rational root is fixed, while the two quadratic pairs of roots may be interchanged independently.</figcaption>
 </figure>
 
 Notice the key point: a Galois group does not record every imaginable permutation of roots. It records only those permutations that come from structure-preserving automorphisms of the splitting field.
@@ -230,9 +418,23 @@ $$
 
 The larger the intermediate field, the more elements it asks automorphisms to fix, so the smaller the corresponding subgroup becomes.
 
+In the example $K=\mathbb Q(\sqrt3,\sqrt{-2})$, write $a$ for the automorphism that interchanges $\sqrt3$ and $-\sqrt3$, and $b$ for the automorphism that interchanges $\sqrt{-2}$ and $-\sqrt{-2}$. Then
+
+$$
+G=\mathrm{Gal}(K/\mathbb Q)=\{e,a,b,ab\}.
+$$
+
+The top field $K$ corresponds to the trivial subgroup $\{e\}$, while the base field $\mathbb Q$ corresponds to the whole group $G$. The three quadratic intermediate fields correspond to the three order-two subgroups:
+
+$$
+\mathbb Q(\sqrt3)\longleftrightarrow \{e,b\},\qquad
+\mathbb Q(\sqrt{-2})\longleftrightarrow \{e,a\},\qquad
+\mathbb Q(\sqrt{-6})\longleftrightarrow \{e,ab\}.
+$$
+
 <figure>
   <img src="assets-en/figure-07-galois-correspondence-towers.svg" alt="The Galois correspondence between field chains and subgroup chains">
-  <figcaption>Figure 6. Moving upward in the chain makes the field larger; the corresponding fixed group becomes smaller.</figcaption>
+  <figcaption>Figure 6. Larger fields correspond to smaller fixed subgroups; in this example the correspondence can be drawn explicitly.</figcaption>
 </figure>
 
 There is an especially important condition here. If an intermediate field $B$ is itself a splitting field over $F$, then the corresponding subgroup is a **normal subgroup**. Conversely, normal subgroups correspond to intermediate fields that behave well over the base field.
@@ -259,7 +461,7 @@ This is well defined precisely because $N$ is normal.
 
 Normal subgroups and quotient groups are the mechanism by which a complicated group can be decomposed into simpler pieces.
 
-## 7. Solvable Groups and Solution by Radicals
+## 7. Abelian Groups and Solvable Groups
 
 A group $G$ is called **solvable** if it can be reduced to the trivial group through a chain of normal subgroups in which every quotient is Abelian. One common form is
 
@@ -294,7 +496,13 @@ $$
 
 The symmetric group $S_3$, the group of all permutations of three objects, is not Abelian. The order in which two permutations are composed can matter.
 
-Why does this matter for equations? Because extracting radicals produces field extensions in small, controlled steps, and Galois theory translates those controlled field extensions into Abelian quotient groups.
+Why do Abelian groups appear in radical solutions? Because solving by radicals allows only one root extraction at each step. The basic symmetry introduced by adjoining an $n$-th root is controlled by multiplication by $n$-th roots of unity. That symmetry is essentially cyclic, and cyclic groups are Abelian. In other words, each radical step usually corresponds, in group-theoretic language, to one Abelian quotient.
+
+This is why the word "solvable" is used. A solvable group is not a group that has merely been "computed"; it is a group whose complexity can be reduced, along a normal subgroup chain, to Abelian quotient pieces. Since radical extraction handles precisely this kind of Abelian symmetry, solvable groups become the group-theoretic shadow of solution by radicals.
+
+## 8. Radical Solvability Is Equivalent to a Solvable Galois Group, and Other Viewpoints
+
+Now we give the proof framework. To avoid technical side issues, we first state it in the most common field-theoretic setting: the base field has **characteristic** $0$, as $\mathbb Q$, $\mathbb R$, and $\mathbb C$ do. Characteristic $0$ means that adding $1$ to itself any finite number of times never suddenly gives $0$. We also temporarily assume that the necessary roots of unity have been adjoined. Artin's lectures then explain how this roots-of-unity assumption can be removed by further theorems, so the final conclusion does not depend on it.
 
 The central theorem can be stated as follows:
 
@@ -315,31 +523,145 @@ If the Galois group has such a normal subgroup chain, the Fundamental Theorem of
   <figcaption>Figure 8. A radical solution gives a tower of field extensions; Galois theory translates that tower into normal subgroups and Abelian quotient groups.</figcaption>
 </figure>
 
-This is the bridge between algebraic formulas and group structure.
+**Supplementary Viewpoint: Monodromy Groups and Moving Around the Roots**
 
-## 8. Why $S_5$ Is Not Solvable
+Besides the algebraic language of Galois theory, one can also analyze radical solvability of higher-degree algebraic equations from the viewpoint of complex analysis and topology. V.B. Alekseev's *Abel's Theorem in Problems and Solutions*, based on lectures by V.I. Arnold, follows this route: instead of beginning with splitting fields and field automorphisms, it regards the roots of an equation as **multi-valued functions** of the coefficients or of a parameter.
 
-Let $S_n$ be the **symmetric group** on $n$ letters: the group of all permutations of $n$ objects. For a general polynomial of degree $n$, the roots are typically as independent as possible, and the Galois group is the full $S_n$.
+It is important to say that this was not Abel's original method of proof. The Arnold-Alekseev argument is a modern topological proof of Abel's theorem. Abel's original proof was mainly algebraic; **monodromy groups**, Riemann surfaces, and branched coverings are later language for explaining the same kind of root permutation behavior.
 
-For $n=2,3,4$, the groups that appear in the general equation are solvable. This is why the quadratic, cubic, and quartic equations have formulas by radicals.
+Historically, Ruffini had already made an important attempt along a similar line. In 1824, not long after Ruffini's death, the young Norwegian mathematician Niels Henrik Abel published, at his own expense, a very short pamphlet proving that the general quintic has no formula by radicals. Because the pamphlet was extremely compressed, many details were stated very tersely. But the core idea is clear: argue by contradiction, assume that one root of the general quintic can be expressed from the coefficients by finitely many arithmetic operations and radicals, and then study how many distinct values such a radical expression can take when the five roots are permuted in all possible ways.
 
-The situation changes at $n=5$. The group $S_5$ is not solvable. The reason is that $S_5$ contains the alternating group $A_5$, the subgroup of even permutations of five objects.
+More concretely, suppose a quintic has five distinct roots. Since the coefficients of the equation are symmetric functions of the five roots, any formula written from the coefficients must preserve the corresponding algebraic relations when the roots are relabeled. Abel proved that, if a root could really be expressed by radicals, then after peeling away the radical tower step by step, some intermediate expressions would have forms similar to
 
-The group $A_5$ has two crucial properties:
+$$
+r=p+p_1R^{1/5}+p_2R^{2/5}+p_3R^{3/5}+p_4R^{4/5},
+$$
 
-1. $A_5$ is not Abelian.
-2. $A_5$ is simple: it has no nontrivial normal subgroups.
+where $p,p_1,p_2,p_3,p_4$ are rational expressions built from quantities already obtained, and $R$ can itself be expanded in the same way. The question is then transformed into this one: as functions of the five roots, how many distinct values can these expressions take under all $5!=120$ permutations of the roots? Abel's key analysis is that a tower of radicals imposes strict restrictions on these possible value counts; the value structure needed by the five roots of a general quintic is incompatible with those restrictions. Thus the assumption that a universal radical formula exists leads to a contradiction.
 
-Here "nontrivial" means different from $\{e\}$ and from the whole group. Because $A_5$ is non-Abelian and has no nontrivial normal subgroup through which it can be decomposed, it cannot be broken into Abelian quotient pieces.
+So Abel's own proof was not a proof by drawing Riemann surfaces or by discussing monodromy groups. He was tracking, algebraically, how radical expressions behave under permutations of the roots. Modern Galois theory organizes this idea into the criterion "the Galois group is solvable"; the Arnold-Alekseev topological proof translates the same kind of interchange behavior into "how roots are permuted after analytic continuation around branch points." The languages are different, but they grasp the same fact: radical formulas can produce only finite layers of solvable permutation structure, while the general quintic requires a permutation structure that is too complex.
 
-Thus $A_5$ is the first major non-Abelian simple group. Since this obstruction sits inside $S_5$, the group $S_5$ itself is not solvable.
+For example, Alekseev's book focuses on the family of quintic equations
 
-<figure>
-  <img src="assets-en/figure-10-s5-a5-obstruction.svg" alt="The obstruction inside S5 that prevents a general quintic formula by radicals">
-  <figcaption>Figure 9. The general quintic cannot have a universal radical formula because $S_5$ contains $A_5$, which cannot be decomposed into Abelian quotient groups.</figcaption>
-</figure>
+$$
+3w^5-25w^3+60w-z=0.
+$$
 
-## 9. Quintic Examples
+Here $z$ is treated as a complex parameter, and $w$ is a root varying with $z$. For a general value of $z$, the equation has five roots; in other words, $w(z)$ is a five-valued function. As $z$ moves along a closed path in the complex plane, each root can be followed continuously. But if $z$ winds around certain **branch points** and returns to where it started, the five roots need not return to their original labels; they may be permuted.
+
+The permutations produced by "going once around a branch point" form the monodromy group of this multi-valued function. In the setting of this article, the **monodromy group** can be defined as follows: choose a parameter value that is not a branch point, and label the local roots there; let the parameter travel along closed curves that avoid the branch points and return to the starting value; while doing so, continue each root analytically. At the end of such a loop, the root set has undergone a permutation. The group formed by all permutations produced in this way is the monodromy group of the multi-valued function. Geometrically, one may imagine the five roots as five sheets of a **Riemann surface**. Each sheet corresponds to one local root. When the parameter $z$ winds around a branch point, the path may carry us from one sheet to another. The monodromy group records precisely how the sheets are interchanged after such winding.
+
+Radical functions themselves also have branches. For example, after $\sqrt[n]{z}$ winds once around $0$, it is multiplied by an $n$-th root of unity. This basic branching behavior corresponds to a cyclic group, and cyclic groups are Abelian. Finite combinations of arithmetic operations, compositions, and radical extractions can only build these cyclic branching structures layer by layer. Therefore a multi-valued function expressible by radicals must have a solvable monodromy group. This is the key point in the Arnold-Alekseev route.
+
+Conversely, the root function of the quintic family above has five sheets. By analyzing its branch points and the way the sheets of the Riemann surface are connected, the book proves that the permutations obtained by winding around these branch points generate the whole group $S_5$. Since $S_5$ is not solvable, this root function cannot be expressed by radicals. Moreover, if the general quintic really had a universal formula by radicals, then specializing the coefficients to this family would give a radical expression for this root function, contradicting the fact that its monodromy group is $S_5$. Therefore the general quintic has no universal radical formula.
+
+This viewpoint and Galois theory are not two contradictory theories. For algebraic functions, the monodromy group and the corresponding Galois group describe, in a natural sense, the same root-interchange structure. The difference is one of language: Galois theory says that radical solution fails because the group of root permutations preserving algebraic relations is too complicated; the monodromy viewpoint says that radical solution fails because the branching topology of the roots as multi-valued functions is too complicated. The former emphasizes automorphisms that fix the base field; the latter emphasizes how roots are interchanged after analytic continuation around branch points. Both descriptions lead to the same test: if this permutation structure is not solvable, then no radical formula exists.
+
+## 9. Why the General Quintic Is Not Solvable by Radicals, and the Decision Strategy
+
+First, why does the general quintic have no formula by radicals? In the application part of Artin's lectures, one proves that the Galois group of the **general equation of degree $n$** is the **symmetric group** $S_n$ on the $n$ roots.
+
+Here "the general equation of degree $n$" does not mean one specific equation. It means the universal degree-$n$ equation whose coefficients are independent and have no extra special relations. One may think of it as the least special degree-$n$ equation.
+
+The group $S_n$ should be made explicit. Suppose the $n$ roots are $r_1,r_2,\ldots,r_n$. Then $S_n$ is the group of all permutations of this root set. "All" means that any one-to-one relabeling of the roots is included. For example, in $S_5$ the permutations $(1\,2)$, $(1\,2\,3)$, and $(1\,2\,3\,4\,5)$ all occur.
+
+Here $(1\,2)$ means that $r_1$ and $r_2$ are interchanged while the other roots are fixed. The cycle $(1\,2\,3)$ means $r_1\mapsto r_2$, $r_2\mapsto r_3$, and $r_3\mapsto r_1$, while the other roots are fixed. The group $S_n$ has $n!$ elements, because there are $n!$ ways to relabel $n$ roots.
+
+This also explains the word "cycle." A permutation of the form $(1\,2\,3\,4\,5)$ is called a **5-cycle**. It means $r_1\mapsto r_2$, $r_2\mapsto r_3$, $r_3\mapsto r_4$, $r_4\mapsto r_5$, and $r_5\mapsto r_1$. The five roots move one step at a time and the last one returns to the first. Similarly, $(1\,2\,3)$ is a **3-cycle**. The length of a cycle is the number of elements participating in it.
+
+The reason the general equation has this Galois group comes from **elementary symmetric functions**: the coefficients of the general equation are the elementary symmetric functions of the roots, and any permutation of the roots leaves those symmetric functions unchanged. Thus
+
+$$
+\mathrm{Gal}(\text{general equation of degree }n)\cong S_n.
+$$
+
+On the other hand, $S_n$ is **not solvable** for $n>4$. To see why the failure begins at degree five, start with $S_5$. Inside $S_5$ there is an important subgroup, denoted $A_5$. It consists of all **even permutations** of five objects, and its standard name is the **alternating group**.
+
+What is an even permutation? Any permutation can be decomposed into transpositions, where each transposition swaps just two elements. If the number of transpositions is even, the permutation is called even; if it is odd, the permutation is called odd. The decomposition itself need not be unique, but the parity of the number of transpositions is well defined. For instance, $(1\,2)$ is one transposition, so it is odd and is not in $A_5$. But $(1\,2\,3)=(1\,3)(1\,2)$ is a product of two transpositions, so it is even and lies in $A_5$. Likewise, $(1\,2\,3\,4\,5)=(1\,5)(1\,4)(1\,3)(1\,2)$ is a product of four transpositions, so it is also in $A_5$.
+
+Thus $A_5$ is not a mysterious abstract name. It is the group of all permutations in $S_5$ that can be decomposed into an even number of transpositions. Since $S_5$ has $5!=120$ elements and exactly half of them are even, $A_5$ has $60$ elements.
+
+The group $A_5$ matters because it has two properties at once.
+
+First, $A_5$ is not Abelian. In other words, some permutations in it do not commute. For example, let
+
+$$
+\sigma=(1\,2\,3),\qquad \tau=(1\,3\,4).
+$$
+
+Both are 3-cycles, hence both are even and lie in $A_5$. But with the usual convention that compositions are read from right to left, $\sigma\tau=(1\,3\,4\,2)$, while $\tau\sigma=(1\,2\,4\,3)$. The two results are different, so $\sigma\tau\neq\tau\sigma$.
+
+This concretely shows that $A_5$ is not Abelian. By the definition of a solvable group, every quotient appearing in a normal subgroup chain must be Abelian; a quotient that is already an $A_5$-type non-Abelian group is not an acceptable Abelian quotient.
+
+Second, $A_5$ is **simple**: it has no nontrivial normal subgroups. Here "nontrivial" means anything other than $\{e\}$ and the whole group. Without an intermediate normal subgroup, there is no way to keep decomposing this group into smaller Abelian quotient pieces.
+
+Combining these two facts gives the key reason: $A_5$ is not Abelian, and it has no nontrivial normal subgroup through which it can be further decomposed. Therefore $A_5$ cannot be broken into Abelian quotient groups by a normal subgroup chain. Since $A_5$ occurs inside the structure of $S_5$, the group $S_5$ is not solvable.
+
+Before looking at concrete quintic examples, it is useful to spell out the strategy behind the computations. This section turns the preceding theory into a practical decision method. The examples in Section 10 are not trying to "calculate five roots by force"; they ask a more structural question:
+
+Is the Galois group of this equation solvable, or is it already large enough to contain the nonsolvable $S_5$ structure?
+
+The route has several steps.
+
+First, check whether the polynomial already factors over the base field. In this article the base field is usually $\mathbb Q$, so the question is whether the polynomial is reducible in $\mathbb Q[x]$. For a quintic, a nontrivial factorization has type $1+4$ or $2+3$. In either case, each factor has degree at most $4$, so the problem has been reduced to equations that can in principle be handled by the classical formulas.
+
+The genuinely quintic difficulty usually appears for **irreducible quintic polynomials**. Irreducibility means that, from the point of view of $\mathbb Q$, the five roots have not already split into smaller packets. In permutation-group language, the Galois group acts **transitively** on the five roots.
+
+Second, regard the Galois group as a subgroup of $S_5$. Since every Galois automorphism permutes the five roots, the Galois group naturally sits inside the full permutation group $S_5$. The question becomes:
+
+Is this subgroup all of $S_5$, or is it a smaller subgroup?
+
+For irreducible quintics, the transitive subgroups of $S_5$ are quite restricted. Up to conjugacy, the possibilities are $C_5$, $D_5$, $F_{20}$, $A_5$, and $S_5$. Here $F_{20}$ may be thought of as the $20$-element group $C_5\rtimes C_4$. The first three are solvable; the last two contain the nonsolvable $A_5$-type structure. Thus one usually does not list every Galois automorphism. Instead, one looks for enough permutation evidence to rule out the smaller cases.
+
+Third, use reduction modulo primes to read off cycle types in the Galois group.
+
+Why reduce modulo primes? Directly seeing the permutations of the five complex roots over $\mathbb Q$ is hard. But if an integer polynomial is reduced modulo a prime $p$, one can factor it in the finite field $\mathbb F_p$. This finite calculation can reveal cycle types in the original Galois group.
+
+A useful simplified form of Dedekind's theorem says the following. Let $f(x)$ be an irreducible integer polynomial of degree $n$. Choose a prime $p$ that does not divide the discriminant of $f$. If the reduction of $f(x)$ modulo $p$ factors in $\mathbb F_p[x]$ into irreducible factors of degrees
+
+$$
+d_1,d_2,\ldots,d_k,
+$$
+
+then the Galois group over $\mathbb Q$ contains a permutation whose cycle lengths are
+
+$$
+(d_1,d_2,\ldots,d_k).
+$$
+
+For quintics, the most useful patterns are:
+
+| Factorization type modulo $p$ | Cycle type in the Galois group |
+|---|---|
+| irreducible quintic | 5-cycle $(5)$ |
+| linear factor times irreducible quartic | $(1)(4)$ |
+| irreducible quadratic times irreducible cubic | $(2)(3)$ |
+| two linear factors times irreducible cubic | $(1)(1)(3)$ |
+| one linear factor times two irreducible quadratics | $(1)(2)(2)$ |
+
+The intuition is that each irreducible factor modulo $p$ behaves like one cycle-packet of roots; its degree becomes the corresponding cycle length. A quintic that remains irreducible modulo $p$, for instance, gives a 5-cycle.
+
+One avoids primes dividing the discriminant because such primes may create repeated roots modulo $p$. Then the factorization pattern no longer cleanly reflects a permutation type. These are the "bad primes."
+
+Fourth, combine these cycle types with the classification of transitive subgroups of $S_5$.
+
+A very common criterion is this:
+
+If an irreducible quintic has a Galois group containing both a 5-cycle and a permutation of cycle type $(2)(3)$, then its Galois group is the full $S_5$.
+
+The reason is that irreducibility gives transitivity; the 5-cycle shows a full cycle among the five roots; and $(2)(3)$ is an odd permutation of order $6$. The smaller solvable transitive subgroups cannot contain such an element, and $A_5$ contains only even permutations. The remaining possibility is $S_5$.
+
+The discriminant is often used alongside these tests. If the discriminant is a rational square, the Galois group lies inside $A_5$. If it is not a rational square, the Galois group is not contained in $A_5$, so it contains an odd permutation. Thus the discriminant helps distinguish $A_5$ from $S_5$.
+
+Fifth, not every example has to be judged by modular computations. Some special quintics reveal their structure directly. For example, the roots of $x^5-2=0$ have the form $\zeta^j\sqrt[5]{2}$, so the Galois group acts on the indices by $j\mapsto aj+b$ and is a solvable group of order $20$. In Equation 4 below, a substitution $x=u-v$ directly produces radical expressions for the roots.
+
+Thus when analyzing a concrete quintic equation, there are two methods:
+
+The first is to **construct a radical solution directly**. If the roots can be written using arithmetic operations and radicals, possibly after a clever substitution, then the equation is solvable by radicals.
+
+The second is to **recognize that the Galois group is too large**. If modular factorizations reveal enough cycle types to force the Galois group to be $S_5$, then the equation is not solvable by radicals because $S_5$ is not solvable.
+
+## 10. Quintic Examples
 
 Now let us look at several quintic equations.
 
@@ -540,7 +862,11 @@ $$
 \lim_{B\to\infty}\Pr(\text{random quintic is not solvable by radicals})=1.
 $$
 
-## 10. Higher-Degree Equations
+<figure>
+  <img src="assets-en/figure-10-s5-a5-obstruction.svg" alt="The A5 structure inside S5 is the structural reason why the general quintic has no radical formula">
+</figure>
+
+## 11. Solvability of Equations Above Degree Five
 
 After the general quintic fails to have a formula by radicals, the natural next question is: what about degree $6$, degree $7$, and beyond?
 
@@ -552,7 +878,7 @@ This is the content of the **Abel-Ruffini theorem**: for every $n\ge5$, there is
 
 The reason is the same as in the quintic case. The Galois group of the general degree-$n$ equation is $S_n$. For $n\ge5$, the group $S_n$ is not solvable.
 
-One concrete way to see the obstruction is that $S_n$ contains a copy of $S_5$: permute five chosen roots and leave all the remaining roots fixed. Thus $S_n$ contains the same non-Abelian simple obstruction $A_5$ that appears in the quintic.
+One concrete way to see the reason is that $S_n$ contains a copy of $S_5$: permute five chosen roots and leave all the remaining roots fixed. Thus $S_n$ contains the same non-Abelian simple structure $A_5$ that appears in the quintic.
 
 It remains important to distinguish several statements:
 
@@ -561,7 +887,7 @@ It remains important to distinguish several statements:
 - In numerical work, one can approximate roots by methods such as Newton's method.
 - If one allows functions beyond radicals, some quintic and higher-degree equations can be expressed in other ways.
 
-There is also a natural question: is the problem merely that we are working inside the complex numbers? Would enlarging the number system further remove the obstruction?
+There is also a natural question: is the problem merely that we are working inside the complex numbers? Would enlarging the number system further remove the structural reason?
 
 The answer is no in the relevant sense. As a place where algebraic roots live, the complex field $\mathbb C$ is already large enough. By the **Fundamental Theorem of Algebra**, every nonconstant polynomial with complex coefficients splits into linear factors over $\mathbb C$. The roots are not hidden in some ordinary larger field beyond $\mathbb C$.
 
@@ -569,17 +895,27 @@ Of course, if one artificially adjoins a root $r$ itself to the base field, form
 
 Thus Abel-Ruffini denies the existence of a universal formula using arithmetic operations and radicals for all equations of degree $n\ge5$. It does not deny every possible representation of roots by broader special functions.
 
-## 11. Conclusion
+## 12. Summary
 
-The general quintic has no formula by radicals not because the formula is too long, and not because it has not yet been found. The reason is structural: the roots of the general quintic have the full $S_5$ symmetry, while radicals can only resolve symmetries that break through Abelian quotient groups.
+This article began with the familiar quadratic equation, passed through cubic and quartic equations, and then arrived at the quintic. The low-degree part shows that quadratic, cubic, and quartic equations really can be solved by radicals, and that each formula has a clear substitution structure behind it. The quadratic equation can be derived from "average $\pm$ offset"; the cubic can be handled through Cardano's formula and related substitutions; the quartic can be reduced by Ferrari's method to an auxiliary cubic and two quadratic equations.
+
+But at the quintic, the story changes in a fundamental way. The general quintic has no formula by radicals not because the formula is too long, and not because it has not yet been found. The reason is structural: the roots of the general quintic have the full $S_5$ symmetry, while radicals can only resolve symmetries that break through Abelian quotient groups.
 
 Galois theory gives a criterion rather than a more clever formula. Put the roots into the splitting field, look at the automorphisms that fix the coefficients, and study the resulting Galois group. If that group is solvable, the equation is solvable by radicals. If that group is not solvable, a radical formula does not exist.
 
-This also explains why some special quintics can still be solved by radicals. Their Galois groups may be smaller than $S_5$ and may be solvable. What fails is not every individual quintic, but a single radical formula that works for the general quintic.
+The same criterion also gives a practical method. For a concrete quintic, first check whether it factors in $\mathbb Q[x]$. If it is irreducible, reduce it modulo suitable primes to read cycle types in the Galois group, and combine those data with the discriminant and the classification of transitive subgroups of $S_5$. This is how one decides whether the group is a smaller solvable group or the full $S_5$.
+
+This also explains why some special quintics can still be solved by radicals. Their Galois groups may be smaller than $S_5$ and may be solvable. What fails is not every individual quintic, but a single radical formula that works for the general quintic. This is the sense in which the quintic is a theoretical boundary: it marks the end of universal radical formulas, and the beginning of case-by-case structural judgment.
+
+Thus solving equations is not only a matter of "writing down the roots." In low degrees, it appears as a sequence of clever formulas and substitutions. From the quintic onward, it becomes a structural question: how may the roots be interchanged, and can those interchanges be decomposed through Abelian quotient groups? The Galois group is what answers that question.
 
 ---
 
 References:
 
 1. Emil Artin, *Galois Theory*. The rigorous structure of this article follows the lectures' route through extension fields, splitting fields, the Fundamental Theorem of Galois Theory, solvable groups, solution by radicals, and the general equation of degree $n$; the exposition here is rewritten for a popular audience.
-2. Manjul Bhargava, "Galois groups of random integer polynomials and van der Waerden's Conjecture," *Annals of Mathematics*, 201(2), 339-377, 2025. [Annals page](https://annals.math.princeton.edu/2025/201-2/p01); [arXiv:2111.06507](https://arxiv.org/abs/2111.06507). The probabilistic statement in Section 9 about random integer polynomials almost always having Galois group $S_n$, and therefore random natural-number quintics almost always not being solvable by radicals, is based on this result.
+2. Po-Shen Loh, "A Simple Proof of the Quadratic Formula," 2019. [Method note](https://poshenloh.com/quadraticdetail); [arXiv:1910.06709](https://arxiv.org/abs/1910.06709). The "average $\pm$ offset" derivation of the quadratic formula in Section 1 follows this note.
+3. MacTutor History of Mathematics Archive, ["Girolamo Cardano"](https://mathshistory.st-andrews.ac.uk/Biographies/Cardan/); ["Quadratic, cubic and quartic equations"](https://mathshistory.st-andrews.ac.uk/HistTopics/Quadratic_etc_equations/). The brief historical note in Section 1 on the cubic formula, del Ferro, Tartaglia, Cardano, and *Ars Magna* refers to these accounts.
+4. Niels Henrik Abel, *Mémoire sur les équations algébriques, où l'on démontre l'impossibilité de la résolution de l'équation générale du cinquième degré*, Christiania, 1824. The historical note in Section 8 about Abel's original proof refers to this early paper on the impossibility of solving the general quintic by radicals.
+5. V.B. Alekseev, *Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold*, Springer, 2004. The supplementary viewpoint in Section 8 on monodromy groups, the branching structure of Riemann surfaces, and a topological proof of Abel's theorem follows Sections 2.11--2.14 and the discussion in Khovanskii's appendix.
+6. Manjul Bhargava, "Galois groups of random integer polynomials and van der Waerden's Conjecture," *Annals of Mathematics*, 201(2), 339-377, 2025. [Annals page](https://annals.math.princeton.edu/2025/201-2/p01); [arXiv:2111.06507](https://arxiv.org/abs/2111.06507). The probabilistic statement in Section 10 about random integer polynomials almost always having Galois group $S_n$, and therefore random natural-number quintics almost always not being solvable by radicals, is based on this result.
