@@ -3,8 +3,8 @@
 **-- On Radical Solutions of Low-Degree Equations and the Theoretical Boundary and Decision Methods for Quintics**
 
 Author: GitHub @mathwo  
-Date: October 8, 2026  
-Version: 1.0.3
+Date: October 9, 2026  
+Version: 1.0.4
 
 A popular exposition that begins with concrete methods for solving low-degree equations and then moves toward **Galois theory**, the theoretical boundary at the quintic, and practical decision methods for concrete quintic equations.
 
@@ -19,13 +19,13 @@ The phrase "theoretical boundary" refers to the following fact: radical solution
 The quadratic formula is familiar. For
 
 $$
-ax^2+bx+c=0,
+ax^2+bx+c=0
 $$
 
 one substitutes the coefficients and uses only arithmetic operations and a square root:
 
 $$
-x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}.
+x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 $$
 
 There is also an old and very intuitive way to derive this formula. Po-Shen Loh has recently reorganized this idea: first divide by $a$ and write the equation as $x^2+Bx+C=0$, where $B=\dfrac ba$ and $C=\dfrac ca$. If the two roots are $r$ and $s$, then $r+s=-B$ and $rs=C$. When the sum of two numbers is known, the natural thing is to start from their average. Their average is $-\dfrac B2$, so they can be written as $-\dfrac B2+u$ and $-\dfrac B2-u$. Now use the product condition: $\left(-\dfrac B2+u\right)\left(-\dfrac B2-u\right)=\dfrac{B^2}{4}-u^2=C$, so $u^2=\dfrac{B^2}{4}-C$. Thus the two roots are $-\dfrac B2\pm\sqrt{\dfrac{B^2}{4}-C}$; substituting back $B=\dfrac ba$ and $C=\dfrac ca$ gives the usual quadratic formula. The advantage of this method is that one does not begin by memorizing a formula. One begins by writing "two numbers with known sum" as "average $\pm$ offset."
@@ -37,26 +37,26 @@ The history of the cubic formula is rather dramatic. In the early sixteenth cent
 The usual solution of a cubic first uses a substitution to remove the quadratic term. The resulting form is called the **depressed cubic**:
 
 $$
-y^3+py+q=0.
+y^3+py+q=0
 $$
 
 **Cardano's formula** can be written as follows. Let
 
 $$
-\Delta=\left(\frac q2\right)^2+\left(\frac p3\right)^3,
+\Delta=\left(\frac q2\right)^2+\left(\frac p3\right)^3
 $$
 
 and take two cube roots
 
 $$
 \begin{aligned}
-A&=\sqrt[3]{-\frac q2+\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}=\sqrt[3]{-\frac q2+\sqrt{\Delta}},
+A&=\sqrt[3]{-\frac q2+\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}=\sqrt[3]{-\frac q2+\sqrt{\Delta}}
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-B&=\sqrt[3]{-\frac q2-\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}=\sqrt[3]{-\frac q2-\sqrt{\Delta}}.
+B&=\sqrt[3]{-\frac q2-\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}=\sqrt[3]{-\frac q2-\sqrt{\Delta}}
 \end{aligned}
 $$
 
@@ -72,9 +72,9 @@ Starting from the general cubic $ax^3+bx^2+cx+d=0$ (where $a\ne0$), set
 
 $$
 \begin{aligned}
-p&=\frac ca-\frac{b^2}{3a^2},\\
-q&=\frac{2b^3}{27a^3}-\frac{bc}{3a^2}+\frac da,\\
-x&=y-\frac b{3a}.
+p&=\frac ca-\frac{b^2}{3a^2}\\
+q&=\frac{2b^3}{27a^3}-\frac{bc}{3a^2}+\frac da\\
+x&=y-\frac b{3a}
 \end{aligned}
 $$
 
@@ -82,9 +82,9 @@ This removes the quadratic term, and the equation becomes $y^3+py+q=0$ .
 
 If $p=0$ , the equation has already reduced to $y^3+q=0$ and can be solved directly by taking a cube root. Now assume $p\ne0$ .
 
-Set $k^2=-\dfrac p3,\qquad r=\dfrac q{k^3},\qquad z=\dfrac yk$ . Then $y=kz$ and the equation becomes $z^3-3z+r=0$ .
+Set $k^2=-\dfrac p3$, $r=\dfrac q{k^3}$, and $z=\dfrac yk$ . Then $y=kz$ and the equation becomes $z^3-3z+r=0$ .
 
-Now use the identity $(2\sin\theta)^3-3(2\sin\theta)=-2\sin 3\theta$ , and set $z=2\sin\theta,\qquad r=2\sin\phi,\qquad \phi=\arcsin\dfrac r2$ .
+Now use the identity $(2\sin\theta)^3-3(2\sin\theta)=-2\sin 3\theta$ , and set $z=2\sin\theta$, $r=2\sin\phi$, and $\phi=\arcsin\dfrac r2$ .
 
 Here $\theta$ and $\phi$ may be understood over the complex numbers. Substitution gives $-2\sin 3\theta+2\sin\phi=0$ , that is, $\sin 3\theta=\sin\phi$ .
 
@@ -106,7 +106,7 @@ $$
   +p\left(z-\frac p{3z}\right)+q\\
 &=z^3-pz+\frac{p^2}{3z}-\frac{p^3}{27z^3}
   +pz-\frac{p^2}{3z}+q\\
-&=z^3-\frac{p^3}{27z^3}+q.
+&=z^3-\frac{p^3}{27z^3}+q
 \end{aligned}
 $$
 
@@ -115,15 +115,15 @@ Multiplying both sides by $z^3$ gives $z^6+qz^3-\dfrac{p^3}{27}=0$ .
 This is a quadratic equation in $z^3$ , so
 
 $$
-z^3=-\frac q2\pm\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}.
+z^3=-\frac q2\pm\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}
 $$
 
 Set
 
 $$
 \begin{aligned}
-u&=\sqrt[3]{-\frac q2+\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}},\\
-v&=\sqrt[3]{-\frac q2-\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}.
+u&=\sqrt[3]{-\frac q2+\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}\\
+v&=\sqrt[3]{-\frac q2-\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}
 \end{aligned}
 $$
 
@@ -133,9 +133,9 @@ Using the cube root of unity $\omega$ introduced above, the three roots of the o
 
 $$
 \begin{aligned}
-x_1&=u+v-\frac b{3a},\\
-x_2&=\omega u+\omega^2v-\frac b{3a},\\
-x_3&=\omega^2u+\omega v-\frac b{3a}.
+x_1&=u+v-\frac b{3a}\\
+x_2&=\omega u+\omega^2v-\frac b{3a}\\
+x_3&=\omega^2u+\omega v-\frac b{3a}
 \end{aligned}
 $$
 
@@ -145,26 +145,28 @@ Now the word **radical** should be made precise. Here a radical is not a root of
 
 The quartic equation goes one step further. The key idea of **Ferrari's method** is to turn the quartic into a difference of two squares, and then split it into two quadratic equations.
 
-Consider the monic quartic $x^4+ax^3+bx^2+cx+d=0$ . If the original leading coefficient is not $1$ , divide by it first. Set $x=y-\dfrac a4$ . This removes the cubic term and gives the depressed quartic
+Consider the monic quartic $x^4+ax^3+bx^2+cx+d=0$ . If the original leading coefficient is not $1$ , divide by it first. Set $x=y-\dfrac a4$ . This removes the cubic term. This step may be regarded as the simplest kind of **Tschirnhaus transformation**: one changes the old variable into a new variable so that the resulting equation has a simpler form. The earlier substitution $x=y-\dfrac b{3a}$ in the cubic case, which removes the quadratic term, is the same idea in its most elementary form. More generally, a Tschirnhaus transformation makes the new roots polynomial or rational functions of the old roots, with the aim of eliminating selected terms and reducing the equation to a more useful standard form.
+
+This gives the depressed quartic
 
 $$
-y^4+py^2+qy+r=0,
+y^4+py^2+qy+r=0
 $$
 
 where
 
 $$
 \begin{aligned}
-p&=b-\frac{3a^2}{8},\\
-q&=c-\frac{ab}{2}+\frac{a^3}{8},\\
-r&=d-\frac{ac}{4}+\frac{a^2b}{16}-\frac{3a^4}{256}.
+p&=b-\frac{3a^2}{8}\\
+q&=c-\frac{ab}{2}+\frac{a^3}{8}\\
+r&=d-\frac{ac}{4}+\frac{a^2b}{16}-\frac{3a^4}{256}
 \end{aligned}
 $$
 
 First complete part of the square:
 
 $$
-\left(y^2+\frac p2\right)^2+qy+\left(r-\frac{p^2}{4}\right)=0.
+\left(y^2+\frac p2\right)^2+qy+\left(r-\frac{p^2}{4}\right)=0
 $$
 
 Now introduce an auxiliary quantity $\alpha$ and rewrite the equation as
@@ -173,25 +175,25 @@ $$
 \left(y^2+\frac p2+\alpha\right)^2-
 \left[
 2\alpha\left(y^2+\frac p2\right)+\alpha^2-qy+\frac{p^2}{4}-r
-\right]=0.
+\right]=0
 $$
 
 The expression inside the brackets is a quadratic polynomial in $y$ :
 
 $$
-2\alpha y^2-qy+\left(\alpha p+\alpha^2+\frac{p^2}{4}-r\right).
+2\alpha y^2-qy+\left(\alpha p+\alpha^2+\frac{p^2}{4}-r\right)
 $$
 
 If this quadratic is also a perfect square, then the whole quartic becomes "a square minus a square," and it can be factored immediately. A quadratic is a perfect square exactly when its discriminant is zero. Therefore we require
 
 $$
-q^2-8\alpha\left(\alpha p+\alpha^2+\frac{p^2}{4}-r\right)=0.
+q^2-8\alpha\left(\alpha p+\alpha^2+\frac{p^2}{4}-r\right)=0
 $$
 
 This is a cubic equation for $\alpha$ , equivalently
 
 $$
-\alpha^3+p\alpha^2+\left(\frac{p^2}{4}-r\right)\alpha-\frac{q^2}{8}=0.
+\alpha^3+p\alpha^2+\left(\frac{p^2}{4}-r\right)\alpha-\frac{q^2}{8}=0
 $$
 
 This auxiliary cubic can be solved by the cubic method already discussed. After choosing a suitable root $\alpha$ , the bracketed quadratic becomes a perfect square:
@@ -199,7 +201,7 @@ This auxiliary cubic can be solved by the cubic method already discussed. After 
 $$
 \begin{aligned}
 2\alpha y^2-qy+\left(\alpha p+\alpha^2+\frac{p^2}{4}-r\right)
-&=\left(\sqrt{2\alpha}\,y-\frac{q}{2\sqrt{2\alpha}}\right)^2.
+&=\left(\sqrt{2\alpha}\,y-\frac{q}{2\sqrt{2\alpha}}\right)^2
 \end{aligned}
 $$
 
@@ -208,19 +210,21 @@ Thus the depressed quartic becomes
 $$
 \begin{aligned}
 \left(y^2+\frac p2+\alpha\right)^2
-&-\left(\sqrt{2\alpha}\,y-\frac{q}{2\sqrt{2\alpha}}\right)^2=0,
+&-\left(\sqrt{2\alpha}\,y-\frac{q}{2\sqrt{2\alpha}}\right)^2=0
 \end{aligned}
 $$
 
 that is,
 
 $$
-\left(y^2+\frac p2+\alpha-\sqrt{2\alpha}\,y+\frac{q}{2\sqrt{2\alpha}}\right)\cdot\left(y^2+\frac p2+\alpha+\sqrt{2\alpha}\,y-\frac{q}{2\sqrt{2\alpha}}\right)=0.
+\left(y^2+\frac p2+\alpha-\sqrt{2\alpha}\,y+\frac{q}{2\sqrt{2\alpha}}\right)\cdot\left(y^2+\frac p2+\alpha+\sqrt{2\alpha}\,y-\frac{q}{2\sqrt{2\alpha}}\right)=0
 $$
 
 The original quartic has now been split into two quadratic equations. Solve those two quadratics and then return to the original variable by $x=y-\dfrac a4$ . If $q=0$ , the depressed quartic is already a quadratic equation in $y^2$ , so one may solve for $y^2$ first and then take square roots.
 
 So Ferrari's method has the structure: reduce the quartic to a form with no cubic term, solve an auxiliary cubic to complete the square, and finally split the quartic into two quadratics. This is why quartic equations can still be solved by radicals.
+
+This turn introduces the protagonists of the story: two young geniuses. **Niels Henrik Abel** (1802--1829) was a Norwegian mathematician. At an exceptionally young age, he proved that the general quintic equation has no universal formula by radicals; this is the Abel part of what is now called the Abel-Ruffini theorem. Abel lived in poverty and died at the age of twenty-six, but his work deeply influenced algebraic equations, elliptic functions, and Abelian functions. **Évariste Galois** (1811--1832) was a French mathematician. He died in a duel at the age of twenty; yet in his very short life he did not search for a still longer quintic formula. Instead, he organized the permissible permutations of the roots into a group and turned the question "is this equation solvable by radicals?" into the question "is this group solvable?" The Galois groups and solvable groups discussed below follow this idea.
 
 It was natural to ask whether the general quintic
 
@@ -235,29 +239,29 @@ The answer is no. But the reason is not that the formula is merely too long or t
 Let the five roots be
 
 $$
-x_1,x_2,x_3,x_4,x_5.
+x_1,x_2,x_3,x_4,x_5
 $$
 
 By **Vieta's formulas**, these roots satisfy relations determined by the coefficients:
 
 $$
-x_1+x_2+x_3+x_4+x_5=-a_4,
+x_1+x_2+x_3+x_4+x_5=-a_4
 $$
 
 $$
-\sum_{i\lt j}x_ix_j=a_3,
+\sum_{i\lt j}x_ix_j=a_3
 $$
 
 $$
-\sum_{i\lt j\lt k}x_ix_jx_k=-a_2,
+\sum_{i\lt j\lt k}x_ix_jx_k=-a_2
 $$
 
 $$
-\sum_{i\lt j\lt k\lt \ell}x_ix_jx_kx_\ell=a_1,
+\sum_{i\lt j\lt k\lt \ell}x_ix_jx_kx_\ell=a_1
 $$
 
 $$
-x_1x_2x_3x_4x_5=-a_0.
+x_1x_2x_3x_4x_5=-a_0
 $$
 
 These relations are symmetric. If the roots are merely renamed, the sums and products above do not change. However, one must be careful: the fact that the Vieta relations are symmetric does not mean that the roots are always freely interchangeable.
@@ -265,10 +269,10 @@ These relations are symmetric. If the roots are merely renamed, the sums and pro
 For example, consider the integer polynomial
 
 $$
-f(x)=(x-1)(x^2-3)(x^2+2).
+f(x)=(x-1)(x^2-3)(x^2+2)
 $$
 
-Its roots are $1,\quad \sqrt3,\quad -\sqrt3,\quad \sqrt{-2},\quad -\sqrt{-2}$ .
+Its roots are $1$, $\sqrt3$, $-\sqrt3$, $\sqrt{-2}$, $-\sqrt{-2}$ .
 
 Over the base field $\mathbb Q$, the rational root $1$ is already singled out. The two roots $\sqrt3$ and $-\sqrt3$ both come from the irreducible factor $x^2-3$ and satisfy the same $\mathbb Q$-coefficient equation $x^2-3=0$ ; similarly, $\sqrt{-2}$ and $-\sqrt{-2}$ both come from $x^2+2$ . Roots may be interchanged inside a pair, but they cannot be mixed across different factors.
 
@@ -314,7 +318,7 @@ The next idea is **isomorphism**. An isomorphism between fields is not an arbitr
 
 $$
 \varphi(x+y)=\varphi(x)+\varphi(y),\qquad
-\varphi(xy)=\varphi(x)\varphi(y).
+\varphi(xy)=\varphi(x)\varphi(y)
 $$
 
 Because subtraction and division can be expressed in terms of addition and multiplication, these operations are preserved as well.
@@ -327,13 +331,13 @@ Because subtraction and division can be expressed in terms of addition and multi
 Suppose two splitting fields $K$ and $K'$ arise from the same polynomial over the same base field $F$. If $\alpha$ is a root in $K$, and $\alpha'$ is the corresponding root in $K'$, then an isomorphism may send
 
 $$
-\alpha\mapsto\alpha',\qquad \beta\mapsto\beta',
+\alpha\mapsto\alpha',\qquad \beta\mapsto\beta'
 $$
 
 but it must preserve all algebraic relations with coefficients in $F$. In particular, every element $a\in F$ must be fixed:
 
 $$
-\varphi(a)=a.
+\varphi(a)=a
 $$
 
 Such maps are called **$F$-isomorphisms**: they preserve the field structure and leave the base field fixed.
@@ -350,7 +354,7 @@ This viewpoint lets us talk about the symmetries of the roots without depending 
 Let $K$ be the splitting field of a polynomial over a base field $F$. The **Galois group** of $K/F$, denoted
 
 $$
-\mathrm{Gal}(K/F),
+\mathrm{Gal}(K/F)
 $$
 
 is the group of all field automorphisms of $K$ that fix every element of $F$.
@@ -360,13 +364,13 @@ An automorphism is an isomorphism from $K$ to itself. It may move roots around, 
 For the polynomial
 
 $$
-f(x)=(x-1)(x^2-3)(x^2+2),
+f(x)=(x-1)(x^2-3)(x^2+2)
 $$
 
 the splitting field over $\mathbb Q$ is
 
 $$
-K=\mathbb Q(\sqrt3,\sqrt{-2}).
+K=\mathbb Q(\sqrt3,\sqrt{-2})
 $$
 
 An automorphism fixing $\mathbb Q$ must send $\sqrt3$ to either $\sqrt3$ or $-\sqrt3$, and must send $\sqrt{-2}$ to either $\sqrt{-2}$ or $-\sqrt{-2}$. These two choices are independent. The rational root $1$ is fixed.
@@ -374,7 +378,7 @@ An automorphism fixing $\mathbb Q$ must send $\sqrt3$ to either $\sqrt3$ or $-\s
 Thus
 
 $$
-\mathrm{Gal}(K/\mathbb Q)\cong C_2\times C_2,
+\mathrm{Gal}(K/\mathbb Q)\cong C_2\times C_2
 $$
 
 and this group has four elements.
@@ -393,13 +397,13 @@ The **Fundamental Theorem of Galois Theory** says, roughly, that intermediate fi
 Suppose
 
 $$
-F\subset B\subset K.
+F\subset B\subset K
 $$
 
 The intermediate field $B$ sits between the base field $F$ and the splitting field $K$. To this field one associates a subgroup
 
 $$
-G_B=\{\sigma\in\mathrm{Gal}(K/F):\sigma(b)=b\text{ for every }b\in B\}.
+G_B=\{\sigma\in\mathrm{Gal}(K/F):\sigma(b)=b\text{ for every }b\in B\}
 $$
 
 In words: $G_B$ consists of the automorphisms that fix every element of $B$.
@@ -413,7 +417,7 @@ $$
 corresponds to
 
 $$
-\mathrm{Gal}(K/F)\supset G_B\supset\{e\}.
+\mathrm{Gal}(K/F)\supset G_B\supset\{e\}
 $$
 
 The larger the intermediate field, the more elements it asks automorphisms to fix, so the smaller the corresponding subgroup becomes.
@@ -421,7 +425,7 @@ The larger the intermediate field, the more elements it asks automorphisms to fi
 In the example $K=\mathbb Q(\sqrt3,\sqrt{-2})$, write $a$ for the automorphism that interchanges $\sqrt3$ and $-\sqrt3$, and $b$ for the automorphism that interchanges $\sqrt{-2}$ and $-\sqrt{-2}$. Then
 
 $$
-G=\mathrm{Gal}(K/\mathbb Q)=\{e,a,b,ab\}.
+G=\mathrm{Gal}(K/\mathbb Q)=\{e,a,b,ab\}
 $$
 
 The top field $K$ corresponds to the trivial subgroup $\{e\}$, while the base field $\mathbb Q$ corresponds to the whole group $G$. The three quadratic intermediate fields correspond to the three order-two subgroups:
@@ -429,7 +433,7 @@ The top field $K$ corresponds to the trivial subgroup $\{e\}$, while the base fi
 $$
 \mathbb Q(\sqrt3)\longleftrightarrow \{e,b\},\qquad
 \mathbb Q(\sqrt{-2})\longleftrightarrow \{e,a\},\qquad
-\mathbb Q(\sqrt{-6})\longleftrightarrow \{e,ab\}.
+\mathbb Q(\sqrt{-6})\longleftrightarrow \{e,ab\}
 $$
 
 <figure>
@@ -442,19 +446,19 @@ There is an especially important condition here. If an intermediate field $B$ is
 If $N\triangleleft G$, one can form the **quotient group**
 
 $$
-G/N.
+G/N
 $$
 
 The elements of $G/N$ are cosets, not single group elements:
 
 $$
-gN=\{gn:n\in N\}.
+gN=\{gn:n\in N\}
 $$
 
 The multiplication rule is
 
 $$
-(gN)(hN)=(gh)N.
+(gN)(hN)=(gh)N
 $$
 
 This is well defined precisely because $N$ is normal.
@@ -466,7 +470,7 @@ Normal subgroups and quotient groups are the mechanism by which a complicated gr
 A group $G$ is called **solvable** if it can be reduced to the trivial group through a chain of normal subgroups in which every quotient is Abelian. One common form is
 
 $$
-\{e\}=G_s\triangleleft G_{s-1}\triangleleft\cdots\triangleleft G_1\triangleleft G_0=G,
+\{e\}=G_s\triangleleft G_{s-1}\triangleleft\cdots\triangleleft G_1\triangleleft G_0=G
 $$
 
 and each quotient
@@ -485,13 +489,13 @@ must be an Abelian group.
 An **Abelian group** is a group whose operation is commutative:
 
 $$
-ab=ba.
+ab=ba
 $$
 
 The integers under addition form an Abelian group, because
 
 $$
-a+b=b+a.
+a+b=b+a
 $$
 
 The symmetric group $S_3$, the group of all permutations of three objects, is not Abelian. The order in which two permutations are composed can matter.
@@ -534,7 +538,7 @@ Historically, Ruffini had already made an important attempt along a similar line
 More concretely, suppose a quintic has five distinct roots. Since the coefficients of the equation are symmetric functions of the five roots, any formula written from the coefficients must preserve the corresponding algebraic relations when the roots are relabeled. Abel proved that, if a root could really be expressed by radicals, then after peeling away the radical tower step by step, some intermediate expressions would have forms similar to
 
 $$
-r=p+p_1R^{1/5}+p_2R^{2/5}+p_3R^{3/5}+p_4R^{4/5},
+r=p+p_1R^{1/5}+p_2R^{2/5}+p_3R^{3/5}+p_4R^{4/5}
 $$
 
 where $p,p_1,p_2,p_3,p_4$ are rational expressions built from quantities already obtained, and $R$ can itself be expanded in the same way. The question is then transformed into this one: as functions of the five roots, how many distinct values can these expressions take under all $5!=120$ permutations of the roots? Abel's key analysis is that a tower of radicals imposes strict restrictions on these possible value counts; the value structure needed by the five roots of a general quintic is incompatible with those restrictions. Thus the assumption that a universal radical formula exists leads to a contradiction.
@@ -544,7 +548,7 @@ So Abel's own proof was not a proof by drawing Riemann surfaces or by discussing
 For example, Alekseev's book focuses on the family of quintic equations
 
 $$
-3w^5-25w^3+60w-z=0.
+3w^5-25w^3+60w-z=0
 $$
 
 Here $z$ is treated as a complex parameter, and $w$ is a root varying with $z$. For a general value of $z$, the equation has five roots; in other words, $w(z)$ is a five-valued function. As $z$ moves along a closed path in the complex plane, each root can be followed continuously. But if $z$ winds around certain **branch points** and returns to where it started, the five roots need not return to their original labels; they may be permuted.
@@ -572,21 +576,91 @@ This also explains the word "cycle." A permutation of the form $(1\,2\,3\,4\,5)$
 The reason the general equation has this Galois group comes from **elementary symmetric functions**: the coefficients of the general equation are the elementary symmetric functions of the roots, and any permutation of the roots leaves those symmetric functions unchanged. Thus
 
 $$
-\mathrm{Gal}(\text{general equation of degree }n)\cong S_n.
+\mathrm{Gal}(\text{general equation of degree }n)\cong S_n
 $$
 
-On the other hand, $S_n$ is **not solvable** for $n>4$. To see why the failure begins at degree five, start with $S_5$. Inside $S_5$ there is an important subgroup, denoted $A_5$. It consists of all **even permutations** of five objects, and its standard name is the **alternating group**.
+On the other hand, $S_n$ is **not solvable** for $n>4$. To see why the failure begins at degree five, start with $S_5$. Inside $S_5$ there is an important subgroup, denoted $A_5$. It consists of all **even permutations** of five objects, and its standard name is the **alternating group on five letters**.
+
+More formally, for any $n>1$, the **alternating group** $A_n$ is the subgroup of the symmetric group $S_n$ consisting of all even permutations:
+
+$$
+A_n=\{\sigma\in S_n:\sigma\text{ is even}\}
+$$
+
+Equivalently, it is the kernel of the **sign homomorphism**
+
+$$
+\operatorname{sgn}:S_n\to\{1,-1\}
+$$
+
+Thus
+
+$$
+A_n=\ker(\operatorname{sgn})
+$$
+
+So $A_n$ is a normal subgroup of $S_n$, has index $2$, and therefore has $\dfrac{n!}{2}$ elements. In this article the important case is $A_5$: the group of all even permutations in $S_5$, with $60$ elements.
 
 What is an even permutation? Any permutation can be decomposed into transpositions, where each transposition swaps just two elements. If the number of transpositions is even, the permutation is called even; if it is odd, the permutation is called odd. The decomposition itself need not be unique, but the parity of the number of transpositions is well defined. For instance, $(1\,2)$ is one transposition, so it is odd and is not in $A_5$. But $(1\,2\,3)=(1\,3)(1\,2)$ is a product of two transpositions, so it is even and lies in $A_5$. Likewise, $(1\,2\,3\,4\,5)=(1\,5)(1\,4)(1\,3)(1\,2)$ is a product of four transpositions, so it is also in $A_5$.
 
 Thus $A_5$ is not a mysterious abstract name. It is the group of all permutations in $S_5$ that can be decomposed into an even number of transpositions. Since $S_5$ has $5!=120$ elements and exactly half of them are even, $A_5$ has $60$ elements.
+
+Even more strikingly, $A_5$ can be seen geometrically: it is the **rotation group of the regular icosahedron**. A regular icosahedron has $12$ vertices, $20$ faces, and $30$ edges. We count only orientation-preserving rotations, not reflections. Around an axis through a pair of opposite vertices, one can rotate by $72^\circ,144^\circ,216^\circ,$ or $288^\circ$; there are $6$ such axes, giving $6\cdot4=24$ rotations of order $5$. Around an axis through a pair of opposite face centers, one can rotate by $120^\circ$ or $240^\circ$; there are $10$ such axes, giving $10\cdot2=20$ rotations of order $3$. Around an axis through a pair of opposite edge midpoints, one can rotate by $180^\circ$; there are $15$ such axes, giving $15$ rotations of order $2$. Together with the identity rotation, the total is
+
+$$
+1+24+20+15=60
+$$
+
+This is exactly $|A_5|=60$. More deeply, one can see five inscribed cubes inside the icosahedron. Every rotational symmetry permutes these five cubes, hence gives a permutation of five objects. This correspondence respects composition and gives precisely $A_5$. Thus
+
+$$
+\operatorname{Rot}(\text{regular icosahedron})\cong A_5
+$$
+
+This geometric picture also makes the phrase "non-Abelian" concrete. If one performs two different rotations of an icosahedron in succession, the final orientation usually depends on the order in which the rotations are performed. Thus this rotation group is not Abelian.
+
+This is closely tied to the quintic: the same $A_5$ that appears inside the Galois group of the general quintic is also the rotation group of the icosahedron. Klein's later icosahedral solution of the quintic is built on this geometric form of $A_5$.
+
+<figure>
+  <img src="assets-en/figure-09a-a5-icosahedron.svg" alt="A5 as the rotation group of the regular icosahedron">
+</figure>
+
+The group $A_5$ also has several equivalent "faces." It is not only the group of even permutations of five objects, but also the rotation group of both the regular icosahedron and the regular dodecahedron. These two Platonic solids are dual to each other, so they have the same rotation group. A more everyday geometric cousin is the soccer-ball shape, the truncated icosahedron; its orientation-preserving rotation group is again this $60$-element group. In a more abstract direction, the regular four-dimensional simplex has five vertices. Its full symmetry group is $S_5$, and the orientation-preserving rotations correspond exactly to even permutations, so they form $A_5$.
+
+In a more algebraic language, $A_5$ is also isomorphic to $\mathrm{PSL}(2,5)$. Here $\mathrm{PSL}(2,5)$ means the **projective special linear group** of degree $2$ over the field with five elements. Roughly, start with the finite field $\mathbb F_5=\{0,1,2,3,4\}$ and consider all $2\times2$ matrices with determinant $1$ over this field; they form $\mathrm{SL}(2,5)$. Such a matrix acts by a fractional linear transformation
+
+$$
+z\mapsto \frac{az+b}{cz+d}
+$$
+
+on the six points of the projective line $\mathbb P^1(\mathbb F_5)=\mathbb F_5\cup\{\infty\}$. Since the matrices $I$ and $-I$ induce the same projective transformation, one quotients by the center $\{\pm I\}$; the resulting group is $\mathrm{PSL}(2,5)$. It has $120/2=60$ elements, and the classical exceptional isomorphism is
+
+$$
+\mathrm{PSL}(2,5)\cong A_5
+$$
+
+Thus the point is that the same group $A_5$ can be seen as even permutations of five objects, as rotations of the icosahedron, and as fractional linear transformations over a finite field. Klein's later icosahedral solution connects precisely these different faces of the same group.
+
+<figure>
+  <img src="assets-en/figure-10-platonic-rotation-groups.svg" alt="Figure 10: Platonic Rotation Groups">
+</figure>
+
+A **Platonic solid**, or **convex regular polyhedron**, is a convex polyhedron in three-dimensional space satisfying two conditions: every face is a congruent regular polygon, and the same number of faces meet at every vertex. Exactly five solids have this property: the tetrahedron, the cube, the octahedron, the dodecahedron, and the icosahedron.
+
+Here "largest" is not a value judgment, and it does not mean that $A_5$ is the largest finite rotation group in every possible sense. Finite rotation groups in three-dimensional space include two infinite families, the cyclic groups $C_n$ and the dihedral rotation groups $D_n$, where $n$ can grow arbitrarily. Besides these infinite families, there are three exceptional, Platonic types: the tetrahedral type, the cube/octahedron type, and the dodecahedron/icosahedron type.
+
+Among these three Platonic rotation groups, the tetrahedron has rotation group $A_4$, of order $12$; the cube and octahedron are dual to each other and have rotation group $S_4$, of order $24$; the dodecahedron and icosahedron are dual to each other and have rotation group $A_5$, of order $60$. So by the number of rotation operations, $A_5$ is the largest of the Platonic types.
+
+One should also distinguish **pure rotations** from the **full symmetry group**. Here we are discussing orientation-preserving rotations, so the rotation group of the dodecahedron or icosahedron is $A_5$, of order $60$. If reflections and other orientation-reversing symmetries are also included, the full symmetry group has order $120$: one has the $A_5$ rotation symmetries together with an additional order-two orientation-reversing layer.
+
+The structural point is even more important. Although $A_4$ and $S_4$ are already non-Abelian, they are still solvable groups: they can still be decomposed through normal subgroup chains with Abelian quotients. The group $A_5$ is different. It is the smallest non-Abelian simple group: it is not Abelian, and it has no nontrivial normal subgroup through which it could be further broken down. Thus, from the viewpoint of solvability by radicals, the three Platonic rotation groups form a useful ladder: $A_4$ and $S_4$ still belong to the solvable world, while $A_5$ already enters the nonsolvable world. That is the intended meaning of calling it the "largest" Platonic rotation type: it is the Platonic type with both the greatest order and the key non-Abelian simple structure.
 
 The group $A_5$ matters because it has two properties at once.
 
 First, $A_5$ is not Abelian. In other words, some permutations in it do not commute. For example, let
 
 $$
-\sigma=(1\,2\,3),\qquad \tau=(1\,3\,4).
+\sigma=(1\,2\,3),\qquad \tau=(1\,3\,4)
 $$
 
 Both are 3-cycles, hence both are even and lie in $A_5$. But with the usual convention that compositions are read from right to left, $\sigma\tau=(1\,3\,4\,2)$, while $\tau\sigma=(1\,2\,4\,3)$. The two results are different, so $\sigma\tau\neq\tau\sigma$.
@@ -599,7 +673,7 @@ Combining these two facts gives the key reason: $A_5$ is not Abelian, and it has
 
 Before looking at concrete quintic examples, it is useful to spell out the strategy behind the computations. This section turns the preceding theory into a practical decision method. The examples in Section 10 are not trying to "calculate five roots by force"; they ask a more structural question:
 
-Is the Galois group of this equation solvable, or is it already large enough to contain the nonsolvable $S_5$ structure?
+Is the Galois group of this equation solvable, or has it already reached one of the nonsolvable types $A_5$ or $S_5$?
 
 The route has several steps.
 
@@ -611,7 +685,39 @@ Second, regard the Galois group as a subgroup of $S_5$. Since every Galois autom
 
 Is this subgroup all of $S_5$, or is it a smaller subgroup?
 
-For irreducible quintics, the transitive subgroups of $S_5$ are quite restricted. Up to conjugacy, the possibilities are $C_5$, $D_5$, $F_{20}$, $A_5$, and $S_5$. Here $F_{20}$ may be thought of as the $20$-element group $C_5\rtimes C_4$. The first three are solvable; the last two contain the nonsolvable $A_5$-type structure. Thus one usually does not list every Galois automorphism. Instead, one looks for enough permutation evidence to rule out the smaller cases.
+For an irreducible quintic polynomial, the possible transitive subgroups are quite restricted. Up to isomorphism, the transitive subgroups of $S_5$ are only a short list: the cyclic group $C_5$, the dihedral group $D_5$, the Frobenius group $F_{20}$, the alternating group $A_5$, and the full symmetric group $S_5$. In other words, once the Galois group of an irreducible quintic is viewed as a permutation group on the five roots, it must fall into one of these structural types.
+
+The first three are solvable. The group $C_5$ is just one cycle of order $5$. The group $D_5$ may be viewed as the symmetry group of a regular pentagon: it has a rotation part of order $5$ and a reflection part of order $2$, and structurally it has a chain
+
+$$
+D_5\triangleright C_5\triangleright \{e\}
+$$
+
+whose successive quotients are $C_2$ and $C_5$, both Abelian. Thus $D_5$ is solvable. The group $F_{20}$ may be thought of as the $20$-element group $C_5\rtimes C_4$: it has a cyclic part of order $5$, acted on by a group of order $4$. It also has a normal subgroup chain with Abelian quotients, so it is solvable. By contrast, $A_5$ and $S_5$ contain the nonsolvable $A_5$-type structure. If the Galois group reaches one of these two cases, the equation is not solvable by radicals.
+
+Thus the later computations usually do not list every Galois automorphism. Instead, they look for enough permutation evidence to rule out the smaller possibilities. For example, if we can show that the Galois group contains cycle types that cannot occur in $C_5$, $D_5$, or $F_{20}$, and also cannot be contained entirely in $A_5$, then the only remaining possibility is $S_5$.
+
+This naturally raises a question: do such polynomials really exist, or are they only theoretical shadows produced by the classification? They are very real, and one can give concrete examples. For instance,
+
+$$
+f(x)=x^5-4x+2
+$$
+
+is a typical example. It is irreducible over $\mathbb Q$. From the graph of the real function, its derivative
+
+$$
+f'(x)=5x^4-4
+$$
+
+has two real critical points, so the graph can have at most three real zeros. A direct check of signs shows that it indeed has three real roots; the remaining two roots form one conjugate complex pair. Thus the roots of this quintic have the familiar shape "three real roots plus one conjugate complex pair."
+
+Here one can use a powerful group-theoretic criterion, usually viewed as a consequence of **Jordan's theorem on primitive permutation groups**:
+
+> If $f(x)\in\mathbb Q[x]$ is an irreducible quintic polynomial and has exactly three real roots together with one conjugate complex pair, then its Galois group is $S_5$.
+
+The reason is as follows. The Galois group of an irreducible quintic acts transitively on the five roots; because $5$ is prime, this transitive action is also **primitive**. On the other hand, complex conjugation fixes the three real roots and swaps the two conjugate complex roots, so its action on the five roots is a transposition. Jordan's theorem says that a primitive permutation group containing a transposition must be the full symmetric group. Therefore the Galois group is $S_5$.
+
+Thus the example $x^5-4x+2$ does not require listing all Galois automorphisms. Once we know that it is irreducible and has exactly three real roots, we can conclude that its Galois group is $S_5$, so it is not solvable by radicals. This example connects the abstract group-theoretic decision with the familiar picture of a function graph: the graph shows the real/complex distribution of the roots, complex conjugation gives a concrete transposition, and Jordan's theorem identifies the whole Galois group.
 
 Third, use reduction modulo primes to read off cycle types in the Galois group.
 
@@ -620,13 +726,13 @@ Why reduce modulo primes? Directly seeing the permutations of the five complex r
 A useful simplified form of Dedekind's theorem says the following. Let $f(x)$ be an irreducible integer polynomial of degree $n$. Choose a prime $p$ that does not divide the discriminant of $f$. If the reduction of $f(x)$ modulo $p$ factors in $\mathbb F_p[x]$ into irreducible factors of degrees
 
 $$
-d_1,d_2,\ldots,d_k,
+d_1,d_2,\ldots,d_k
 $$
 
 then the Galois group over $\mathbb Q$ contains a permutation whose cycle lengths are
 
 $$
-(d_1,d_2,\ldots,d_k).
+(d_1,d_2,\ldots,d_k)
 $$
 
 For quintics, the most useful patterns are:
@@ -659,7 +765,7 @@ Thus when analyzing a concrete quintic equation, there are two methods:
 
 The first is to **construct a radical solution directly**. If the roots can be written using arithmetic operations and radicals, possibly after a clever substitution, then the equation is solvable by radicals.
 
-The second is to **recognize that the Galois group is too large**. If modular factorizations reveal enough cycle types to force the Galois group to be $S_5$, then the equation is not solvable by radicals because $S_5$ is not solvable.
+The second is to **recognize that the Galois group has reached a nonsolvable type**. If modular factorizations reveal enough cycle types to force the Galois group to be $A_5$ or $S_5$, then the equation is not solvable by radicals because both groups are nonsolvable.
 
 ## 10. Quintic Examples
 
@@ -670,37 +776,37 @@ Now let us look at several quintic equations.
 Let $\alpha=\sqrt[5]{2}$ and let $\zeta=\zeta_5$ be a primitive fifth root of unity. The five roots are
 
 $$
-\alpha,\quad \zeta\alpha,\quad \zeta^2\alpha,\quad \zeta^3\alpha,\quad \zeta^4\alpha.
+\alpha,\quad \zeta\alpha,\quad \zeta^2\alpha,\quad \zeta^3\alpha,\quad \zeta^4\alpha
 $$
 
 The splitting field is
 
 $$
-K=\mathbb Q(\alpha,\zeta).
+K=\mathbb Q(\alpha,\zeta)
 $$
 
 This example is special: its Galois group is not the whole $S_5$. If we write the roots as
 
 $$
-r_j=\zeta^j\alpha,\qquad j=0,1,2,3,4,
+r_j=\zeta^j\alpha,\qquad j=0,1,2,3,4
 $$
 
 then an automorphism may send $\alpha$ to $\zeta^b\alpha$, and may send $\zeta$ to $\zeta^a$, where $a\in(\mathbb Z/5\mathbb Z)^\times$ and $b\in\mathbb Z/5\mathbb Z$. On indices this gives
 
 $$
-j\longmapsto aj+b.
+j\longmapsto aj+b
 $$
 
 There are five choices for $b$ and four choices for $a$, so the Galois group has $5\cdot4=20$ elements:
 
 $$
-\mathrm{Gal}(K/\mathbb Q)\cong C_5\rtimes C_4.
+\mathrm{Gal}(K/\mathbb Q)\cong C_5\rtimes C_4
 $$
 
 The symbol $\rtimes$ denotes a **semidirect product**. The important point is that this group can be decomposed through a chain
 
 $$
-\{e\}\triangleleft C_5\triangleleft C_5\rtimes C_4,
+\{e\}\triangleleft C_5\triangleleft C_5\rtimes C_4
 $$
 
 whose quotient groups are $C_5$ and $C_4$. Both are Abelian. Therefore the Galois group is solvable, and the equation can be solved by radicals. Indeed, $\alpha=\sqrt[5]{2}$ is already one root, and adjoining the fifth roots of unity gives all the roots.
@@ -710,25 +816,25 @@ whose quotient groups are $C_5$ and $C_4$. Both are Abelian. Therefore the Galoi
 This equation behaves very differently. Let $L$ be its splitting field. Its Galois group over $\mathbb Q$ is
 
 $$
-\mathrm{Gal}(L/\mathbb Q)\cong S_5.
+\mathrm{Gal}(L/\mathbb Q)\cong S_5
 $$
 
 Here is a compact computational justification. For a polynomial $f(x)=x^5+ax+b$, the discriminant is
 
 $$
-\Delta(f)=\mathrm{Res}(f,f')=5^5b^4+4^4a^5.
+\Delta(f)=\mathrm{Res}(f,f')=5^5b^4+4^4a^5
 $$
 
 For $f(x)=x^5-x-1$, we have $a=-1$ and $b=-1$, so
 
 $$
-\Delta(f)=5^5(-1)^4+4^4(-1)^5=3125-256=2869.
+\Delta(f)=5^5(-1)^4+4^4(-1)^5=3125-256=2869
 $$
 
 The discriminant $2869$ is not a rational square. The square root of the discriminant is, up to sign, the product
 
 $$
-\prod_{i\lt j}(r_i-r_j).
+\prod_{i\lt j}(r_i-r_j)
 $$
 
 Even permutations of the roots preserve this product, while odd permutations change its sign. Thus a nonsquare discriminant shows that the Galois group is not contained in $A_5$; it contains an odd permutation.
@@ -738,7 +844,7 @@ Now reduce modulo primes. Reducing modulo a prime $p$ means replacing each integ
 Modulo $3$, the polynomial $x^5-x-1$ remains irreducible. By Dedekind's theorem this shows that the Galois group contains a 5-cycle. Modulo $2$,
 
 $$
-x^5-x-1\equiv x^5+x+1\pmod2,
+x^5-x-1\equiv x^5+x+1\pmod2
 $$
 
 This factorization is meant in the polynomial ring $\mathbb F_2[x]$, not as an ordinary identity over the integers. Here $\mathbb F_2$ is the field with two elements, $0$ and $1$, with addition and multiplication taken modulo $2$. The notation $\mathbb F_2[x]$ means the ring of polynomials in $x$ whose coefficients lie in $\mathbb F_2$, with polynomial addition and multiplication also computed modulo $2$.
@@ -746,13 +852,13 @@ This factorization is meant in the polynomial ring $\mathbb F_2[x]$, not as an o
 Over the integers, expanding the right hand side gives
 
 $$
-(x^2+x+1)(x^3+x^2+1)=x^5+2x^4+2x^3+2x^2+x+1.
+(x^2+x+1)(x^3+x^2+1)=x^5+2x^4+2x^3+2x^2+x+1
 $$
 
 But modulo $2$, every coefficient $2$ becomes $0$. Thus
 
 $$
-x^5+x+1\equiv(x^2+x+1)(x^3+x^2+1)\pmod2.
+x^5+x+1\equiv(x^2+x+1)(x^3+x^2+1)\pmod2
 $$
 
 This gives an element of cycle type $(2)(3)$. Combining these facts with the classification of transitive subgroups of $S_5$, one obtains the full group $S_5$. Since $S_5$ is not solvable, the equation $x^5-x-1=0$ is not solvable by radicals.
@@ -762,14 +868,14 @@ This gives an element of cycle type $(2)(3)$. Combining these facts with the cla
 This example has positive integer coefficients, but it is still not solvable by radicals. Let $M$ be its splitting field. The same modular method shows
 
 $$
-\mathrm{Gal}(M/\mathbb Q)\cong S_5.
+\mathrm{Gal}(M/\mathbb Q)\cong S_5
 $$
 
 Here we compute modulo $13$ and modulo $3$. As a small clarification, these two moduli are not chosen because the calculation must happen in that order, but because they reveal two different pieces of permutation data: modulo $13$, the polynomial remains irreducible of degree $5$, which gives a 5-cycle; modulo $3$, it factors into a quadratic and a cubic factor, which gives an element of cycle type $(2)(3)$. Combining these two pieces of evidence is what pins down the full $S_5$. Concretely, modulo $3$ one has
 
 $$
 x^5+x^4+x^3+x^2+x+2
-\equiv (x^2+2x+2)(x^3+2x^2+x+1)\pmod3.
+\equiv (x^2+2x+2)(x^3+2x^2+x+1)\pmod3
 $$
 
 As in Equation 2, this forces the full $S_5$, and so the equation is not solvable by radicals.
@@ -781,61 +887,61 @@ Now consider a less trivial special quintic that is solvable by radicals.
 This is not the direct form $x^5-a=0$. It is solvable because it hides a useful substitution. Let
 
 $$
-x=u-v,\qquad uv=1.
+x=u-v,\qquad uv=1
 $$
 
 Using the identity
 
 $$
-(u-v)^5+5uv(u-v)^3+5u^2v^2(u-v)=u^5-v^5,
+(u-v)^5+5uv(u-v)^3+5u^2v^2(u-v)=u^5-v^5
 $$
 
 and using $uv=1$, we get
 
 $$
-x^5+5x^3+5x=u^5-v^5.
+x^5+5x^3+5x=u^5-v^5
 $$
 
 The original equation is therefore equivalent to
 
 $$
-u^5-v^5=1.
+u^5-v^5=1
 $$
 
 Since $uv=1$, we also have $u^5v^5=1$. Let $T=u^5$. Then $v^5=1/T$, and
 
 $$
-T-\frac1T=1,
+T-\frac1T=1
 $$
 
 so
 
 $$
-T^2-T-1=0.
+T^2-T-1=0
 $$
 
 The quadratic equation gives
 
 $$
-T=\frac{1+\sqrt5}{2}\quad\text{or}\quad T=\frac{1-\sqrt5}{2}.
+T=\frac{1+\sqrt5}{2}\quad\text{or}\quad T=\frac{1-\sqrt5}{2}
 $$
 
 Choose
 
 $$
-A=\sqrt[5]{\frac{1+\sqrt5}{2}},
+A=\sqrt[5]{\frac{1+\sqrt5}{2}}
 $$
 
 and let $\zeta=\zeta_5$. Then the five roots can be written as
 
 $$
-x_k=\zeta^kA-\zeta^{-k}A^{-1},\qquad k=0,1,2,3,4.
+x_k=\zeta^kA-\zeta^{-k}A^{-1},\qquad k=0,1,2,3,4
 $$
 
 Indeed, take $u=\zeta^kA$ and $v=\zeta^{-k}A^{-1}$. Then $uv=1$, and
 
 $$
-u^5-v^5=\frac{1+\sqrt5}{2}-\frac{2}{1+\sqrt5}=1.
+u^5-v^5=\frac{1+\sqrt5}{2}-\frac{2}{1+\sqrt5}=1
 $$
 
 Thus every $x_k=u-v$ satisfies the original equation. The solution uses only arithmetic operations, a square root, fifth roots, and fifth roots of unity. This is a genuinely nontrivial quintic that is nevertheless solvable by radicals.
@@ -847,7 +953,7 @@ Finally, one may ask a probabilistic question: if all coefficients of a quintic 
 One must first specify a model of randomness. A common model is: fix a large bound $B$, choose $a_0,a_1,a_2,a_3,a_4$ independently and uniformly from $1,2,\ldots,B$, and consider the quintic with leading coefficient $1$:
 
 $$
-x^5+a_4x^4+a_3x^3+a_2x^2+a_1x+a_0=0.
+x^5+a_4x^4+a_3x^3+a_2x^2+a_1x+a_0=0
 $$
 
 If the leading coefficient is also chosen randomly, the intuition is the same; taking it to be $1$ simply avoids counting scalar multiples of the same equation repeatedly.
@@ -859,11 +965,11 @@ For concrete finite values, the probability is already high. In the model above,
 Informally: if the coefficient bound $B$ is large enough, a randomly written quintic with natural-number coefficients has probability very close to $100\%$ of not being solvable by radicals. Formally, the statement is a limit:
 
 $$
-\lim_{B\to\infty}\Pr(\text{random quintic is not solvable by radicals})=1.
+\lim_{B\to\infty}\Pr(\text{random quintic is not solvable by radicals})=1
 $$
 
 <figure>
-  <img src="assets-en/figure-10-s5-a5-obstruction.svg" alt="The A5 structure inside S5 is the structural reason why the general quintic has no radical formula">
+  <img src="assets-en/figure-11-s5-a5-obstruction.svg" alt="Figure 11: The A5 structure inside S5 is the structural reason why the general quintic has no radical formula">
 </figure>
 
 ## 11. Solvability of Equations Above Degree Five
@@ -886,6 +992,68 @@ It remains important to distinguish several statements:
 - Even if an equation is not solvable by radicals, its roots still exist in $\mathbb C$.
 - In numerical work, one can approximate roots by methods such as Newton's method.
 - If one allows functions beyond radicals, some quintic and higher-degree equations can be expressed in other ways.
+
+The last point deserves a little more explanation, because it is easily confused with the Abel-Ruffini theorem. The general quintic has no universal formula by radicals, but that does not mean it has no unified analytic expression in any broader function system. A classical route first uses a Tschirnhaus transformation to reduce the general quintic to the **Bring-Jerrard form**
+
+$$
+z^5+pz+q=0
+$$
+
+and then normalizes it further to
+
+$$
+u^5-u=t
+$$
+
+The problem is then to express a root of $u^5-u=t$ as a function of $t$. This inverse function is sometimes called the **Bring radical**:
+
+$$
+u=\operatorname{BR}(t)
+$$
+
+Here the word radical is historical; $\operatorname{BR}(t)$ is not a radical expression, but a special function attached to the Bring equation.
+
+The classical work of Hermite, Kronecker, Brioschi, and others gives solutions of the quintic in this sense. The general pattern is: reduce the quintic to a standard form, introduce an elliptic modular parameter $\tau$, express the parameter in the standard equation through elliptic modular functions, theta functions, or the $j$-invariant, and then write the roots as values of those functions at $\tau$. The formula is no longer of the form
+
+$$
+\text{root}=\text{an expression obtained from the coefficients by arithmetic operations and radicals}
+$$
+
+It is instead of the form
+
+$$
+\text{root}=\text{the value of an elliptic modular function, a theta function, or a related inverse function}
+$$
+
+One Brioschi standard form is
+
+$$
+y^5+10y^3+45y+a=0
+$$
+
+The parameter $a$ can be related to the modular parameter of an elliptic curve. In other words, one first recovers a suitable $\tau$ from $a$, and then uses the corresponding elliptic modular functions to express the roots. Hermite's formulas follow the same spirit: they build combinations of elliptic modular functions whose values satisfy a standard quintic. What does the work is not radicals, but the richer multivalued structure of elliptic and modular functions.
+
+Klein later gave a more structural explanation. The key group behind the general quintic is $A_5$, and $A_5$ is also the rotation group of the regular icosahedron. Klein therefore connected the quintic with the **icosahedral function**. Roughly speaking, invariants of the quintic can be converted into a value of the icosahedral function; solving the quintic then amounts to inverting that function. This explains why a function beyond radicals appears: radicals resolve symmetries through Abelian quotient groups, whereas the icosahedral function can accommodate the non-Abelian $A_5$ symmetry.
+
+There is also a hypergeometric expression for the Bring equation. For example, for the normalized equation
+
+$$
+x^5+x+a=0
+$$
+
+one root can be written, in its domain of convergence, as
+
+$$
+x=-a\,{}_4F_3\!\left(
+\begin{matrix}
+\frac15,\frac25,\frac35,\frac45\\
+\frac12,\frac34,\frac54
+\end{matrix}
+;-\frac{3125a^4}{256}
+\right)
+$$
+
+Here ${}_4F_3$ is a **generalized hypergeometric function**. Outside the convergence region, analytic continuation is needed. This formula shows the precise distinction: quintics can be represented uniformly in a larger system of special functions, but that representation is not a solution by radicals.
 
 There is also a natural question: is the problem merely that we are working inside the complex numbers? Would enlarging the number system further remove the structural reason?
 
@@ -919,3 +1087,5 @@ References:
 4. Niels Henrik Abel, *Mémoire sur les équations algébriques, où l'on démontre l'impossibilité de la résolution de l'équation générale du cinquième degré*, Christiania, 1824. The historical note in Section 8 about Abel's original proof refers to this early paper on the impossibility of solving the general quintic by radicals.
 5. V.B. Alekseev, *Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold*, Springer, 2004. The supplementary viewpoint in Section 8 on monodromy groups, the branching structure of Riemann surfaces, and a topological proof of Abel's theorem follows Sections 2.11--2.14 and the discussion in Khovanskii's appendix.
 6. Manjul Bhargava, "Galois groups of random integer polynomials and van der Waerden's Conjecture," *Annals of Mathematics*, 201(2), 339-377, 2025. [Annals page](https://annals.math.princeton.edu/2025/201-2/p01); [arXiv:2111.06507](https://arxiv.org/abs/2111.06507). The probabilistic statement in Section 10 about random integer polynomials almost always having Galois group $S_n$, and therefore random natural-number quintics almost always not being solvable by radicals, is based on this result.
+7. Jesse Schultz, *Solving the Quintic with Elliptic Functions*. The discussion in Section 11 of Hermite's and Brioschi's elliptic-modular approaches to the quintic follows this expository note.
+8. Oliver Nash, "The icosahedron and the solution of the quintic," 2013. [arXiv:1308.0955](https://arxiv.org/abs/1308.0955). The brief discussion in Section 11 of Klein's icosahedral viewpoint follows this article.

@@ -3,8 +3,8 @@
 **-- 谈低次方程的根式求解以及五次方程的理论边界与判别方法**
 
 作者：GitHub @mathwo  
-日期：2026 年 10 月 8 日  
-版本：1.0.3
+日期：2026 年 10 月 9 日  
+版本：1.0.4
 
 一篇从低次方程的具体解法出发，逐步走向 **Galois 理论**（Galois Theory）、五次方程的理论边界和具体判别方法的科普文章。
 
@@ -25,7 +25,7 @@ $$
 只要代入系数，再做四则运算和开平方，就能得到两个根：
 
 $$
-x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}.
+x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 $$
 
 这个二次公式也可以用一种很古老、很直观的办法推出。Po-Shen Loh 近年重新整理了这个思路：先把方程除以 $a$ ，写成 $x^2+Bx+C=0$ ，其中 $B=\dfrac ba$ 、 $C=\dfrac ca$ 。若两根为 $r,s$ ，那么 $r+s=-B$ 、 $rs=C$ 。两个数的和已知时，最自然是从平均数出发：它们的平均数是 $-\dfrac B2$ ，于是可以写成 $-\dfrac B2+u$ 和 $-\dfrac B2-u$ 。再用乘积条件，$\left(-\dfrac B2+u\right)\left(-\dfrac B2-u\right)=\dfrac{B^2}{4}-u^2=C$ ，所以 $u^2=\dfrac{B^2}{4}-C$ 。这样两个根就是 $-\dfrac B2\pm\sqrt{\dfrac{B^2}{4}-C}$ ；把 $B=\dfrac ba$ 、 $C=\dfrac ca$ 代回去，就得到通常的二次公式。这个方法的好处是：不是先硬记公式，而是先把“和已知的两个数”写成“平均数 $\pm$ 偏移量”。
@@ -37,26 +37,26 @@ $$
 三次方程的解法通常先把一般三次方程通过换元，化成没有 $y^2$ 项的形式。这个形式常叫**降次三次方程**（Depressed Cubic）：
 
 $$
-y^3+py+q=0.
+y^3+py+q=0
 $$
 
 **Cardano 公式**（Cardano's Formula）可以这样写。令
 
 $$
-\Delta=\left(\frac q2\right)^2+\left(\frac p3\right)^3,
+\Delta=\left(\frac q2\right)^2+\left(\frac p3\right)^3
 $$
 
 再取两个立方根
 
 $$
 \begin{aligned}
-A&=\sqrt[3]{-\frac q2+\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}=\sqrt[3]{-\frac q2+\sqrt{\Delta}},
+A&=\sqrt[3]{-\frac q2+\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}=\sqrt[3]{-\frac q2+\sqrt{\Delta}}
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-B&=\sqrt[3]{-\frac q2-\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}=\sqrt[3]{-\frac q2-\sqrt{\Delta}}.
+B&=\sqrt[3]{-\frac q2-\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}=\sqrt[3]{-\frac q2-\sqrt{\Delta}}
 \end{aligned}
 $$
 
@@ -72,9 +72,9 @@ $$
 
 $$
 \begin{aligned}
-p&=\frac ca-\frac{b^2}{3a^2},\\
-q&=\frac{2b^3}{27a^3}-\frac{bc}{3a^2}+\frac da,\\
-x&=y-\frac b{3a}.
+p&=\frac ca-\frac{b^2}{3a^2}\\
+q&=\frac{2b^3}{27a^3}-\frac{bc}{3a^2}+\frac da\\
+x&=y-\frac b{3a}
 \end{aligned}
 $$
 
@@ -82,9 +82,9 @@ $$
 
 如果 $p=0$ ，方程已经退化为 $y^3+q=0$ ，直接开立方即可。下面讨论 $p\ne0$ 的情形。
 
-再令 $k^2=-\dfrac p3,\qquad r=\dfrac q{k^3},\qquad z=\dfrac yk$ ，于是 $y=kz$ ，方程变成 $z^3-3z+r=0$ 。
+再令 $k^2=-\dfrac p3$、$r=\dfrac q{k^3}$、$z=\dfrac yk$ ，于是 $y=kz$ ，方程变成 $z^3-3z+r=0$ 。
 
-现在利用恒等式 $(2\sin\theta)^3-3(2\sin\theta)=-2\sin 3\theta$ ，令 $z=2\sin\theta,\qquad r=2\sin\phi,\qquad \phi=\arcsin\dfrac r2$ 。
+现在利用恒等式 $(2\sin\theta)^3-3(2\sin\theta)=-2\sin 3\theta$ ，令 $z=2\sin\theta$、$r=2\sin\phi$、$\phi=\arcsin\dfrac r2$ 。
 
 这里的 $\theta,\phi$ 可以在复数范围内理解。代入后得到 $-2\sin 3\theta+2\sin\phi=0$ ，也就是 $\sin 3\theta=\sin\phi$ 。
 
@@ -106,7 +106,7 @@ $$
   +p\left(z-\frac p{3z}\right)+q\\
 &=z^3-pz+\frac{p^2}{3z}-\frac{p^3}{27z^3}
   +pz-\frac{p^2}{3z}+q\\
-&=z^3-\frac{p^3}{27z^3}+q.
+&=z^3-\frac{p^3}{27z^3}+q
 \end{aligned}
 $$
 
@@ -115,15 +115,15 @@ $$
 这其实是一个关于 $z^3$ 的二次方程，因此
 
 $$
-z^3=-\frac q2\pm\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}.
+z^3=-\frac q2\pm\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}
 $$
 
 令
 
 $$
 \begin{aligned}
-u&=\sqrt[3]{-\frac q2+\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}},\\
-v&=\sqrt[3]{-\frac q2-\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}.
+u&=\sqrt[3]{-\frac q2+\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}\\
+v&=\sqrt[3]{-\frac q2-\sqrt{\left(\frac q2\right)^2+\left(\frac p3\right)^3}}
 \end{aligned}
 $$
 
@@ -133,9 +133,9 @@ $$
 
 $$
 \begin{aligned}
-x_1&=u+v-\frac b{3a},\\
-x_2&=\omega u+\omega^2v-\frac b{3a},\\
-x_3&=\omega^2u+\omega v-\frac b{3a}.
+x_1&=u+v-\frac b{3a}\\
+x_2&=\omega u+\omega^2v-\frac b{3a}\\
+x_3&=\omega^2u+\omega v-\frac b{3a}
 \end{aligned}
 $$
 
@@ -147,26 +147,28 @@ $$
 
 四次方程的解法则更进一步。**Ferrari 方法**（Ferrari's Method）的关键，是把四次方程配成两个平方之差，从而拆成两个二次方程。
 
-以首一化后的四次方程 $x^4+ax^3+bx^2+cx+d=0$ 为例。如果原方程最高次项系数不是 $1$ ，先除以最高次项系数即可。令 $x=y-\dfrac a4$ ，就可以消去三次项，得到降次四次方程
+以首一化后的四次方程 $x^4+ax^3+bx^2+cx+d=0$ 为例。如果原方程最高次项系数不是 $1$ ，先除以最高次项系数即可。令 $x=y-\dfrac a4$ ，就可以消去三次项。这个步骤可以看成 **Tschirnhaus 变换**（Tschirnhaus Transformation）的一个最简单例子：通过把旧变量换成新变量，构造一个更简单的等价方程。前面三次方程里用 $x=y-\dfrac b{3a}$ 消去二次项，也是同一种思想的初级形式。更一般地，Tschirnhaus 变换会令新根成为旧根的多项式或有理函数，从而试图消去某些项，把方程化成更容易处理的标准型。
+
+这样得到降次四次方程
 
 $$
-y^4+py^2+qy+r=0,
+y^4+py^2+qy+r=0
 $$
 
 其中
 
 $$
 \begin{aligned}
-p&=b-\frac{3a^2}{8},\\
-q&=c-\frac{ab}{2}+\frac{a^3}{8},\\
-r&=d-\frac{ac}{4}+\frac{a^2b}{16}-\frac{3a^4}{256}.
+p&=b-\frac{3a^2}{8}\\
+q&=c-\frac{ab}{2}+\frac{a^3}{8}\\
+r&=d-\frac{ac}{4}+\frac{a^2b}{16}-\frac{3a^4}{256}
 \end{aligned}
 $$
 
 接下来先把左边配出一个平方：
 
 $$
-\left(y^2+\frac p2\right)^2+qy+\left(r-\frac{p^2}{4}\right)=0.
+\left(y^2+\frac p2\right)^2+qy+\left(r-\frac{p^2}{4}\right)=0
 $$
 
 再引入一个辅助量 $\alpha$ ，把它改写成
@@ -175,25 +177,25 @@ $$
 \left(y^2+\frac p2+\alpha\right)^2-
 \left[
 2\alpha\left(y^2+\frac p2\right)+\alpha^2-qy+\frac{p^2}{4}-r
-\right]=0.
+\right]=0
 $$
 
 方括号里面是关于 $y$ 的二次式：
 
 $$
-2\alpha y^2-qy+\left(\alpha p+\alpha^2+\frac{p^2}{4}-r\right).
+2\alpha y^2-qy+\left(\alpha p+\alpha^2+\frac{p^2}{4}-r\right)
 $$
 
 如果能让这个二次式也变成一个完全平方，那么整个四次方程就会变成“平方减平方等于零”，于是可以直接因式分解。一个二次式成为完全平方的条件，是判别式为零。因此令
 
 $$
-q^2-8\alpha\left(\alpha p+\alpha^2+\frac{p^2}{4}-r\right)=0.
+q^2-8\alpha\left(\alpha p+\alpha^2+\frac{p^2}{4}-r\right)=0
 $$
 
 这就是关于 $\alpha$ 的三次方程，也可以写成
 
 $$
-\alpha^3+p\alpha^2+\left(\frac{p^2}{4}-r\right)\alpha-\frac{q^2}{8}=0.
+\alpha^3+p\alpha^2+\left(\frac{p^2}{4}-r\right)\alpha-\frac{q^2}{8}=0
 $$
 
 这个三次方程可以用前面介绍的三次方程方法求解。选取其中一个合适的根 $\alpha$ 后，方括号里的二次式就成为完全平方：
@@ -201,7 +203,7 @@ $$
 $$
 \begin{aligned}
 2\alpha y^2-qy+\left(\alpha p+\alpha^2+\frac{p^2}{4}-r\right)
-&=\left(\sqrt{2\alpha}\,y-\frac{q}{2\sqrt{2\alpha}}\right)^2.
+&=\left(\sqrt{2\alpha}\,y-\frac{q}{2\sqrt{2\alpha}}\right)^2
 \end{aligned}
 $$
 
@@ -210,14 +212,14 @@ $$
 $$
 \begin{aligned}
 \left(y^2+\frac p2+\alpha\right)^2
-&-\left(\sqrt{2\alpha}\,y-\frac{q}{2\sqrt{2\alpha}}\right)^2=0,
+&-\left(\sqrt{2\alpha}\,y-\frac{q}{2\sqrt{2\alpha}}\right)^2=0
 \end{aligned}
 $$
 
 也就是
 
 $$
-\left(y^2+\frac p2+\alpha-\sqrt{2\alpha}\,y+\frac{q}{2\sqrt{2\alpha}}\right)\cdot\left(y^2+\frac p2+\alpha+\sqrt{2\alpha}\,y-\frac{q}{2\sqrt{2\alpha}}\right)=0.
+\left(y^2+\frac p2+\alpha-\sqrt{2\alpha}\,y+\frac{q}{2\sqrt{2\alpha}}\right)\cdot\left(y^2+\frac p2+\alpha+\sqrt{2\alpha}\,y-\frac{q}{2\sqrt{2\alpha}}\right)=0
 $$
 
 这样，原来的四次方程就被拆成了两个二次方程。分别解这两个二次方程，再由 $x=y-\dfrac a4$ 回到原变量，就得到四个根。如果 $q=0$ ，降次四次方程本身就是关于 $y^2$ 的二次方程，可以直接先解 $y^2$ ，再开平方。
@@ -226,10 +228,12 @@ $$
 
 所以，从二次到三次、四次，故事表面上像是：公式越来越复杂，但仍然能写出来。真正令人意外的是：到了五次，并不是公式“更长一点”就能解决，而是一般情形下根式公式根本不存在。
 
+这个转折也引出故事主角，两位少年天才。**Niels Henrik Abel**（1802--1829）是挪威数学家。他在极年轻时就证明了一般五次方程不能用根式给出通用公式，这就是后来 Abel-Ruffini 定理中 Abel 的部分。Abel 一生贫困，去世时只有二十六岁，但他在代数方程、椭圆函数和 Abel 函数等方向都留下了深远影响。**Évariste Galois**（1811--1832）是法国数学家，他二十岁时死于决斗；但在极短的一生里，他没有去寻找一个更复杂的五次公式，而是把方程根之间允许的置换组织成群，并把“能否用根式求解”转化为这个群是否可解的问题。本文后面说的 Galois 群和可解群，正是沿着这条思路展开。
+
 于是自然会问：一般五次方程是否也有一个万能公式？也就是说，对于
 
 $$
-ax^5+bx^4+cx^3+dx^2+ex+f=0,
+ax^5+bx^4+cx^3+dx^2+ex+f=0
 $$
 
 其中 $a\neq 0$ ，能不能只靠系数和根式，写出所有根？
@@ -243,11 +247,11 @@ $$
 根据**韦达定理**（Vieta's Formulas），这五个根满足一组由系数决定的关系。为了把这些关系写得紧凑一点，先约定两个记号：
 
 $$
-\sum_{\mathrm{cyc}} x_i=x_1+x_2+x_3+x_4+x_5,
+\sum_{\mathrm{cyc}} x_i=x_1+x_2+x_3+x_4+x_5
 $$
 
 $$
-\prod_{\mathrm{cyc}} x_i=x_1x_2x_3x_4x_5.
+\prod_{\mathrm{cyc}} x_i=x_1x_2x_3x_4x_5
 $$
 
 这里的 $\mathrm{cyc}$ 来自**循环记号**（Cyclic Notation），意思是按循环顺序
@@ -261,31 +265,31 @@ $$
 于是韦达定理给出：
 
 $$
-\sum_{\mathrm{cyc}} x_i=-\frac ba,
+\sum_{\mathrm{cyc}} x_i=-\frac ba
 $$
 
 $$
-\sum_{1\le i\lt j\le 5}x_ix_j=\frac ca,
+\sum_{1\le i\lt j\le 5}x_ix_j=\frac ca
 $$
 
 $$
-\sum_{1\le i\lt j\lt k\le 5}x_ix_jx_k=-\frac da,
+\sum_{1\le i\lt j\lt k\le 5}x_ix_jx_k=-\frac da
 $$
 
 $$
-\sum_{1\le i\lt j\lt k\lt l\le 5}x_ix_jx_kx_l=\frac ea,
+\sum_{1\le i\lt j\lt k\lt l\le 5}x_ix_jx_kx_l=\frac ea
 $$
 
 以及
 
 $$
-\prod_{\mathrm{cyc}}x_i=-\frac fa.
+\prod_{\mathrm{cyc}}x_i=-\frac fa
 $$
 
 上面这些表达式对于根的**循环轮换**（Cycle）是不变的。也就是说，如果把五个根按
 
 $$
-x_1\mapsto x_2,\qquad x_2\mapsto x_3,\qquad x_3\mapsto x_4,\qquad x_4\mapsto x_5,\qquad x_5\mapsto x_1,
+x_1\mapsto x_2,\qquad x_2\mapsto x_3,\qquad x_3\mapsto x_4,\qquad x_4\mapsto x_5,\qquad x_5\mapsto x_1
 $$
 
 循环置换，上述表达式的值都不会变。
@@ -309,7 +313,7 @@ $$
 如果根的集合是 $\{r_1,r_2,\dots,r_n\}$ ，那么根集合上的一个置换映射，就是从这个集合到它自身的一个**双射**（Bijection）：
 
 $$
-\{r_1,r_2,\dots,r_n\}\longrightarrow \{r_1,r_2,\dots,r_n\}.
+\{r_1,r_2,\dots,r_n\}\longrightarrow \{r_1,r_2,\dots,r_n\}
 $$
 
 这里“双射”的意思是：每个根都被映射到某个根；不同的根不会被映射到同一个根；也不会漏掉任何一个根。换句话说，置换映射不是把根写成一排给人看，而是规定每个根被映射到哪个根。比如三个根一共有 $3!=6$ 个置换映射；每一个置换映射都可以看成一种“重新命名根”的变换。
@@ -319,7 +323,7 @@ $$
 设五次多项式在基础域 $F$ 上分解为
 
 $$
-f(x)=f_1(x)f_2(x)\cdots f_k(x).
+f(x)=f_1(x)f_2(x)\cdots f_k(x)
 $$
 
 每个不可约因子 $f_i$ 的根组成一个小集合。后面正式定义 Galois 群以后，这句话会变成：固定 $F$ 的自同构会把 $f_i$ 的根仍然送到 $f_i$ 的根里，不会随便送到另一个因子的根里。换句话说，根的集合不再是一个整体被置换，而是被分成几个互不混合的稳定小块。
@@ -327,7 +331,7 @@ $$
 例如，如果
 
 $$
-f(x)=(\text{一次因子})(\text{四次因子}),
+f(x)=(\text{一次因子})(\text{四次因子})
 $$
 
 那就表示一个根已经在 $F$ 里被单独确定出来，形成一个单点小块；剩下四个根才组成另一个需要继续分析的小块。这正是“先找到一个根，再降成四次”的置换映射版本。
@@ -335,7 +339,7 @@ $$
 如果
 
 $$
-f(x)=(\text{二次因子})(\text{三次因子}),
+f(x)=(\text{二次因子})(\text{三次因子})
 $$
 
 那五个根就分成两个稳定小块：一个大小为 $2$ ，一个大小为 $3$ 。允许的置换映射只能在这些小块内部重新安排根，不能把二次因子的根和三次因子的根混在一起。
@@ -347,7 +351,7 @@ $$
 对于五次多项式，文章里通常关心的是它在 $\mathbb Q[x]$ 中是否不可约。若 $f(x)\in\mathbb Q[x]$ 不能写成两个次数更低的 $\mathbb Q$ 系数多项式的乘积，就说它在 $\mathbb Q$ 上不可约；如果可以写成
 
 $$
-f(x)=g(x)h(x),
+f(x)=g(x)h(x)
 $$
 
 其中 $g,h\in\mathbb Q[x]$ ，并且次数都小于 $5$ ，就说它在 $\mathbb Q$ 上可约。
@@ -355,7 +359,7 @@ $$
 五次的非平凡分解只有两种次数类型：
 
 $$
-1+4,\qquad 2+3.
+1+4,\qquad 2+3
 $$
 
 所以判定一个五次多项式是否可约，核心就是看它有没有一次因子，或者有没有二次因子。一次因子对应有理根；如果是整系数首一多项式，可以用有理根判别法先检查常数项的整数因子。但没有有理根并不等于不可约，因为它仍然可能分解成一个二次因子乘一个三次因子。
@@ -363,7 +367,7 @@ $$
 常用的判定办法有几种。第一，可以直接尝试因式分解，例如设
 
 $$
-f(x)=(x^2+ax+b)(x^3+cx^2+dx+e),
+f(x)=(x^2+ax+b)(x^3+cx^2+dx+e)
 $$
 
 再比较系数。第二，可以用模素数方法：选一个素数 $p$ ，把 $f(x)$ 的系数模 $p$ 化简；如果模 $p$ 以后在 $\mathbb F_p[x]$ 中不可约，那么原来的 $f(x)$ 在 $\mathbb Q[x]$ 中一定不可约。第三，有时可以用 Eisenstein 判别法：如果某个素数 $p$ 整除除首项以外的所有系数，不整除首项，并且 $p^2$ 不整除常数项，那么这个多项式在 $\mathbb Q[x]$ 中不可约。
@@ -375,7 +379,7 @@ $$
 原因是：这里有两个不同层次的“因式分解”。在 $\mathbb C[x]$ 中，五次多项式当然可以完全分解为
 
 $$
-f(x)=a(x-r_1)(x-r_2)(x-r_3)(x-r_4)(x-r_5).
+f(x)=a(x-r_1)(x-r_2)(x-r_3)(x-r_4)(x-r_5)
 $$
 
 可是这个分解已经把五个根 $r_1,r_2,r_3,r_4,r_5$ 写进去了。也就是说，在复数域里做出这种分解，等价于已经知道全部根。它不是求根方法，而是求根完成之后的表达。
@@ -383,7 +387,7 @@ $$
 真正能用来降次数求解的分解，必须发生在当前已经掌握的基础域里，或者发生在求解过程中已经通过允许运算构造出来的中间域里。比如，如果一个有理系数五次多项式在 $\mathbb Q[x]$ 中分解为
 
 $$
-f(x)=g_2(x)g_3(x),\qquad g_2,g_3\in\mathbb Q[x],
+f(x)=g_2(x)g_3(x),\qquad g_2,g_3\in\mathbb Q[x]
 $$
 
 那确实可以把原问题拆成一个二次方程和一个三次方程，因为这两个因子的系数都是已经可用的有理数。但如果只是说它在 $\mathbb C[x]$ 中分解成五个一次因子，这并没有给出可执行的求解步骤，因为这些一次因子的系数里已经包含了正在寻找的根。
@@ -416,10 +420,10 @@ $$
 看一个统一的例子。考虑整系数五次多项式
 
 $$
-f(x)=(x-1)(x^2-3)(x^2+2)=x^5-x^4-x^3+x^2-6x+6.
+f(x)=(x-1)(x^2-3)(x^2+2)=x^5-x^4-x^3+x^2-6x+6
 $$
 
-这个方程的五个根是 $1,\qquad \sqrt3,\qquad -\sqrt3,\qquad \sqrt{-2},\qquad -\sqrt{-2}$ 。
+这个方程的五个根是 $1$、$\sqrt3$、$-\sqrt3$、$\sqrt{-2}$、$-\sqrt{-2}$ 。
 
 这里同时出现了三种类型的根：有理实根 $1$ ，实无理根 $\pm\sqrt3$ ，以及共轭复根 $\pm\sqrt{-2}$ 。
 
@@ -438,7 +442,7 @@ $$
 在这个例子里，根集合被分成三个稳定小块：
 
 $$
-\{1\},\qquad \{\sqrt3,-\sqrt3\},\qquad \{\sqrt{-2},-\sqrt{-2}\}.
+\{1\},\qquad \{\sqrt3,-\sqrt3\},\qquad \{\sqrt{-2},-\sqrt{-2}\}
 $$
 
 允许的置换映射只能在这些小块内部重新安排根，不能把一个小块里的根送到另一个小块里。
@@ -483,7 +487,7 @@ Galois 理论的高明之处，就是把“有没有根式公式”这个关于�
 先看最熟悉的二次公式：
 
 $$
-x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}.
+x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
 $$
 
 这里真正要解的原方程是 $ax^2+bx+c=0$ 。但公式里为了写出根，先临时引入了一个中间数 $s=\sqrt{b^2-4ac}$ 。这个 $s$ 一般不是原二次方程的根。它只是求根公式中的中间数。设 $D=b^2-4ac$ ，那么 $s$ 满足 $s^2=D$ 。也就是说， $s$ 是辅助方程 $X^2-D=0$ 的一个根。最后，原二次方程的两个根不是 $s$ 本身，而是 $\dfrac{-b+s}{2a}$ 和 $\dfrac{-b-s}{2a}$ 。
@@ -495,7 +499,7 @@ Artin 的讲义把这种“一步步加入开方中间数”的过程表述为�
 为了保留一般性，记这个起点为 $F$ 。根式扩张就是从 $F$ 出发，构造一串越来越大的域：
 
 $$
-F=B_0\subset B_1\subset \cdots \subset B_r,
+F=B_0\subset B_1\subset \cdots \subset B_r
 $$
 
 这里每个 $B_i$ 都是一个**扩域**（Extension Field），也可以叫**中间域**（Intermediate Field）。域 $B_i$ 表示：到第 $i$ 步为止，我们已经允许使用的所有数。
@@ -503,7 +507,7 @@ $$
 每一步都通过加入某个辅助方程 $X^{n_i}-a_i=0$ 的一个根得到下一层扩域。数 $a_i$ 已经在上一层 $B_{i-1}$ 里，所以“加入这个辅助方程的一个根”就是“在已经知道的数的基础上，再开一次 $n_i$ 次方”。也就是
 
 $$
-B_i=B_{i-1}(\alpha_i),\qquad \alpha_i^{n_i}=a_i,\qquad a_i\in B_{i-1}.
+B_i=B_{i-1}(\alpha_i),\qquad \alpha_i^{n_i}=a_i,\qquad a_i\in B_{i-1}
 $$
 
 这里 $B_i=B_{i-1}(\alpha_i)$ 的意思是：在上一层域 $B_{i-1}$ 里加入新数 $\alpha_i$ ，再把由它和旧数经过四则运算能得到的所有数都收进来，形成一个新的、更大的域 $B_i$ 。
@@ -526,7 +530,7 @@ $$
 
 例如继续看前面的整系数五次多项式 $f(x)=(x-1)(x^2-3)(x^2+2)$ 。
 
-它的根是 $1,\qquad \sqrt3,\qquad -\sqrt3,\qquad \sqrt{-2},\qquad -\sqrt{-2}$ 。
+它的根是 $1$、$\sqrt3$、$-\sqrt3$、$\sqrt{-2}$、$-\sqrt{-2}$ 。
 
 如果基础域是 $\mathbb Q$ ，那么 $\mathbb Q$ 已经包含有理根 $1$ ，但还不包含 $\sqrt3$ 和 $\sqrt{-2}$ 。
 
@@ -548,17 +552,17 @@ Artin 的讲义强调了一个重要事实：分裂域存在，而且任意两�
 先说什么叫**同构**（Isomorphism）。两个域 $K$ 和 $K'$ 同构，意思是存在一个双射
 
 $$
-\varphi:K\to K',
+\varphi:K\to K'
 $$
 
 它保留加法和乘法：
 
 $$
-\varphi(x+y)=\varphi(x)+\varphi(y),
+\varphi(x+y)=\varphi(x)+\varphi(y)
 $$
 
 $$
-\varphi(xy)=\varphi(x)\varphi(y).
+\varphi(xy)=\varphi(x)\varphi(y)
 $$
 
 也就是说， $\varphi$ 不是随便把元素配对，而是把域 $K$ 的代数结构完整搬到域 $K'$ 里。经过映射 $\varphi$ 以后，加法、乘法、除法、零元、单位元都保持原来的关系。
@@ -577,7 +581,7 @@ $$
 并且同构 $\varphi$ 固定基础域 $F$ 中的每个元素：
 
 $$
-\varphi(a)=a,\qquad a\in F.
+\varphi(a)=a,\qquad a\in F
 $$
 
 也就是说，同构 $\varphi$ 不会改变原来已经在 $F$ 里的数，只会把第一个分裂域 $K$ 里新加入的根，对应到第二个分裂域 $K'$ 里相应的根。
@@ -589,7 +593,7 @@ $$
 于是可以把 $F(\alpha)$ 对应到 $F(\alpha')$ ，并且规定
 
 $$
-\alpha\mapsto \alpha',\qquad a\mapsto a\quad(a\in F).
+\alpha\mapsto \alpha',\qquad a\mapsto a\quad(a\in F)
 $$
 
 从 $F(\alpha)$ 到 $F(\alpha')$ 的对应会保留所有加法和乘法关系，所以这条对应关系是一个域同构。接下来，对剩下的根重复同样的步骤：每加入一个新根，就在另一个分裂域里选对应的根，把同构扩张过去。因为多项式只有有限多个根，扩张同构的过程有限步后结束，最终得到
@@ -615,7 +619,7 @@ $$
 前面讲分裂域时说的“自然意义下同构”，说的是两个域之间的结构保持对应：
 
 $$
-\varphi:K\to K'.
+\varphi:K\to K'
 $$
 
 这里 $K$ 和 $K'$ 可以是两个不同的域。
@@ -623,7 +627,7 @@ $$
 而**自同构**（Automorphism）是一种特殊的同构：它是一个结构到它自身的同构。对于分裂域 $K$ ，一个域自同构就是一个映射
 
 $$
-\sigma:K\to K,
+\sigma:K\to K
 $$
 
 它既把 $K$ 映射回 $K$ 自己，又保留域的加法和乘法结构。
@@ -631,11 +635,11 @@ $$
 也就是说，
 
 $$
-\sigma(x+y)=\sigma(x)+\sigma(y),
+\sigma(x+y)=\sigma(x)+\sigma(y)
 $$
 
 $$
-\sigma(xy)=\sigma(x)\sigma(y).
+\sigma(xy)=\sigma(x)\sigma(y)
 $$
 
 所以，同构强调“两个结构之间结构相同”；自同构强调“同一个结构内部的结构保持变换”。
@@ -643,19 +647,19 @@ $$
 接着解释标题里的“固定基础域”。设基础域是 $F$ 。一个映射 $\sigma$ **固定 $F$ **（Fixes $F$ ），意思是 $\sigma$ 限制在 $F$ 上时就是**恒等映射**（Identity Mapping）：
 
 $$
-\sigma|_F=\mathrm{id}_F.
+\sigma|_F=\mathrm{id}_F
 $$
 
 也就是说，映射 $\sigma$ 对 $F$ 中每一个元素都不做改变：
 
 $$
-\sigma(a)=a,\qquad a\in F.
+\sigma(a)=a,\qquad a\in F
 $$
 
 例如如果 $F=\mathbb{Q}$ ，那么 $\sigma$ 必须保持所有有理数不变，比如
 
 $$
-\sigma(2)=2,\qquad \sigma\left(\frac35\right)=\frac35.
+\sigma(2)=2,\qquad \sigma\left(\frac35\right)=\frac35
 $$
 
 所以“固定基础域”不是说只把 $F$ 这个集合整体映射成 $F$ 自身，而是说 $\sigma$ 在 $F$ 上就是恒等映射， $F$ 里的每一个数都逐个保持不变。注意，这不要求 $\sigma$ 在整个分裂域 $K$ 上都是恒等映射；它仍然可能改变那些属于 $K$ 、但不属于 $F$ 的数。
@@ -671,7 +675,7 @@ $$
 $$
 \begin{aligned}
 \mathrm{Gal}(K/F)
-&=\{\sigma:K\to K\mid \sigma \text{ 是域自同构，且对所有 } a\in F,\ \sigma(a)=a\}.
+&=\{\sigma:K\to K\mid \sigma \text{ 是域自同构，且对所有 } a\in F,\ \sigma(a)=a\}
 \end{aligned}
 $$
 
@@ -684,19 +688,19 @@ Galois 群记录的是：在固定系数域 $F$ 后，根集合上的哪些置�
 继续看前面的例子。设
 
 $$
-K=\mathbb Q(\sqrt3,\sqrt{-2}).
+K=\mathbb Q(\sqrt3,\sqrt{-2})
 $$
 
 这是 $f(x)=(x-1)(x^2-3)(x^2+2)$ 在 $\mathbb Q$ 上的分裂域。一个固定 $\mathbb Q$ 的自同构必须把 $\sqrt3$ 送到 $x^2-3$ 的另一个根，也就是 $\sqrt3$ 或 $-\sqrt3$ ；也必须把 $\sqrt{-2}$ 送到 $x^2+2$ 的另一个根，也就是 $\sqrt{-2}$ 或 $-\sqrt{-2}$ 。这两个选择彼此独立，所以一共有四个自同构：
 
 $$
-\sqrt3\mapsto \pm\sqrt3,\qquad \sqrt{-2}\mapsto \pm\sqrt{-2}.
+\sqrt3\mapsto \pm\sqrt3,\qquad \sqrt{-2}\mapsto \pm\sqrt{-2}
 $$
 
 其中根 $1$ 始终固定不动。因此这个例子的 Galois 群有四个元素，可以写成
 
 $$
-\mathrm{Gal}(K/\mathbb Q)\cong C_2\times C_2.
+\mathrm{Gal}(K/\mathbb Q)\cong C_2\times C_2
 $$
 
 注意，群里总有一个特殊元素，通常记作 $e$ ，叫做**单位元**（Identity Element）。它的抽象定义是：对群里的任意元素 $a$ ，都有 $ea=ae=a$ 。也就是说， $e$ 参与群运算时，不改变其它元素。在 Galois 群这个具体例子里，群元素是分裂域 $K$ 到自身的自同构，群运算是自同构的复合。这里有一个最简单的自同构： $K$ 到自身的**恒等映射**（Identity Mapping），它把 $K$ 里的每个数都映射成它自身。这个恒等映射在自同构的复合运算中不改变其它自同构，所以它就是这个 Galois 群的单位元，记作 $e$ 。在这个例子里， $e$ 固定 $1$ 、 $\sqrt3$ 、 $-\sqrt3$ 、 $\sqrt{-2}$ 和 $-\sqrt{-2}$ 。
@@ -765,28 +769,28 @@ Galois 基本定理的对应关系解释了为什么解方程会牵涉正规子�
 在这个例子中，对应关系可以画得很具体。令 $a$ 表示只把 $\sqrt3$ 变成 $-\sqrt3$ 的自同构，令 $b$ 表示只把 $\sqrt{-2}$ 变成 $-\sqrt{-2}$ 的自同构。那么
 
 $$
-G=\mathrm{Gal}(K/\mathbb Q)=\{e,a,b,ab\}.
+G=\mathrm{Gal}(K/\mathbb Q)=\{e,a,b,ab\}
 $$
 
 几个中间域和子群的对应关系是：
 
 $$
 K\longleftrightarrow \{e\},\qquad
-\mathbb Q\longleftrightarrow G.
+\mathbb Q\longleftrightarrow G
 $$
 
 三个二次中间域分别对应三个二阶子群：
 
 $$
-\mathbb Q(\sqrt3)\longleftrightarrow \{e,b\},
+\mathbb Q(\sqrt3)\longleftrightarrow \{e,b\}
 $$
 
 $$
-\mathbb Q(\sqrt{-2})\longleftrightarrow \{e,a\},
+\mathbb Q(\sqrt{-2})\longleftrightarrow \{e,a\}
 $$
 
 $$
-\mathbb Q(\sqrt{-6})\longleftrightarrow \{e,ab\}.
+\mathbb Q(\sqrt{-6})\longleftrightarrow \{e,ab\}
 $$
 
 例如， $\mathbb Q(\sqrt3)$ 中的 $\sqrt3$ 必须被固定，所以允许的自同构只能是 $e$ 和“只翻转复根那一对”的 $b$ 。而 $\sqrt{-6}=\sqrt3\sqrt{-2}$ ，如果同时翻转 $\sqrt3$ 和 $\sqrt{-2}$ ，乘积 $\sqrt{-6}$ 反而保持不变，所以 $\mathbb Q(\sqrt{-6})$ 对应 $\{e,ab\}$ 。
@@ -800,14 +804,14 @@ $$
 现在可以解释“通过正规子群链分解一个群”是什么意思。如果一个群 $G$ 有一串子群，并且链上的每一个后继子群都是前一个群的正规子群：
 
 $$
-G=G_0\triangleright G_1\triangleright \cdots \triangleright G_s=\{e\},
+G=G_0\triangleright G_1\triangleright \cdots \triangleright G_s=\{e\}
 $$
 
 这里符号 $\triangleright$ 的方向表示“左边的群包含右边的群，并且右边是左边的正规子群”。也就是说
 
 $$
-G_i\triangleleft G_{i-1},
-\qquad i=1,2,\ldots,s,
+G_i\triangleleft G_{i-1}
+\qquad i=1,2,\ldots,s
 $$
 
 那么每一节对应的商群 $G_{i-1}/G_i$ 就表示从较小群 $G_i$ 到较大群 $G_{i-1}$ 新增的那部分对称性。
@@ -817,7 +821,7 @@ $$
 例如 $S_3$ 有正规链
 
 $$
-\{e\}\triangleleft A_3\triangleleft S_3.
+\{e\}\triangleleft A_3\triangleleft S_3
 $$
 
  $S_3$ 是三个元素的全体**置换群**（Permutation Group）， $A_3$ 是其中的**偶置换**（Even Permutations）组成的子群， $\{e\}$ 是只含单位元的**平凡群**（Trivial Group）。
@@ -825,13 +829,13 @@ $$
 链的第一节
 
 $$
-A_3/\{e\}\cong C_3,
+A_3/\{e\}\cong C_3
 $$
 
 链的第二节
 
 $$
-S_3/A_3\cong C_2.
+S_3/A_3\cong C_2
 $$
 
  $\cong$ 表示“同构”，意思是结构相同； $C_3$ 和 $C_2$ 分别表示有 $3$ 个元素和 $2$ 个元素的**循环群**（Cyclic Group）。
@@ -863,7 +867,7 @@ $$
 $$
 G\text{ 可解}
 \Longleftrightarrow
-\exists\ G=G_0\triangleright G_1\triangleright \cdots \triangleright G_s=\{e\},
+\exists\ G=G_0\triangleright G_1\triangleright \cdots \triangleright G_s=\{e\}
 $$
 
 并且每一节对应的商群 $G_{i-1}/G_i$ 都是 Abel 群。
@@ -889,7 +893,7 @@ Artin 讲义中的定义正是这样： $G=G_0\supset G_1\supset\cdots\supset G_
 反过来，若 Galois 群 $G$ 可解，就有正规链
 
 $$
-G=G_0\triangleright G_1\triangleright \cdots \triangleright G_s=\{e\},
+G=G_0\triangleright G_1\triangleright \cdots \triangleright G_s=\{e\}
 $$
 
 每一节对应的商群都是 Abel 群。
@@ -897,13 +901,13 @@ $$
 由 Galois 基本定理，这条正规子群链反向对应一串中间域：
 
 $$
-F=K^{G_0}\subset K^{G_1}\subset \cdots \subset K^{G_s}=K.
+F=K^{G_0}\subset K^{G_1}\subset \cdots \subset K^{G_s}=K
 $$
 
 这里 $K^{G_i}$ 不是普通的幂。符号 $K^{G_i}$ 表示 $K$ 里被 $G_i$ 的每个自同构都固定住的所有数。换句话说，
 
 $$
-K^{G_i}=\{x\in K:\sigma(x)=x\text{ 对所有 }\sigma\in G_i\text{ 都成立}\}.
+K^{G_i}=\{x\in K:\sigma(x)=x\text{ 对所有 }\sigma\in G_i\text{ 都成立}\}
 $$
 
 每一节对应的商群都是 Abel 群，表示对应的域扩张是 **Abel 扩张**（Abelian Extension）。Kummer 理论告诉我们，在含有足够单位根的情况下，这样的 Abel 扩张可以通过开根逐步生成。把这些扩张接起来，分裂域 $K$ 就落在一个根式扩张里，原方程也就能用根式解。
@@ -944,7 +948,7 @@ $$
 例如书中重点考察一族五次方程
 
 $$
-3w^5-25w^3+60w-z=0.
+3w^5-25w^3+60w-z=0
 $$
 
 这里把 $z$ 看作复参数，把 $w$ 看作随 $z$ 变化的根。对一般的 $z$ ，这个方程有五个根；也就是说， $w(z)$ 是一个有五个取值的多值函数。随着 $z$ 在复平面里沿一条闭曲线移动，每个根可以被连续追踪；但当 $z$ 绕过某些**分支点**（Branch Points）再回到原处时，五个根未必各自回到原来的编号，而可能发生一次置换。
@@ -976,23 +980,93 @@ $$
 这个结论的理由来自**初等对称函数**（Elementary Symmetric Functions）：一般方程的系数就是根的初等对称函数，而任意置换根都会保持这些对称函数不变。因此
 
 $$
-\mathrm{Gal}(\text{一般 } n \text{ 次方程})\cong S_n.
+\mathrm{Gal}(\text{一般 } n \text{ 次方程})\cong S_n
 $$
 
 另一方面， $S_n$ 在 $n>4$ 时**不可解**（Not Solvable）。这里需要说清楚“不可解”为什么会从五次开始出现。
 
-先看五次情形。 $S_5$ 里有一个重要子群，记作 $A_5$ 。它由五个元素的所有**偶置换**（Even Permutations）组成，标准名称叫**交错群**（Alternating Group）。这里英文名 Alternating Group 是标准术语；“偶”体现在它的元素是 even permutations，也就是偶置换。
+先看五次情形。 $S_5$ 里有一个重要子群，记作 $A_5$ 。它由五个元素的所有**偶置换**（Even Permutations）组成，标准名称叫**五次交错群**，也就是五个对象上的**交错群**（Alternating Group on Five Letters）。这里英文名 alternating group 是标准术语；“交错”体现在它只包含 even permutations，也就是偶置换。
+
+更正式地说，对任意 $n>1$ ，**交错群** $A_n$ 定义为对称群 $S_n$ 中所有偶置换组成的子群：
+
+$$
+A_n=\{\sigma\in S_n:\sigma\text{ 是偶置换}\}
+$$
+
+等价地，它是**符号映射**（Sign Homomorphism）
+
+$$
+\operatorname{sgn}:S_n\to\{1,-1\}
+$$
+
+的核：
+
+$$
+A_n=\ker(\operatorname{sgn})
+$$
+
+因此 $A_n$ 是 $S_n$ 的正规子群，指数为 $2$ ，所以它有 $\dfrac{n!}{2}$ 个元素。本文最关心的是 $A_5$ ：它就是 $S_5$ 中所有偶置换组成的群，阶为 $60$ 。
 
 什么叫偶置换？任何置换都可以拆成若干次“对换”，也就是每次只置换两个元素。如果一个置换可以拆成偶数次对换，就叫偶置换；如果必须拆成奇数次对换，就叫**奇置换**（Odd Permutation）。虽然同一个置换的拆法可能不唯一，但拆成对换的次数奇偶性是固定的。例如 $(1\,2)$ 本身就是一次对换，所以它是奇置换，不在 $A_5$ 里。而 $(1\,2\,3)=(1\,3)(1\,2)$ ，可以拆成两次对换，所以它是偶置换，在 $A_5$ 里。同样， $(1\,2\,3\,4\,5)=(1\,5)(1\,4)(1\,3)(1\,2)$ ，可以拆成四次对换，所以也在 $A_5$ 里。
 
 因此， $A_5$ 不是一个抽象得摸不着的名称。它就是 $S_5$ 里**所有**能拆成偶数次对换的那些置换组成的群。 $S_5$ 一共有 $5!=120$ 个元素，其中一半是偶置换，所以 $A_5$ 有 $60$ 个元素。
+
+更令人惊讶的是， $A_5$ 还可以被看见：它正是**正二十面体**（Regular Icosahedron）的**旋转对称群**（Rotation Group）。正二十面体有 $12$ 个顶点、 $20$ 个面、 $30$ 条边。只考虑保持方向的旋转，不考虑镜面反射。绕一对相对顶点的轴，可以做 $72^\circ,144^\circ,216^\circ,288^\circ$ 四种非平凡旋转；相对顶点共有 $6$ 对，所以得到 $6\cdot4=24$ 个阶为 $5$ 的旋转。绕一对相对面的中心，可以做 $120^\circ,240^\circ$ 两种非平凡旋转；相对面共有 $10$ 对，所以得到 $10\cdot2=20$ 个阶为 $3$ 的旋转。绕一对相对边的中点，可以做一个 $180^\circ$ 旋转；相对边共有 $15$ 对，所以得到 $15$ 个阶为 $2$ 的旋转。再加上恒等旋转，总数是
+
+$$
+1+24+20+15=60
+$$
+
+这正好等于 $|A_5|=60$ 。更进一步，正二十面体中可以自然地看到 $5$ 个内接立方体；每个旋转都会把这 $5$ 个立方体重新排列，因此给出一个 $5$ 个对象上的置换。这个对应保持群运算，并且恰好得到 $A_5$ 。所以
+
+$$
+\operatorname{Rot}(\text{正二十面体})\cong A_5
+$$
+
+这个几何图像也能帮助理解“非 Abel”是什么意思：对一个正二十面体连续做两次不同的旋转，最终朝向通常取决于先做哪一次、后做哪一次。因此这个旋转群不是 Abel 群。
+
+这件事和五次方程的关系很深：一般五次方程的 Galois 群里出现 $A_5$ ，而同一个 $A_5$ 又是正二十面体的旋转对称群。Klein 后来的二十面体解法，正是抓住了这个几何化的 $A_5$ 结构。
+
+<figure>
+  <img src="assets/figure-09a-a5-icosahedron.svg" alt="A5 与正二十面体旋转对称群">
+</figure>
+
+其实 $A_5$ 还有几种等价的“面孔”。它不仅是五个对象的偶置换群，也是正二十面体和正十二面体的旋转对称群；这两个柏拉图多面体互为对偶，所以它们的旋转群相同。日常一点的例子是足球形状的截角二十面体，它保持方向的旋转对称群同样是这个 $60$ 元群。再抽象一些，正四维单纯形有五个顶点，全体对称是 $S_5$ ，其中保持取向的旋转正好对应偶置换，因此也是 $A_5$ 。
+
+在更代数的语言里， $A_5$ 还同构于 $\mathrm{PSL}(2,5)$ 。这里 $\mathrm{PSL}(2,5)$ 的全称是 **projective special linear group**，中文可译作**二阶五元射影特殊线性群**。粗略地说，先在五个元素的有限域 $\mathbb F_5=\{0,1,2,3,4\}$ 上考虑行列式为 $1$ 的 $2\times2$ 矩阵，它们组成 $\mathrm{SL}(2,5)$ 。这样的矩阵可以通过分式线性变换
+
+$$
+z\mapsto \frac{az+b}{cz+d}
+$$
+
+作用在射影直线 $\mathbb P^1(\mathbb F_5)=\mathbb F_5\cup\{\infty\}$ 的六个点上。由于矩阵 $I$ 和 $-I$ 给出的射影变换相同，要把中心 $\{\pm I\}$ 商掉；所得群就是 $\mathrm{PSL}(2,5)$ 。它有 $120/2=60$ 个元素，经典事实是
+
+$$
+\mathrm{PSL}(2,5)\cong A_5
+$$
+
+所以这里的意义是：同一个 $A_5$ 既可以看成五个对象的偶置换群，也可以看成正二十面体的旋转群，还可以看成有限域上的分式线性变换群。Klein 后来的二十面体解法，正是把这些不同面孔联系起来。
+
+<figure>
+  <img src="assets/figure-10-platonic-rotation-groups.svg" alt="图 10：柏拉图立体的旋转群">
+</figure>
+
+所谓**柏拉图立体**，也叫**凸正多面体**，是指三维空间里的凸多面体，并且满足两个条件：第一，每个面都是彼此全等的正多边形；第二，每个顶点处接合的面数都相同。符合这两个条件的立体总共只有五种：正四面体、正六面体（立方体）、正八面体、正十二面体和正二十面体。
+
+这里的“最高”不是价值判断，也不是说 $A_5$ 是所有有限旋转群中绝对最大的群。三维空间里的有限旋转群包括两个可以无限延伸的系列：循环群 $C_n$ 和二面体旋转群 $D_n$ ，这里的 $n$ 可以任意变大。除此以外，还有三类来自正多面体的“柏拉图型”旋转群：正四面体型、立方体/正八面体型、正十二面体/正二十面体型。
+
+在这三类柏拉图型旋转群中，正四面体的旋转群同构于 $A_4$ ，阶为 $12$ ；立方体和正八面体互为对偶，它们的旋转群同构于 $S_4$ ，阶为 $24$ ；正十二面体和正二十面体互为对偶，它们的旋转群同构于 $A_5$ ，阶为 $60$ 。所以从“旋转操作的数量”看， $A_5$ 是柏拉图型旋转群中最大的那一档。
+
+还要区分**纯旋转对称**和**全对称**。本文这里讨论的是保持方向的旋转，所以正十二面体和正二十面体的旋转群是 $A_5$ ，阶为 $60$ 。如果把镜像反射这类改变取向的对称也算进去，那么得到的是全对称群，阶数会变成 $120$ ，可看作在 $A_5$ 的旋转对称之外再加上一层二阶取向翻转。
+
+更重要的是结构复杂度。 $A_4$ 和 $S_4$ 虽然已经不是 Abel 群，但它们仍然是可解群；也就是说，它们还能通过正规子群链逐层拆成 Abel 商群。 $A_5$ 则不同：它是最小的非 Abel 单群，既不是 Abel 群，又没有非平凡正规子群可供继续拆分。因此，从“根式可解性”的角度看，柏拉图立体旋转群的三档正好形成一个很有启发性的对比： $A_4$ 和 $S_4$ 还属于可解世界，而 $A_5$ 已经进入不可解世界。这里说它是“最高一档”，主要就是指它在柏拉图型旋转对称中同时具有最大的阶数和最关键的非 Abel 单群结构。
 
  $A_5$ 重要，是因为它同时具有两个性质。
 
 第一， $A_5$ 不是 Abel 群。也就是说，里面有些置换先后顺序不同，复合结果就不同。举一个具体例子。令
 
 $$
-\sigma=(1\,2\,3),\qquad \tau=(1\,3\,4).
+\sigma=(1\,2\,3),\qquad \tau=(1\,3\,4)
 $$
 
 这两个都是三轮换，都可以拆成两次对换，所以都属于 $A_5$ 。但它们的复合顺序不能随便交换。按照从右到左复合的习惯，有 $\sigma\tau=(1\,3\,4\,2)$ ，而 $\tau\sigma=(1\,2\,4\,3)$ 。两个结果不同，所以 $\sigma\tau\neq\tau\sigma$ 。
@@ -1010,7 +1084,7 @@ $$
  $S_3$ 也不是单群。因为它有正规子群
 
 $$
-A_3=\{e,(1\,2\,3),(1\,3\,2)\}.
+A_3=\{e,(1\,2\,3),(1\,3\,2)\}
 $$
 
 这个 $A_3$ 既不是 $\{e\}$ ，也不是整个 $S_3$ ，所以它是一个非平凡正规子群。
@@ -1021,7 +1095,7 @@ $$
 
 在进入具体五次方程例子之前，先把后面计算遵循的思路说清楚。这一节的作用，是把前面的理论变成一套可以实践的判断方法。第十节不是在“硬算五个根”，而是在回答一个更结构性的问题：
 
-这个方程的 Galois 群到底是可解群，还是已经大到包含 $S_5$ 那种不可解结构？
+这个方程的 Galois 群到底是可解群，还是已经达到 $A_5$ 或 $S_5$ 这类不可解类型？
 
 判断路线大致分成几步。
 
@@ -1033,7 +1107,41 @@ $$
 
 这个子群到底是 $S_5$ 本身，还是某个较小的子群？
 
-对不可约五次方程来说，可能出现的传递子群并不随意。准确地说， $S_5$ 的传递子群只有少数几类： $C_5$ 、 $D_5$ 、 $F_{20}$ 、 $A_5$ 、 $S_5$ 。其中 $F_{20}$ 可以理解为 $C_5\rtimes C_4$ 那种 $20$ 元子群。前三类是可解群；后两类含有 $A_5$ 式的不可解结构。因此后面的计算常常不是把 Galois 群的每个元素都列出来，而是寻找足够有辨识度的“置换证据”，用来排除较小的可能性。
+对一个不可约五次多项式来说，可能出现的传递子群并不随意。准确地说，在同构意义下， $S_5$ 的传递子群只有少数几类：循环群 $C_5$ 、二面体群 $D_5$ 、Frobenius 群 $F_{20}$ 、交错群 $A_5$ 和对称群 $S_5$ 。这句话的意思是：如果一个不可约五次方程的 Galois 群被看成五个根上的置换群，那么它只能落在这几种结构里。
+
+这几个符号可以先这样理解。 $C_5$ 是**五阶循环群**（Cyclic Group of Order 5），由一个五轮换生成，像是把五个根排成一圈后不断旋转。 $D_5$ 是**五阶二面体群**（Dihedral Group of Order 10），可以看作正五边形的对称群，包含五个旋转和五个反射。 $F_{20}$ 是一个 $20$ 元的 **Frobenius 群**，在这里可以理解成仿射变换群 $x\mapsto ax+b$ 在五个元素上的作用，其中 $a\in(\mathbb Z/5\mathbb Z)^\times$ ， $b\in\mathbb Z/5\mathbb Z$ 。 $A_5$ 是前面介绍过的五次交错群，只含偶置换； $S_5$ 则是五个对象的全体置换组成的对称群。它们正好覆盖了不可约五次方程可能出现的传递置换结构。
+
+其中前三类是可解群。 $C_5$ 只有一个 $5$ 阶循环，结构最简单； $D_5$ 可以理解为正五边形的对称群，它有一个 $5$ 阶旋转部分和一个 $2$ 阶反射部分，结构上可以分成
+
+$$
+D_5\triangleright C_5\triangleright \{e\}
+$$
+
+相邻商群分别是 $C_2$ 和 $C_5$ ，都是 Abel 群，所以 $D_5$ 可解。 $F_{20}$ 可以理解为 $C_5\rtimes C_4$ 那种 $20$ 元子群：先有一个 $5$ 阶循环部分，再让一个 $4$ 阶群作用在它上面。它也有一条由 Abel 商群组成的正规子群链，所以仍然可解。相反， $A_5$ 和 $S_5$ 都含有 $A_5$ 式的不可解结构；只要 Galois 群达到这两类，就不能用根式求解。
+
+于是后面的计算常常不是把 Galois 群的每个元素都列出来，而是寻找足够有辨识度的“置换证据”，用来排除较小的可能性。比如，如果我们能证明 Galois 群含有某些循环类型，而这些循环类型不可能出现在 $C_5$ 、 $D_5$ 或 $F_{20}$ 中，也不可能完全落在 $A_5$ 中，那么最后就只能是 $S_5$ 。
+
+这自然引出一个问题：这样的多项式真的存在吗，还是它们只是理论分类里的幻影？答案是它们非常真实，而且可以给出很具体的例子。例如多项式
+
+$$
+f(x)=x^5-4x+2
+$$
+
+就是一个典型例子。它在有理数域上不可约；从实函数图像看，导数
+
+$$
+f'(x)=5x^4-4
+$$
+
+有两个实临界点，因此图像至多有三个实零点。进一步检查函数值可以发现它确实有三个实根，于是另外两个根是一对共轭复根。也就是说，这个五次方程的根在复平面里呈现出“三个实根加一对共轭复根”的形态。
+
+这里可以用到一个很有力的群论判据，通常看作 **Jordan 定理**（Jordan's Theorem on Primitive Permutation Groups）的一个推论：
+
+> 如果 $f(x)\in\mathbb Q[x]$ 是不可约五次多项式，并且它恰好有三个实根和一对共轭复根，那么它的 Galois 群就是 $S_5$ 。
+
+理由是这样的。不可约五次多项式的 Galois 群在五个根上的作用是传递的；由于次数 $5$ 是素数，这个传递作用还是**本原的**（Primitive）。另一方面，复共轭会固定三个实根，并交换那一对共轭复根，所以它在五个根上的作用正是一个对换。Jordan 定理说：一个本原置换群如果含有一个对换，那么它就是整个对称群。因此，这个 Galois 群必为 $S_5$ 。
+
+于是， $x^5-4x+2$ 这个例子不需要把所有 Galois 自同构列出来；只要知道它不可约，并且恰好有三个实根，就能推出 Galois 群是 $S_5$ ，因此它不能用根式求解。这个例子把抽象的群论判断和熟悉的函数图像联系在一起：我们从图像上看到根的实复分布，再由复共轭得到一个具体的对换，最后用 Jordan 定理锁定整个 Galois 群。
 
 第三步，也是最关键的一步：用模素数运算读出 Galois 群里的置换类型。
 
@@ -1071,7 +1179,7 @@ $$
 
 其一是**直接构造根式解**：如果根已经能用开方和四则运算写出来，或者能通过巧妙代换写出来，就说明这个方程可以根式求解。
 
-其二是**识别 Galois 群太大**：如果模素数分解暴露出足够强的循环类型，锁定 Galois 群为 $S_5$ ，那么因为 $S_5$ 不可解，这个方程就不能用根式求解。
+其二是**识别 Galois 群达到不可解类型**：如果模素数分解暴露出足够强的循环类型，锁定 Galois 群为 $A_5$ 或 $S_5$ ，那么因为这两个群都不可解，这个方程就不能用根式求解。
 
 ## 10. 五次方程实例
 
@@ -1086,13 +1194,13 @@ $$
 这个例子很特殊：它的 Galois 群不是整个 $S_5$ 。如果把五个根按下标写成
 
 $$
-r_j=\zeta^j\alpha,\qquad j=0,1,2,3,4,
+r_j=\zeta^j\alpha,\qquad j=0,1,2,3,4
 $$
 
 Galois 群里的自同构由两类选择决定：可以把 $\alpha$ 映射成 $\zeta^b\alpha$ ，也可以把 $\zeta$ 映射成 $\zeta^a$ 。因此它会把根的下标按如下形式重新对应：
 
 $$
-j\longmapsto aj+b,\qquad a\in(\mathbb Z/5\mathbb Z)^\times,\quad b\in\mathbb Z/5\mathbb Z.
+j\longmapsto aj+b,\qquad a\in(\mathbb Z/5\mathbb Z)^\times,\quad b\in\mathbb Z/5\mathbb Z
 $$
 
 这里 $b$ 有 $5$ 种选择， $a$ 有 $4$ 种选择；反过来，这些选择也确实给出 $K$ 到自身的自同构。所以这个 Galois 群有 $5\cdot 4=20$ 个元素。它可以写成 $\mathrm{Gal}(K/\mathbb Q)\cong C_5\rtimes C_4$ 。
@@ -1100,7 +1208,7 @@ $$
 这里 $\rtimes$ 表示**半直积**（Semidirect Product）。这句话的重点不是符号本身，而是它告诉我们：这个群可以先看成一个 $C_5$ ，再看成一个 $C_4$ 作用在它上面。更具体地说，有正规子群链
 
 $$
-\{e\}\triangleleft C_5\triangleleft C_5\rtimes C_4,
+\{e\}\triangleleft C_5\triangleleft C_5\rtimes C_4
 $$
 
 对应的两个商群是 $C_5$ 和 $C_4$ 。
@@ -1116,73 +1224,73 @@ $$
 这里可以给出一个简短的计算依据。先看它的**判别式**（Discriminant）。设 $f(x)=x^5-x-1$ 。一般地，如果 $f(x)=x^5+ax+b$ ，那么它的判别式可以由 **结式**（Resultant）算出：
 
 $$
-\Delta(f)=(-1)^{5\cdot4/2}\mathrm{Res}(f,f').
+\Delta(f)=(-1)^{5\cdot4/2}\mathrm{Res}(f,f')
 $$
 
 因为
 
 $$
-(-1)^{5\cdot4/2}=(-1)^{10}=1,
+(-1)^{5\cdot4/2}=(-1)^{10}=1
 $$
 
 所以这里就是
 
 $$
-\Delta(f)=\mathrm{Res}(f,f').
+\Delta(f)=\mathrm{Res}(f,f')
 $$
 
 对 $f(x)=x^5+ax+b$ 求导，得到
 
 $$
-f'(x)=5x^4+a.
+f'(x)=5x^4+a
 $$
 
 令 $t$ 是 $f'(x)$ 的一个根，则
 
 $$
-5t^4+a=0,\qquad t^4=-\frac a5.
+5t^4+a=0,\qquad t^4=-\frac a5
 $$
 
 于是
 
 $$
-t^5=t\cdot t^4=-\frac a5t.
+t^5=t\cdot t^4=-\frac a5t
 $$
 
 把 $t$ 代回 $f(x)$ ，得到
 
 $$
-f(t)=t^5+at+b=-\frac a5t+at+b=\frac{4a}{5}t+b.
+f(t)=t^5+at+b=-\frac a5t+at+b=\frac{4a}{5}t+b
 $$
 
 把 $f'(x)$ 的四个根都代入，再乘上导数首项系数 $5$ 的五次方，可以得到
 
 $$
-\mathrm{Res}(f,f')=5^5b^4+4^4a^5.
+\mathrm{Res}(f,f')=5^5b^4+4^4a^5
 $$
 
 现在 $x^5-x-1$ 对应的是
 
 $$
-a=-1,\qquad b=-1.
+a=-1,\qquad b=-1
 $$
 
 所以
 
 $$
-\Delta(f)=5^5(-1)^4+4^4(-1)^5=3125-256=2869.
+\Delta(f)=5^5(-1)^4+4^4(-1)^5=3125-256=2869
 $$
 
 因此 $x^5-x-1$ 的判别式是 $2869$ ，不是有理数平方。为什么这能判断 Galois 群里有没有奇置换？因为如果 $r_1,\ldots,r_5$ 是五个根，那么判别式可以写成
 
 $$
-\Delta(f)=\prod_{i\lt j}(r_i-r_j)^2.
+\Delta(f)=\prod_{i\lt j}(r_i-r_j)^2
 $$
 
 它的平方根本质上是
 
 $$
-\prod_{i\lt j}(r_i-r_j).
+\prod_{i\lt j}(r_i-r_j)
 $$
 
 偶置换保持这个乘积不变，奇置换会把它变成相反数。因此，如果判别式在 $\mathbb Q$ 里是平方，那么这个平方根已经在基础域 $\mathbb Q$ 里，被所有 Galois 自同构固定，Galois 群只能包含偶置换。反过来，如果判别式不是有理数平方，就说明 Galois 群不可能完全落在 $A_5$ 里；换句话说，这个 Galois 群里一定有奇置换。
@@ -1194,19 +1302,19 @@ $$
 我们先简化阐述一下 **Dedekind 定理**（Dedekind's Theorem）。设 $f(x)$ 是一个整系数不可约多项式，次数为 $n$ ，它在 $\mathbb Q$ 上的 Galois 群可以看成 $n$ 个根上的一个置换群。取一个素数 $p$ ，只要 $p$ 不整除 $f$ 的判别式，就可以把 $f(x)$ 的系数模 $p$ 化简。如果模 $p$ 以后， $f(x)$ 分解成若干个不可约因子：
 
 $$
-f(x)\equiv f_1(x)f_2(x)\cdots f_k(x)\pmod p,
+f(x)\equiv f_1(x)f_2(x)\cdots f_k(x)\pmod p
 $$
 
 且这些不可约因子的次数分别是
 
 $$
-d_1,d_2,\ldots,d_k,
+d_1,d_2,\ldots,d_k
 $$
 
 那么原来的 Galois 群里一定存在一个置换，它的循环长度正好是
 
 $$
-(d_1,d_2,\ldots,d_k).
+(d_1,d_2,\ldots,d_k)
 $$
 
 例如，一个不可约五次因子对应一个五轮换；一个二次不可约因子乘一个三次不可约因子，对应一个循环类型为 $(2)(3)$ 的置换。
@@ -1224,13 +1332,13 @@ $$
 时，因为在模 $2$ 意义下
 
 $$
--1\equiv 1\pmod 2,
+-1\equiv 1\pmod 2
 $$
 
 所以
 
 $$
-x^5-x-1\equiv x^5+x+1\pmod 2.
+x^5-x-1\equiv x^5+x+1\pmod 2
 $$
 
 而 $x^5+x+1$ 在模 $2$ 的多项式环 $\mathbb F_2[x]$ 里会分解。这里 $\mathbb F_2$ 表示只含 $0,1$ 两个元素、并按模 $2$ 做加法和乘法的数域； $\mathbb F_2[x]$ 表示所有以 $\mathbb F_2$ 中元素为系数的 $x$ 的多项式组成的集合，加法和乘法同样按模 $2$ 计算。
@@ -1238,13 +1346,13 @@ $$
 这里需要注意：如果先在整数系数里展开，右边其实是
 
 $$
-(x^2+x+1)(x^3+x^2+1)=x^5+2x^4+2x^3+2x^2+x+1.
+(x^2+x+1)(x^3+x^2+1)=x^5+2x^4+2x^3+2x^2+x+1
 $$
 
 但在模 $2$ 意义下， $2=0$ ，所以中间那些系数为 $2$ 的项都会消失。因此
 
 $$
-x^5+x+1\equiv(x^2+x+1)(x^3+x^2+1)\pmod 2.
+x^5+x+1\equiv(x^2+x+1)(x^3+x^2+1)\pmod 2
 $$
 
 这说明 Galois 群里有一个循环类型为 $(2)(3)$ 的置换。结合五次置换群的分类，可以推出这个 Galois 群不是较小的可解子群，而是完整的 $S_5$ 。
@@ -1258,7 +1366,7 @@ $$
 具体来说，我们这里取模 $13$ 和模 $3$ 来计算。顺便说明一句，选这两个模数不是因为必须按这个顺序计算，而是因为它们分别暴露出两种不同的置换信息：模 $13$ 后， $x^5+x^4+x^3+x^2+x+2$ 仍然是不可约五次多项式，所以 Galois 群里有一个五轮换；模 $3$ 后，它分解为一个二次因子和一个三次因子，所以会给出一个循环类型为 $(2)(3)$ 的置换。把这两条证据合在一起，才能锁定完整的 $S_5$ 。具体地，模 $3$ 后有
 
 $$
-x^5+x^4+x^3+x^2+x+2\equiv (x^2+2x+2)(x^3+2x^2+x+1)\pmod 3.
+x^5+x^4+x^3+x^2+x+2\equiv (x^2+2x+2)(x^3+2x^2+x+1)\pmod 3
 $$
 
 于是和方程二一样，结合五次置换群的分类，可以推出这个 Galois 群是完整的 $S_5$ 。因此这个正整数系数五次方程也不能用根式求解。
@@ -1272,7 +1380,7 @@ $$
 又因为 $uv=1$ ，所以 $u^5v^5=1$ 。令 $T=u^5$ ，那么 $v^5=1/T$ ，于是 $T-1/T=1$ ，也就是 $T^2-T-1=0$ 。这个二次方程给出 $T=(1+\sqrt5)/2$ 或 $T=(1-\sqrt5)/2$ 。取 $T=(1+\sqrt5)/2$ ，记 $A=\sqrt[5]{(1+\sqrt5)/2}$ ，再取五次单位根 $\zeta=\zeta_5$ 。那么原方程的五个根可以写成
 
 $$
-x_k=\zeta^kA-\zeta^{-k}A^{-1},\qquad k=0,1,2,3,4.
+x_k=\zeta^kA-\zeta^{-k}A^{-1},\qquad k=0,1,2,3,4
 $$
 
 原因是：取 $u=\zeta^kA$ 、 $v=\zeta^{-k}A^{-1}$ ，就有 $uv=1$ ，并且 $u^5-v^5=(1+\sqrt5)/2-2/(1+\sqrt5)=1$ 。因此每个 $x_k=u-v$ 都满足原方程。这里的求解过程只用了四则运算、平方根、五次根和五次单位根，所以这是一个真正可以用根式求解的非平凡五次方程。
@@ -1290,11 +1398,11 @@ $$
 所以，科普地说：如果系数上界 $B$ 足够大，随机写出一个自然数系数的五次方程，那么它不能用根式求解的概率非常接近 $100\%$ 。严格地说，这不是某个固定百分比，而是一个极限结论：
 
 $$
-\lim_{B\to\infty}\Pr(\text{随机五次方程不能用根式求解})=1.
+\lim_{B\to\infty}\Pr(\text{随机五次方程不能用根式求解})=1
 $$
 
 <figure>
-  <img src="assets/figure-10-s5-a5-obstruction.svg" alt="S5 中的 A5 是一般五次方程不能用根式通解的结构原因">
+  <img src="assets/figure-11-s5-a5-obstruction.svg" alt="图 11：S5 中的 A5 是一般五次方程不能用根式通解的结构原因">
 </figure>
 
 ## 11. 五次以上方程的可解性
@@ -1310,13 +1418,13 @@ $$
 这里的具体原因仍然来自 $A_5$ 。当 $n>5$ 时， $S_n$ 里面包含一个自然的 $S_5$ ：只置换其中五个元素，把其余元素全部固定住。例如在 $S_6$ 里，我们可以只置换
 
 $$
-r_1,r_2,r_3,r_4,r_5,
+r_1,r_2,r_3,r_4,r_5
 $$
 
 同时保持 $r_6$ 不变。这样得到的那些置换就组成一个 $S_5$ 的副本。更一般地，在 $S_n$ 中也可以只动前五个根，固定剩下的
 
 $$
-r_6,r_7,\ldots,r_n.
+r_6,r_7,\ldots,r_n
 $$
 
 因此 $S_n$ 中同样含有 $A_5$ 这样的非 Abel 单群结构。既然 $A_5$ 不能通过正规子群链分解成若干个 Abel 商群，那么从 $n=5$ 开始， $S_n$ 就都不可能是可解群。
@@ -1327,6 +1435,68 @@ $$
 - 即使不能用根式解，方程仍然有根。复数范围内，每个非常数多项式都有根。
 - 实际计算中可以用**数值方法**（Numerical Methods）逼近根，比如**牛顿法**（Newton's Method）。
 - 如果允许超出根式的**特殊函数**（Special Functions），某些五次或更高次方程也可以用更广义的函数表达。
+
+这里最后一点值得稍微展开，因为它容易和 Abel-Ruffini 定理混在一起。一般五次方程不能用根式给出通用公式，但这不表示它不能用任何统一的解析函数表达。经典做法是先通过 Tschirnhaus 变换，把一般五次方程化成 **Bring-Jerrard 形式**（Bring-Jerrard Form）
+
+$$
+z^5+pz+q=0
+$$
+
+再进一步归一化为
+
+$$
+u^5-u=t
+$$
+
+于是问题变成：给定 $t$ ，怎样表示方程 $u^5-u=t$ 的一个根。这个反函数有时记作 **Bring radical**：
+
+$$
+u=\operatorname{BR}(t)
+$$
+
+这里的 radical 只是历史名称； $\operatorname{BR}(t)$ 并不是根式，而是一个专门为 Bring 方程定义的特殊函数。
+
+Hermite、Kronecker、Brioschi 等人的经典工作，正是在这个意义上给出一般五次方程的特殊函数解。大致路线是：先把五次方程化成标准型，再引入一个椭圆模参数 $\tau$ ，用椭圆模函数、theta 函数或 $j$ -不变量把标准型中的参数表达出来，最后把根写成这些函数在 $\tau$ 处的值。也就是说，这里的公式形态不再是
+
+$$
+\text{根}=\text{由系数经过有限次四则运算和开根得到的表达式}
+$$
+
+而是
+
+$$
+\text{根}=\text{某个椭圆模函数、theta 函数或相关反函数的值}
+$$
+
+Brioschi 常用的标准型之一可以写成
+
+$$
+y^5+10y^3+45y+a=0
+$$
+
+这个方程的参数 $a$ 可以和椭圆曲线的模参数联系起来；换句话说，先由 $a$ 反推出某个模参数 $\tau$ ，再用相应的椭圆模函数表达根。Hermite 的公式也是类似精神：它构造若干椭圆模函数，使得由这些函数组合出来的量满足一个标准五次方程。这里真正起作用的不是根式，而是椭圆函数和模函数自身的多值结构。
+
+Klein 后来给出了一条更结构化的解释：一般五次方程背后的关键群是 $A_5$ ，而 $A_5$ 正好也是正二十面体的旋转对称群。所以 Klein 把五次方程和**二十面体函数**（Icosahedral Function）联系起来。粗略地说，五次方程的某些不变量可以转化成二十面体函数的取值；反过来，求根就变成反解这个二十面体函数。这条路线把“为什么五次方程需要比根式更高的函数”解释得很清楚：根式只能逐层处理 Abel 商群，而二十面体函数能够容纳 $A_5$ 这种非 Abel 对称性。
+
+如果不走椭圆函数和二十面体函数，也可以用超几何函数表达 Bring 方程的根。例如，对于标准方程
+
+$$
+x^5+x+a=0
+$$
+
+在适当的收敛范围内，一个根可以写成
+
+$$
+x=-a\,{}_4F_3\!\left(
+\begin{matrix}
+\frac15,\frac25,\frac35,\frac45\\
+\frac12,\frac34,\frac54
+\end{matrix}
+;-\frac{3125a^4}{256}
+\right)
+$$
+
+这里的 ${}_4F_3$ 是**广义超几何函数**（Generalized Hypergeometric Function）。超出收敛范围时，还要使用解析延拓。这个公式很直观地说明：五次方程可以在更大的特殊函数体系中被统一表达，但这种表达已经不是根式求解。
 
 这里还可能产生一个自然追问：一般五次方程不能用根式求解，是不是只是因为我们把方程放在复数域里看？如果继续扩大数域，结论会不会改变？
 
@@ -1364,4 +1534,6 @@ Galois 群的判别标准也解释了为什么有些特殊五次方程仍然可�
 4. Niels Henrik Abel, *Mémoire sur les équations algébriques, où l'on démontre l'impossibilité de la résolution de l'équation générale du cinquième degré*, Christiania, 1824. 本文第八节关于 Abel 原始证明的历史说明，参考 Abel 这篇关于一般五次方程不可根式求解的早期论文。
 5. V.B. Alekseev, *Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold*, Springer, 2004. 本文第八节关于单值群（Monodromy Group）、黎曼曲面分支结构和 Abel 定理拓扑证明的补充视角，参考该书第 2.11--2.14 节以及 Khovanskii 附录中的说明。
 6. Manjul Bhargava, “Galois groups of random integer polynomials and van der Waerden's Conjecture,” *Annals of Mathematics*, 201(2), 339-377, 2025. [Annals 页面](https://annals.math.princeton.edu/2025/201-2/p01)；[arXiv:2111.06507](https://arxiv.org/abs/2111.06507)。本文第十节关于随机整系数多项式的 Galois 群几乎总是 $S_n$ ，以及自然数系数五次方程几乎总是不能用根式求解的判断，参考这一结果。
+7. Jesse Schultz, *Solving the Quintic with Elliptic Functions*. 本文第十一节关于 Hermite、Brioschi 型五次方程和椭圆模函数解法的简述，参考这份讲义式说明。
+8. Oliver Nash, “The icosahedron and the solution of the quintic,” 2013. [arXiv:1308.0955](https://arxiv.org/abs/1308.0955)。本文第十一节关于 Klein 二十面体视角的简述，参考这篇文章。
 

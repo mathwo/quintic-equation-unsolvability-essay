@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="680" viewBox="0 0 980 680" role="img" aria-label="图 9：A5 与正二十面体旋转对称">
+    <rect width="100%" height="100%" fill="#fbfcfa"/>
+    
+    <defs>
+      <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M2,2 L10,6 L2,10 Z" fill="#2e6f65"/>
+      </marker>
+      <marker id="arrowStart" markerWidth="12" markerHeight="12" refX="2" refY="6" orient="auto">
+        <path d="M10,2 L2,6 L10,10 Z" fill="#2e6f65"/>
+      </marker>
+      <marker id="arrowRed" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M2,2 L10,6 L2,10 Z" fill="#b85c5c"/>
+      </marker>
+      <marker id="arrowStartRed" markerWidth="12" markerHeight="12" refX="2" refY="6" orient="auto">
+        <path d="M10,2 L2,6 L10,10 Z" fill="#b85c5c"/>
+      </marker>
+      <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#12332f" flood-opacity="0.12"/>
+      </filter>
+    </defs>
+    
+    <text x="490.0" y="54" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="30" font-weight="700" fill="#183f3a" text-anchor="middle">图 9：A5 与正二十面体旋转对称</text>
+    <rect x="55" y="90" width="870" height="420" rx="14" fill="#fbfdfb" stroke="#c9ddd6" stroke-width="2"/>
+<rect x="95" y="150" width="360" height="300" rx="14" fill="#f7fbf9" stroke="#d7e7e1" stroke-width="2"/>
+<line x1="234.06501195748456" y1="325.2751864041621" x2="368.5821828099081" y2="240.04735810370528" stroke="#b9d0c9" stroke-width="2" stroke-linecap="round"/>
+<line x1="234.06501195748456" y1="325.2751864041621" x2="220.0826216398989" y2="177.52424140045045" stroke="#b9d0c9" stroke-width="2" stroke-linecap="round"/>
+<line x1="220.0826216398989" y1="177.52424140045045" x2="368.5821828099081" y2="240.04735810370528" stroke="#b9d0c9" stroke-width="2" stroke-linecap="round"/>
+<line x1="234.06501195748456" y1="325.2751864041621" x2="362.4551341386854" y2="404.863572574551" stroke="#b9d0c9" stroke-width="2" stroke-linecap="round"/>
+<line x1="368.5821828099081" y1="240.04735810370528" x2="362.4551341386854" y2="404.863572574551" stroke="#b9d0c9" stroke-width="2" stroke-linecap="round"/>
+<line x1="234.06501195748456" y1="325.2751864041621" x2="122.17779685116633" y2="303.69904466610836" stroke="#b9d0c9" stroke-width="2" stroke-linecap="round"/>
+<line x1="234.06501195748456" y1="325.2751864041621" x2="210.16884863913566" y2="444.20247831137095" stroke="#b9d0c9" stroke-width="2" stroke-linecap="round"/>
+<line x1="220.0826216398989" y1="177.52424140045045" x2="122.17779685116633" y2="303.69904466610836" stroke="#b9d0c9" stroke-width="2" stroke-linecap="round"/>
+<line x1="339.83115136086434" y1="165.79752168862902" x2="368.5821828099081" y2="240.04735810370528" stroke="#b9d0c9" stroke-width="2" stroke-linecap="round"/>
+<line x1="368.5821828099081" y1="240.04735810370528" x2="427.82220314883364" y2="306.30095533389164" stroke="#b9d0c9" stroke-width="2" stroke-linecap="round"/>
+<line x1="339.83115136086434" y1="165.79752168862902" x2="220.0826216398989" y2="177.52424140045045" stroke="#b9d0c9" stroke-width="2" stroke-linecap="round"/>
+<line x1="210.16884863913566" y1="444.20247831137095" x2="362.4551341386854" y2="404.863572574551" stroke="#b9d0c9" stroke-width="2" stroke-linecap="round"/>
+<line x1="210.16884863913566" y1="444.20247831137095" x2="122.17779685116633" y2="303.69904466610836" stroke="#b9d0c9" stroke-width="2" stroke-linecap="round"/>
+<line x1="362.4551341386854" y1="404.863572574551" x2="427.82220314883364" y2="306.30095533389164" stroke="#b9d0c9" stroke-width="2" stroke-linecap="round"/>
+<line x1="220.0826216398989" y1="177.52424140045045" x2="187.54486586131458" y2="205.13642742544906" stroke="#b9d0c9" stroke-width="2" stroke-linecap="round"/>
+<line x1="329.9173783601011" y1="432.4757585995496" x2="362.4551341386854" y2="404.863572574551" stroke="#2e6f65" stroke-width="3" stroke-linecap="round"/>
+<line x1="122.17779685116633" y1="303.69904466610836" x2="187.54486586131458" y2="205.13642742544906" stroke="#2e6f65" stroke-width="3" stroke-linecap="round"/>
+<line x1="339.83115136086434" y1="165.79752168862902" x2="427.82220314883364" y2="306.30095533389164" stroke="#2e6f65" stroke-width="3" stroke-linecap="round"/>
+<line x1="339.83115136086434" y1="165.79752168862902" x2="187.54486586131458" y2="205.13642742544906" stroke="#2e6f65" stroke-width="3" stroke-linecap="round"/>
+<line x1="210.16884863913566" y1="444.20247831137095" x2="329.9173783601011" y2="432.4757585995496" stroke="#2e6f65" stroke-width="3" stroke-linecap="round"/>
+<line x1="181.41781719009188" y1="369.9526418962947" x2="122.17779685116633" y2="303.69904466610836" stroke="#2e6f65" stroke-width="3" stroke-linecap="round"/>
+<line x1="210.16884863913566" y1="444.20247831137095" x2="181.41781719009188" y2="369.9526418962947" stroke="#2e6f65" stroke-width="3" stroke-linecap="round"/>
+<line x1="329.9173783601011" y1="432.4757585995496" x2="427.82220314883364" y2="306.30095533389164" stroke="#2e6f65" stroke-width="3" stroke-linecap="round"/>
+<line x1="339.83115136086434" y1="165.79752168862902" x2="315.93498804251544" y2="284.7248135958379" stroke="#2e6f65" stroke-width="3" stroke-linecap="round"/>
+<line x1="315.93498804251544" y1="284.7248135958379" x2="427.82220314883364" y2="306.30095533389164" stroke="#2e6f65" stroke-width="3" stroke-linecap="round"/>
+<line x1="181.41781719009188" y1="369.9526418962947" x2="187.54486586131458" y2="205.13642742544906" stroke="#2e6f65" stroke-width="3" stroke-linecap="round"/>
+<line x1="315.93498804251544" y1="284.7248135958379" x2="187.54486586131458" y2="205.13642742544906" stroke="#2e6f65" stroke-width="3" stroke-linecap="round"/>
+<line x1="181.41781719009188" y1="369.9526418962947" x2="329.9173783601011" y2="432.4757585995496" stroke="#2e6f65" stroke-width="3" stroke-linecap="round"/>
+<line x1="315.93498804251544" y1="284.7248135958379" x2="329.9173783601011" y2="432.4757585995496" stroke="#2e6f65" stroke-width="3" stroke-linecap="round"/>
+<line x1="315.93498804251544" y1="284.7248135958379" x2="181.41781719009188" y2="369.9526418962947" stroke="#2e6f65" stroke-width="3" stroke-linecap="round"/>
+<circle cx="234.06501195748456" cy="325.2751864041621" r="5.0" fill="#fbfcfa" stroke="#b9d0c9" stroke-width="2"/>
+<circle cx="368.5821828099081" cy="240.04735810370528" r="5.0" fill="#fbfcfa" stroke="#b9d0c9" stroke-width="2"/>
+<circle cx="220.0826216398989" cy="177.52424140045045" r="5.0" fill="#fbfcfa" stroke="#b9d0c9" stroke-width="2"/>
+<circle cx="362.4551341386854" cy="404.863572574551" r="5.0" fill="#fbfcfa" stroke="#b9d0c9" stroke-width="2"/>
+<circle cx="122.17779685116633" cy="303.69904466610836" r="5.0" fill="#fbfcfa" stroke="#b9d0c9" stroke-width="2"/>
+<circle cx="210.16884863913566" cy="444.20247831137095" r="5.0" fill="#fbfcfa" stroke="#b9d0c9" stroke-width="2"/>
+<circle cx="339.83115136086434" cy="165.79752168862902" r="6.5" fill="#ffffff" stroke="#2e6f65" stroke-width="2"/>
+<circle cx="427.82220314883364" cy="306.30095533389164" r="6.5" fill="#ffffff" stroke="#2e6f65" stroke-width="2"/>
+<circle cx="187.54486586131458" cy="205.13642742544906" r="6.5" fill="#ffffff" stroke="#2e6f65" stroke-width="2"/>
+<circle cx="329.9173783601011" cy="432.4757585995496" r="6.5" fill="#ffffff" stroke="#2e6f65" stroke-width="2"/>
+<circle cx="181.41781719009188" cy="369.9526418962947" r="6.5" fill="#ffffff" stroke="#2e6f65" stroke-width="2"/>
+<circle cx="315.93498804251544" cy="284.7248135958379" r="6.5" fill="#ffffff" stroke="#2e6f65" stroke-width="2"/>
+<circle cx="275" cy="313" r="154" fill="none" stroke="#e3eee9" stroke-width="2"/>
+<text x="275" y="135" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="24" font-weight="700" fill="#183f3a" text-anchor="middle">正二十面体</text>
+<text x="275" y="470" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="22" font-weight="700" fill="#2e6f65" text-anchor="middle">旋转对称群</text>
+<path d="M455 305 C500 270, 520 270, 565 305" fill="none" stroke="#2e6f65" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="510" y="228" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="20" font-weight="700" fill="#2e6f65" text-anchor="middle">作用在 5 个</text>
+<text x="510" y="254" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="20" font-weight="700" fill="#2e6f65" text-anchor="middle">内接立方体上</text>
+<rect x="585" y="125" width="285" height="82" rx="10" fill="#eef3fa" stroke="#c8d6e8" stroke-width="2"/>
+<text x="727" y="155" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="20" font-weight="700" fill="#183f3a" text-anchor="middle">12 顶点 → 6 条五重轴</text>
+<text x="727" y="183" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="20" font-weight="700" fill="#5d83b3" text-anchor="middle">24 个阶 5 旋转</text>
+<rect x="585" y="222" width="285" height="82" rx="10" fill="#eef6f3" stroke="#c9ddd6" stroke-width="2"/>
+<text x="727" y="252" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="20" font-weight="700" fill="#183f3a" text-anchor="middle">20 面 → 10 条三重轴</text>
+<text x="727" y="280" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="20" font-weight="700" fill="#2e6f65" text-anchor="middle">20 个阶 3 旋转</text>
+<rect x="585" y="319" width="285" height="82" rx="10" fill="#f7f4ea" stroke="#e2d5ae" stroke-width="2"/>
+<text x="727" y="349" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="20" font-weight="700" fill="#183f3a" text-anchor="middle">30 边 → 15 条二重轴</text>
+<text x="727" y="377" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="20" font-weight="700" fill="#caa94b" text-anchor="middle">15 个阶 2 旋转</text>
+<rect x="585" y="416" width="285" height="54" rx="10" fill="#fff" stroke="#ead2d2" stroke-width="2"/>
+<text x="727" y="451" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="20" font-weight="700" fill="#b85c5c" text-anchor="middle">加上恒等旋转 1</text>
+<rect x="120" y="525" width="740" height="72" rx="12" fill="#eef6f3" stroke="#c9ddd6" stroke-width="2"/>
+<text x="340" y="570" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="26" font-weight="700" fill="#183f3a" text-anchor="middle">1 + 24 + 20 + 15 = 60</text>
+<svg x="567.18" y="545.59" width="45.65" height="33.90" viewBox="0 -716 1186.6 881.6" color="#caa94b" overflow="visible"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g><g data-mml-node="mn" transform="translate(783,-150) scale(0.707)"><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path></g></g></g></g></svg>
+<text x="625" y="570" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="24" font-weight="700" fill="#183f3a" text-anchor="start">的元素个数也是 60</text>
+<text x="490" y="630" font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" font-size="26" font-weight="700" fill="#183f3a" text-anchor="middle">正二十面体的旋转对称群与 A5 同构</text>
+    </svg>
+    
