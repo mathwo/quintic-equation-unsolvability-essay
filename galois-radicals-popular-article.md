@@ -66,6 +66,14 @@ $$
 
 这个公式看起来已经比二次公式复杂许多：它不只用到平方根，还用到立方根，而且自然会出现复数和单位根。这里不要求读者记住公式本身；我们只需要注意，它仍然只用了四则运算和开方，所以仍然属于**根式求解**（Solution by Radicals）。
 
+三次方程这里还有一个很关键的历史插曲，通常叫 **casus irreducibilis**，也就是“三个实根的不可约情形”。在这种情形下，方程明明有实根，Cardano 公式却会在中间步骤逼出复数。最有名的例子是 $x^3=15x+4$ 。这个方程有实根 $4$ ，因为 $4^3=15\cdot4+4$ ；但按 Cardano 公式计算，会得到
+
+$$
+x=\sqrt[3]{2+11i}+\sqrt[3]{2-11i}
+$$
+
+Rafael Bombelli 观察到 $(2+i)^3=2+11i$ ，而 $(2-i)^3=2-11i$ ，于是上式正好给出 $x=(2+i)+(2-i)=4$ 。这件事的意义很大：复数不是后来人为加上的装饰，而是在认真使用三次方程公式时自然出现的中间语言。
+
 根式求解三次方程的第一种换元方法是利用三倍角的三角函数恒等式。
 
 从一般三次方程 $ax^3+bx^2+cx+d=0$ （其中 $a\ne0$ ）出发，先令
@@ -302,6 +310,10 @@ $$
 
 如果我们只看韦达关系，那么任意置换根确实都不会改变韦达关系。例如，三次情形中的 $r_1+r_2+r_3$ ，或者这里的 $x_1+x_2+x_3+x_4+x_5$ ，都不在乎哪个根叫 $r_1$ 或 $x_1$ ，哪个根叫 $r_2$ 或 $x_2$ 。这只能说明：**仅凭韦达关系，我们还没有把这些根分别表达出来。**
 
+这背后有一个重要的代数事实，叫**对称多项式基本定理**（Fundamental Theorem on Symmetric Polynomials）：任何关于根 $x_1,\ldots,x_n$ 的对称多项式，都可以写成基本对称多项式的多项式；而基本对称多项式又由方程系数通过韦达定理给出。因此，“系数知道什么”本质上就是“所有对称关系知道什么”。一旦某个关于根的表达式在置换下不再保持不变，它就不可能只由原方程的系数对称地写出来。
+
+Lagrange 正是沿着这条线往前走。他研究某些带权的根的组合，例如形如 $x_1+\zeta x_2+\zeta^2x_3+\cdots+\zeta^{n-1}x_n$ 的表达式，其中 $\zeta$ 是 $n$ 次单位根。这类表达式后来常被称为 **Lagrange resolvent**。它们的价值在于：普通的对称表达式完全看不见根之间的差别，而 Lagrange resolvent 会在根被置换时发生可追踪的变化。三次和四次方程的根式公式可以从这种“追踪置换下如何变化”的思路中得到解释；到了五次，这条路也把问题自然推向了 Galois 后来的群论语言。
+
 ## 2. 群，数域，因式分解，根的置换映射和互换性
 
 我们要把“区分一个根”说成更具体的数学问题：在指定的数域 $F$ 内，使用指定的运算，能不能表达出原方程的某个根？如果某个根已经能用 $F$ 中的数和允许的运算表达出来，那么这个根就已经被当前的数域和运算规则确定下来，不能与其它根相互置换。如果几个根在当前规则下还不能分别表达出来，那么这些根相互置换，可能不会改变当前数域能够写出的代数关系。
@@ -458,7 +470,15 @@ $$
 
 现在回到方程求解。实际与方程求解有关的群，通常不是整个 $S_n$ ，而是 $S_n$ 的一个**子群**（Subgroup）：它只保留那些真正不破坏当前基础域中代数关系的置换映射。
 
-这些置换映射有一个专门的名字：从根的角度看，它们就是 **Galois 群作用在根集合上得到的置换映射**。更口语地说，Galois 群记录的正是：在固定基础域 $F$ 后，哪些根到根的重新对应仍然保持全部 $F$ -系数代数关系不变。
+这些置换映射有一个专门的名字：从根的角度看，它们就是 **Galois 群作用在根集合上得到的置换映射**。通俗地说，Galois 群记录的正是：在固定基础域 $F$ 后，哪些根到根的重新对应仍然保持全部 $F$ -系数代数关系不变。
+
+也可以把这句话写得更正式一点。设根为 $r_1,\ldots,r_n$ 。把所有在这些根上成立的 $F$ -系数多项式关系收集起来：
+
+$$
+B_F=\{P\in F[X_1,\ldots,X_n]:P(r_1,\ldots,r_n)=0\}
+$$
+
+那么一个根的置换真正来自 Galois 群，意思就是：它把 $B_F$ 里的每一条关系仍然变成一条成立的关系。换句话说，Galois 群不是“想怎么换根就怎么换根”，而是“只能做那些不破坏全部 $F$ -系数代数关系的换根”。
 
 不过，严格定义 Galois 群时，我们不会直接把它定义成“根的置换映射群”，而是先把所有根放进一个足够大的数域，也就是后面要讲的分裂域 $K$ ，再考虑 $K$ 上那些固定 $F$ 的域自同构。每一个这样的 $F$ -自同构都会把根映射成根，所以它会在根集合上诱导出一个置换映射。
 
@@ -494,7 +514,7 @@ $$
 
 所以，根式求解的过程并不一定是“每一步都加入原方程的一个根”。更准确地说，根式求解允许我们为了表达原方程的根，一步步加入若干中间数；每个中间数来自一个辅助方程，而这个辅助方程表达的正是“这一步开了一个根号”。
 
-Artin 的讲义把这种“一步步加入开方中间数”的过程表述为“根式扩张”。我们从方程系数所在的基础域出发；如果方程的系数都是有理数，那么最自然的起点就是**有理数域**（Field of Rational Numbers） $\mathbb{Q}$ 。
+这种“一步步加入开方中间数”的过程，在代数学里叫作**根式扩张**（Radical Extension）。我们从方程系数所在的基础域出发；如果方程的系数都是有理数，那么最自然的起点就是**有理数域**（Field of Rational Numbers） $\mathbb{Q}$ 。
 
 为了保留一般性，记这个起点为 $F$ 。根式扩张就是从 $F$ 出发，构造一串越来越大的域：
 
@@ -547,7 +567,7 @@ $$
   <figcaption>图 2：为了让这个五次多项式完全分裂，需要把实无理根和共轭复根都加入基础域。</figcaption>
 </figure>
 
-Artin 的讲义强调了一个重要事实：分裂域存在，而且任意两个分裂域在自然意义下同构。这里需要解释一下。
+这里有一个重要事实：分裂域存在，而且任意两个分裂域在自然意义下同构。这里需要解释一下。
 
 先说什么叫**同构**（Isomorphism）。两个域 $K$ 和 $K'$ 同构，意思是存在一个双射
 
@@ -711,7 +731,7 @@ $$
 
 ## 5. Galois 基本定理：中间域、正规子群和商群
 
-Artin 讲义的中心结果是 **Galois 基本定理**（Fundamental Theorem of Galois Theory）。它说的核心事情是：**域链**（Field Chain）和**群链**（Group Chain）之间存在一种反向的联动对应关系。
+现代 Galois 理论的中心结果是 **Galois 基本定理**（Fundamental Theorem of Galois Theory）。它说的核心事情是：**域链**（Field Chain）和**群链**（Group Chain）之间存在一种反向的联动对应关系。
 
 这里“反向”是指：**基础域越大，对应的 Galois 群越小**。原因是，Galois 群只包含那些保持所有以基础域中的数为系数的代数关系不变的置换映射。基础域从 $F$ 扩大到中间域 $B$ 后，必须固定的数变多，允许的自同构就变少；反过来，如果我们在对应的 Galois 群中选一个子群，也能找到一个中间域：这个中间域由所有被该子群固定住的数构成。
 
@@ -872,17 +892,19 @@ $$
 
 并且每一节对应的商群 $G_{i-1}/G_i$ 都是 Abel 群。
 
-Artin 讲义中的定义正是这样： $G=G_0\supset G_1\supset\cdots\supset G_s=1$ ，每个 $G_i$ 是前一个的正规子群，且 $G_{i-1}/G_i$ 是 Abel 群。
+等价地说，可以写成 $G=G_0\supset G_1\supset\cdots\supset G_s=1$ ，其中每个 $G_i$ 是前一个的正规子群，且 $G_{i-1}/G_i$ 是 Abel 群。
 
 可解群的名字来自方程求解。“可解群”不是说“群本身被算出来了”，而是说这个群的复杂性可以沿着正规子群链逐步还原成 Abel 商群。由于根式每一步能处理的正是这种 Abel 式对称性，可解群就成了根式求解的群论影子。
 
 ## 8. 根式可解性等价于Galois群可解，及其它视角
 
-现在给出证明框架。为了避免技术枝节，先在最常见的数域情形下说明：基础域的**特征**（Characteristic）为 $0$ ，例如 $\mathbb{Q}$ 、 $\mathbb{R}$ 、 $\mathbb{C}$ 都是这样。特征为 $0$ 的意思是，不管把 $1$ 加多少次，都不会突然等于 $0$ 。另外先假设必要的单位根已经加入。Artin 讲义随后说明，单位根假设可以通过进一步的定理移除，所以最后结论并不依赖这个临时假设。
+现在给出证明框架。为了避免技术枝节，先在最常见的数域情形下说明：基础域的**特征**（Characteristic）为 $0$ ，例如 $\mathbb{Q}$ 、 $\mathbb{R}$ 、 $\mathbb{C}$ 都是这样。特征为 $0$ 的意思是，不管把 $1$ 加多少次，都不会突然等于 $0$ 。另外先假设必要的单位根已经加入。这个单位根假设可以通过进一步的定理移除，所以最后结论并不依赖这个临时假设。
 
 **首先：能用根式解 $\Rightarrow$ Galois 群可解**
 
 若某个方程能用根式解，这个方程的分裂域就包含在某个根式扩张里。也就是说，我们可以从基础域 $F$ 出发，一步步加入 $\alpha_i$ ，每个 $\alpha_i$ 满足 $\alpha_i^{n_i}=a_i$ 。
+
+从“根的关系”来看，这个过程也很好理解：每加入一个新的根式，基础域就变大，能被识别的数和代数关系就更多。必须保持不变的东西变多以后，允许的根的置换就只能减少。所以根式求解不是一次性把根抓出来，而是通过逐步扩大基础域，让原来还可以互换的根被一层层区分开来。
 
 每一步开根对应的扩张，在加入必要单位根后，是 **Kummer 型扩张**（Kummer Extension）。这里不需要展开 **Kummer 理论**（Kummer Theory）的全部内容，只要抓住一点：开 $n$ 次方带来的基本选择，主要由 $n$ 次单位根控制；这些选择组成的对称性是 Abel 的。
 
@@ -963,7 +985,21 @@ $$
 
 ## 9. 五次方程为何不可根式求解及可解性判断思路
 
-先回答为什么一般五次方程不能用根式通解。Artin 在讲义的应用部分证明：**一般 $n$ 次方程**（General Equation of Degree $n$ ）的 Galois 群是 $n$ 个根的**对称群**（Symmetric Group） $S_n$ 。
+我们先看为什么一般五次方程不能用根式通解。这里用到一个基本结论：**一般 $n$ 次方程**（General Equation of Degree $n$ ）的 Galois 群是 $n$ 个根的**对称群**（Symmetric Group） $S_n$ 。这条思路可以分三步来看。
+
+第一步，一般方程确实具有完整的 $S_n$ 对称性。设一般 $n$ 次方程的根暂时记为 $x_1,\ldots,x_n$ 。方程系数可以写成这些根的初等对称函数，因此任意重新编号 $x_1,\ldots,x_n$ 都不会改变系数。换句话说，从系数域出发看，一般方程没有额外关系能把某个根单独挑出来；所有根的重新编号都仍然保持方程本身不变。这就是一般方程的 Galois 群会是完整 $S_n$ 的直观原因。
+
+第二步，如果根式通解真的存在，那么这个完整的 $S_n$ 也必须从某个根式扩张中出现。根式通解意味着：从系数字段出发，经过有限次四则运算和开根，可以得到一个包含所有根的域扩张。这个扩张一开始未必对所有根的置换都对称；比如某一步可能只加入了某个根式表达式，而没有加入它在其它根置换下的所有同伴。但我们可以把这些被置换出来的同伴一起加入。这样得到的更大扩张仍然是根式扩张，却足够对称，使每一个根的置换都能延伸成一个固定系数字段的自同构。于是这个更大扩张的 Galois 群作用在根集合上，会给出整个 $S_n$ ；换句话说， $S_n$ 是这个 Galois 群的一个同态像。
+
+第三步，根式扩张的 Galois 群是可解群，而**可解群的同态像**（Homomorphic Image）仍然可解。这里的“同态像”指的是：一个群通过保持群运算的映射 $\varphi:G\to H$ 送出去后，得到的像 $\varphi(G)$ 。于是如果一般 $n$ 次方程有通用根式公式，完整的 $S_n$ 也应当是可解群。问题就在这里：当 $n\ge5$ 时， $S_n$ 不可解。于是“一般方程需要完整的 $S_n$ 对称性”和“根式扩张只能给出可解群”之间发生冲突，这就是一般五次及以上方程没有通用根式公式的核心原因。
+
+为什么 $S_n$ 从 $n=5$ 开始不可解？一个很短的看法是，五个不同符号已经足够把任意三轮换写成两个三轮换的**换位子**（Commutator）。例如在通常从右到左复合置换的约定下，若 $a,b,c,d,e$ 两两不同，就有
+
+$$
+(a\,b\,c)=(d\,a\,c)^{-1}(c\,e\,b)^{-1}(d\,a\,c)(c\,e\,b)
+$$
+
+换位子的意义在于：一旦把群映到 Abel 群里，所有换位子都会变成单位元。于是，如果试图用一串 Abel 商群把 $S_n$ 一层层拆掉，只要某一层还含有所有三轮换，下一层仍然会含有所有三轮换；三轮换会在每一层都留下来，最后不可能降到只有单位元。这就是 $S_n$ 在 $n\ge5$ 时不可解的一个极短证明思路，也解释了为什么五个符号刚好够用：除了三轮换本身用到的 $a,b,c$ ，还需要额外两个符号 $d,e$ 来构造上面的换位子。
 
 这里“一般 $n$ 次方程”不是指某一个具体方程，而是指系数彼此独立、没有额外特殊关系的通用 $n$ 次方程。可以把它理解成“最没有特殊性的 $n$ 次方程”。
 
@@ -1436,7 +1472,9 @@ $$
 - 实际计算中可以用**数值方法**（Numerical Methods）逼近根，比如**牛顿法**（Newton's Method）。
 - 如果允许超出根式的**特殊函数**（Special Functions），某些五次或更高次方程也可以用更广义的函数表达。
 
-这里最后一点值得稍微展开，因为它容易和 Abel-Ruffini 定理混在一起。一般五次方程不能用根式给出通用公式，但这不表示它不能用任何统一的解析函数表达。经典做法是先通过 Tschirnhaus 变换，把一般五次方程化成 **Bring-Jerrard 形式**（Bring-Jerrard Form）
+这里最后一点值得稍微展开，因为它容易和 Abel-Ruffini 定理混在一起。一般五次方程不能用根式给出通用公式，但这不表示它不能用任何统一的解析函数表达。经典做法是先通过更高阶的 Tschirnhaus 变换，把一般五次方程化成 **Bring-Jerrard 形式**（Bring-Jerrard Form）。
+
+Tschirnhaus 变换的基本想法是：不只是平移变量，而是把新未知量设成旧根的多项式函数，再让新方程的若干项系数消失。例如二次式变换 $y=x^2+px+q$ 可以用来尝试同时消去新方程中的两个高次项。Bring 的工作更进一步，使用四次式变换 $y=x^4+px^3+qx^2+rx+s$ ，通过选择参数把一般五次方程化到只剩两个非平凡参数的标准形。这里的参数选择本身会牵涉低次方程，所以这一步仍然不违背 Abel-Ruffini 定理；它只是把一般五次方程压缩到一个更适合用特殊函数研究的形式。
 
 $$
 z^5+pz+q=0
@@ -1531,9 +1569,11 @@ Galois 群的判别标准也解释了为什么有些特殊五次方程仍然可�
 1. Emil Artin, *Galois Theory*. 本文的严谨结构参考这部讲义中关于 extension fields、splitting fields、Fundamental Theorem of Galois Theory、solvable groups、solution by radicals 和 general equation of degree $n$ 的论证路线；正文采用面向科普读者的重述和例子展开。
 2. Po-Shen Loh, “A Simple Proof of the Quadratic Formula,” 2019. [方法说明](https://poshenloh.com/quadraticdetail)；[arXiv:1910.06709](https://arxiv.org/abs/1910.06709)。本文第一节关于二次方程“平均数 $\pm$ 偏移量”的推导，参考这篇说明。
 3. MacTutor History of Mathematics Archive, [“Girolamo Cardano”](https://mathshistory.st-andrews.ac.uk/Biographies/Cardan/)；[“Quadratic, cubic and quartic equations”](https://mathshistory.st-andrews.ac.uk/HistTopics/Quadratic_etc_equations/)。本文第一节关于三次方程公式历史、del Ferro、Tartaglia、Cardano 和 *Ars Magna* 的简述，参考这些资料。
-4. Niels Henrik Abel, *Mémoire sur les équations algébriques, où l'on démontre l'impossibilité de la résolution de l'équation générale du cinquième degré*, Christiania, 1824. 本文第八节关于 Abel 原始证明的历史说明，参考 Abel 这篇关于一般五次方程不可根式求解的早期论文。
-5. V.B. Alekseev, *Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold*, Springer, 2004. 本文第八节关于单值群（Monodromy Group）、黎曼曲面分支结构和 Abel 定理拓扑证明的补充视角，参考该书第 2.11--2.14 节以及 Khovanskii 附录中的说明。
-6. Manjul Bhargava, “Galois groups of random integer polynomials and van der Waerden's Conjecture,” *Annals of Mathematics*, 201(2), 339-377, 2025. [Annals 页面](https://annals.math.princeton.edu/2025/201-2/p01)；[arXiv:2111.06507](https://arxiv.org/abs/2111.06507)。本文第十节关于随机整系数多项式的 Galois 群几乎总是 $S_n$ ，以及自然数系数五次方程几乎总是不能用根式求解的判断，参考这一结果。
-7. Jesse Schultz, *Solving the Quintic with Elliptic Functions*. 本文第十一节关于 Hermite、Brioschi 型五次方程和椭圆模函数解法的简述，参考这份讲义式说明。
-8. Oliver Nash, “The icosahedron and the solution of the quintic,” 2013. [arXiv:1308.0955](https://arxiv.org/abs/1308.0955)。本文第十一节关于 Klein 二十面体视角的简述，参考这篇文章。
+4. Jörg Bewersdorff, *Galois Theory for Beginners: A Historical Perspective*, 2nd ed., translated by David Kramer, American Mathematical Society, Student Mathematical Library, vol. 95. 本文第一节关于 casus irreducibilis 和 Bombelli 的说明，以及对称多项式、Lagrange resolvent、Tschirnhaus 变换和 Bring-Jerrard 化简的历史线索，参考该书。
+5. John Stillwell, “Galois Theory for Beginners,” *The American Mathematical Monthly*, 101(1), 22--27, 1994. 本文第九节关于一般 $n$ 次方程不可根式通解的极简证明骨架，参考这篇短文。
+6. Niels Henrik Abel, *Mémoire sur les équations algébriques, où l'on démontre l'impossibilité de la résolution de l'équation générale du cinquième degré*, Christiania, 1824. 本文第八节关于 Abel 原始证明的历史说明，参考 Abel 这篇关于一般五次方程不可根式求解的早期论文。
+7. V.B. Alekseev, *Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold*, Springer, 2004. 本文第八节关于单值群（Monodromy Group）、黎曼曲面分支结构和 Abel 定理拓扑证明的补充视角，参考该书第 2.11--2.14 节以及 Khovanskii 附录中的说明。
+8. Manjul Bhargava, “Galois groups of random integer polynomials and van der Waerden's Conjecture,” *Annals of Mathematics*, 201(2), 339-377, 2025. [Annals 页面](https://annals.math.princeton.edu/2025/201-2/p01)；[arXiv:2111.06507](https://arxiv.org/abs/2111.06507)。本文第十节关于随机整系数多项式的 Galois 群几乎总是 $S_n$ ，以及自然数系数五次方程几乎总是不能用根式求解的判断，参考这一结果。
+9. Jesse Schultz, *Solving the Quintic with Elliptic Functions*. 本文第十一节关于 Hermite、Brioschi 型五次方程和椭圆模函数解法的简述，参考这份讲义式说明。
+10. Oliver Nash, “The icosahedron and the solution of the quintic,” 2013. [arXiv:1308.0955](https://arxiv.org/abs/1308.0955)。本文第十一节关于 Klein 二十面体视角的简述，参考这篇文章。
 

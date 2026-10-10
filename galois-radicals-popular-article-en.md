@@ -66,6 +66,14 @@ There is a small technical point here: a cube root has three possible values, so
 
 This formula is already much more complicated than the quadratic formula. It uses not only square roots, but also cube roots, and complex numbers and roots of unity appear naturally. The point is not to memorize the formula itself. The important thing is that it still uses only arithmetic operations and extraction of roots, so it is still a **solution by radicals**.
 
+There is also an important historical episode here, usually called **casus irreducibilis**, the irreducible case with three real roots. In this situation the equation may have perfectly real roots, while Cardano's formula forces complex numbers to appear in the middle of the calculation. A famous example is $x^3=15x+4$ . This equation has the real root $4$, since $4^3=15\cdot4+4$ ; but Cardano's formula gives
+
+$$
+x=\sqrt[3]{2+11i}+\sqrt[3]{2-11i}
+$$
+
+Rafael Bombelli observed that $(2+i)^3=2+11i$ and $(2-i)^3=2-11i$, so the expression above is exactly $x=(2+i)+(2-i)=4$ . The point is important: complex numbers were not decorative additions imposed later. They arose naturally as an intermediate language when the cubic formula was used seriously.
+
 The first substitution method for solving a cubic by radicals uses the trigonometric triple-angle identity.
 
 Starting from the general cubic $ax^3+bx^2+cx+d=0$ (where $a\ne0$), set
@@ -266,6 +274,10 @@ $$
 
 These relations are symmetric. If the roots are merely renamed, the sums and products above do not change. However, one must be careful: the fact that the Vieta relations are symmetric does not mean that the roots are always freely interchangeable.
 
+Behind this lies a basic theorem of algebra, the **Fundamental Theorem on Symmetric Polynomials**: every symmetric polynomial in the roots $x_1,\ldots,x_n$ can be written as a polynomial in the elementary symmetric polynomials; by Vieta's formulas, those elementary symmetric polynomials are determined by the coefficients. Thus, what the coefficients know is exactly the symmetric information about the roots. Once an expression in the roots changes under a permutation, it cannot be written purely and symmetrically from the original coefficients alone.
+
+Lagrange pushed this observation further. He studied weighted combinations of roots, such as expressions of the form $x_1+\zeta x_2+\zeta^2x_3+\cdots+\zeta^{n-1}x_n$, where $\zeta$ is an $n$-th root of unity. Such expressions are now often called **Lagrange resolvents**. Their value is that ordinary symmetric expressions completely hide the distinction between roots, while a Lagrange resolvent changes in a controlled way when the roots are permuted. The radical formulas for cubic and quartic equations can be understood through this idea of tracking how expressions transform under permutations; at degree five, the same line of thought naturally points toward Galois's group-theoretic language.
+
 For example, consider the integer polynomial
 
 $$
@@ -360,6 +372,14 @@ $$
 is the group of all field automorphisms of $K$ that fix every element of $F$.
 
 An automorphism is an isomorphism from $K$ to itself. It may move roots around, but it is not allowed to move the coefficients in the base field.
+
+There is also a beginner-friendly way to phrase the same idea. Let the roots be $r_1,\ldots,r_n$, and collect all polynomial relations with coefficients in $F$ that vanish on these roots:
+
+$$
+B_F=\{P\in F[X_1,\ldots,X_n]:P(r_1,\ldots,r_n)=0\}
+$$
+
+A permutation of the roots belongs to the root-permutation image of the Galois group precisely when it carries every relation in $B_F$ to another true relation. In plain language, a Galois group is not the collection of all root interchanges one can imagine; it is the collection of root interchanges that preserve all algebraic relations visible over the base field.
 
 For the polynomial
 
@@ -506,7 +526,7 @@ This is why the word "solvable" is used. A solvable group is not a group that ha
 
 ## 8. Radical Solvability Is Equivalent to a Solvable Galois Group, and Other Viewpoints
 
-Now we give the proof framework. To avoid technical side issues, we first state it in the most common field-theoretic setting: the base field has **characteristic** $0$, as $\mathbb Q$, $\mathbb R$, and $\mathbb C$ do. Characteristic $0$ means that adding $1$ to itself any finite number of times never suddenly gives $0$. We also temporarily assume that the necessary roots of unity have been adjoined. Artin's lectures then explain how this roots-of-unity assumption can be removed by further theorems, so the final conclusion does not depend on it.
+Now we give the proof framework. To avoid technical side issues, we first state it in the most common field-theoretic setting: the base field has **characteristic** $0$, as $\mathbb Q$, $\mathbb R$, and $\mathbb C$ do. Characteristic $0$ means that adding $1$ to itself any finite number of times never suddenly gives $0$. We also temporarily assume that the necessary roots of unity have been adjoined. This roots-of-unity assumption can be removed by further theorems, so the final conclusion does not depend on it.
 
 The central theorem can be stated as follows:
 
@@ -517,6 +537,8 @@ Here is the intuitive content of the two directions.
 **First: solvable by radicals $\Rightarrow$ solvable Galois group**
 
 If the roots can be obtained by radicals, then the splitting field sits inside a chain obtained by repeatedly adjoining radicals. Each radical step has a relatively simple Galois-theoretic effect: it contributes an Abelian quotient. Translating the whole chain through the Galois correspondence gives a normal subgroup chain with Abelian quotients. Therefore the Galois group is solvable.
+
+From the viewpoint of relations among the roots, this is also intuitive. Every time we adjoin a new radical, the base field becomes larger, and more numbers and algebraic relations become visible. Once more things must be fixed, fewer permutations of the roots are still allowed. Thus a radical solution does not seize the roots all at once; it gradually enlarges the base field until roots that were previously interchangeable have been separated layer by layer.
 
 **Second: solvable Galois group $\Rightarrow$ solvable by radicals**
 
@@ -563,7 +585,21 @@ This viewpoint and Galois theory are not two contradictory theories. For algebra
 
 ## 9. Why the General Quintic Is Not Solvable by Radicals, and the Decision Strategy
 
-First, why does the general quintic have no formula by radicals? In the application part of Artin's lectures, one proves that the Galois group of the **general equation of degree $n$** is the **symmetric group** $S_n$ on the $n$ roots.
+First, why does the general quintic have no formula by radicals? We use one basic fact: the Galois group of the **general equation of degree $n$** is the **symmetric group** $S_n$ on the $n$ roots. The idea can be seen in three steps.
+
+First, the general equation really has the full $S_n$ symmetry. Temporarily write the roots of the general degree-$n$ equation as $x_1,\ldots,x_n$. The coefficients are elementary symmetric functions of these roots, so relabeling $x_1,\ldots,x_n$ in any way does not change the coefficients. In other words, from the coefficient field, the general equation has no extra relation that singles out one particular root; every relabeling of the roots still preserves the equation. This is the intuitive reason that the Galois group of the general equation is the full $S_n$.
+
+Second, if a radical formula for the general equation really existed, then this full $S_n$ would have to appear from some radical extension. A radical formula means that, starting from the coefficient field, finitely many arithmetic operations and radical extractions produce a field containing all the roots. This extension need not be symmetric with respect to all permutations of the roots at first; for instance, one step may adjoin a particular radical expression without adjoining all of its companions obtained by permuting the roots. But we may adjoin all those companions as well. The larger field is still a radical extension, and it is now symmetric enough that every permutation of the roots extends to an automorphism fixing the coefficient field. Thus the Galois group of this larger extension acts on the root set and gives the whole $S_n$; equivalently, $S_n$ is a homomorphic image of that Galois group.
+
+Third, the Galois group of a radical extension is solvable, and a **homomorphic image** of a solvable group is still solvable. Here a homomorphic image means the image $\varphi(G)$ obtained by sending a group through a homomorphism $\varphi:G\to H$, a map that preserves the group operation. Therefore, if the general degree-$n$ equation had a universal radical formula, the full $S_n$ would have to be solvable. But when $n\ge5$, $S_n$ is not solvable. The conflict is exactly this: the general equation requires full $S_n$ symmetry, while radical extensions can only produce solvable groups. That is the core reason why the general equation of degree at least five has no universal formula by radicals.
+
+Why does $S_n$ become nonsolvable starting at $n=5$? A very short way to see it is that five distinct symbols are already enough to write any 3-cycle as a **commutator** of two 3-cycles. With the usual convention that permutations are composed from right to left, if $a,b,c,d,e$ are distinct, then
+
+$$
+(a\,b\,c)=(d\,a\,c)^{-1}(c\,e\,b)^{-1}(d\,a\,c)(c\,e\,b)
+$$
+
+The meaning of a commutator is this: when a group is mapped to an Abelian group, every commutator becomes the identity. Thus, if one tries to break $S_n$ down through a chain of Abelian quotients, then as long as one stage still contains all 3-cycles, the next stage still contains all 3-cycles as well. The 3-cycles survive at every layer, so the process cannot end at the trivial group. This is a very short proof idea for the nonsolvability of $S_n$ when $n\ge5$. It also explains why five symbols are enough: besides the three symbols $a,b,c$ used by the 3-cycle itself, one needs two extra symbols $d,e$ to build the commutator above.
 
 Here "the general equation of degree $n$" does not mean one specific equation. It means the universal degree-$n$ equation whose coefficients are independent and have no extra special relations. One may think of it as the least special degree-$n$ equation.
 
@@ -993,7 +1029,9 @@ It remains important to distinguish several statements:
 - In numerical work, one can approximate roots by methods such as Newton's method.
 - If one allows functions beyond radicals, some quintic and higher-degree equations can be expressed in other ways.
 
-The last point deserves a little more explanation, because it is easily confused with the Abel-Ruffini theorem. The general quintic has no universal formula by radicals, but that does not mean it has no unified analytic expression in any broader function system. A classical route first uses a Tschirnhaus transformation to reduce the general quintic to the **Bring-Jerrard form**
+The last point deserves a little more explanation, because it is easily confused with the Abel-Ruffini theorem. The general quintic has no universal formula by radicals, but that does not mean it has no unified analytic expression in any broader function system. A classical route first uses a higher Tschirnhaus transformation to reduce the general quintic to the **Bring-Jerrard form**.
+
+The basic idea of a Tschirnhaus transformation is not merely to translate the variable, but to make the new unknown a polynomial function of the old root, and then choose parameters so that selected coefficients of the new equation vanish. For example, a quadratic transformation $y=x^2+px+q$ may be used to try to eliminate two high-degree terms at once. Bring went further and used a quartic transformation $y=x^4+px^3+qx^2+rx+s$ to reduce the general quintic to a standard form with only two nontrivial parameters. Choosing those parameters itself involves lower-degree equations, so this process does not contradict the Abel-Ruffini theorem; it compresses the general quintic into a form better suited to special functions.
 
 $$
 z^5+pz+q=0
@@ -1084,8 +1122,10 @@ References:
 1. Emil Artin, *Galois Theory*. The rigorous structure of this article follows the lectures' route through extension fields, splitting fields, the Fundamental Theorem of Galois Theory, solvable groups, solution by radicals, and the general equation of degree $n$; the exposition here is rewritten for a popular audience.
 2. Po-Shen Loh, "A Simple Proof of the Quadratic Formula," 2019. [Method note](https://poshenloh.com/quadraticdetail); [arXiv:1910.06709](https://arxiv.org/abs/1910.06709). The "average $\pm$ offset" derivation of the quadratic formula in Section 1 follows this note.
 3. MacTutor History of Mathematics Archive, ["Girolamo Cardano"](https://mathshistory.st-andrews.ac.uk/Biographies/Cardan/); ["Quadratic, cubic and quartic equations"](https://mathshistory.st-andrews.ac.uk/HistTopics/Quadratic_etc_equations/). The brief historical note in Section 1 on the cubic formula, del Ferro, Tartaglia, Cardano, and *Ars Magna* refers to these accounts.
-4. Niels Henrik Abel, *Mémoire sur les équations algébriques, où l'on démontre l'impossibilité de la résolution de l'équation générale du cinquième degré*, Christiania, 1824. The historical note in Section 8 about Abel's original proof refers to this early paper on the impossibility of solving the general quintic by radicals.
-5. V.B. Alekseev, *Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold*, Springer, 2004. The supplementary viewpoint in Section 8 on monodromy groups, the branching structure of Riemann surfaces, and a topological proof of Abel's theorem follows Sections 2.11--2.14 and the discussion in Khovanskii's appendix.
-6. Manjul Bhargava, "Galois groups of random integer polynomials and van der Waerden's Conjecture," *Annals of Mathematics*, 201(2), 339-377, 2025. [Annals page](https://annals.math.princeton.edu/2025/201-2/p01); [arXiv:2111.06507](https://arxiv.org/abs/2111.06507). The probabilistic statement in Section 10 about random integer polynomials almost always having Galois group $S_n$, and therefore random natural-number quintics almost always not being solvable by radicals, is based on this result.
-7. Jesse Schultz, *Solving the Quintic with Elliptic Functions*. The discussion in Section 11 of Hermite's and Brioschi's elliptic-modular approaches to the quintic follows this expository note.
-8. Oliver Nash, "The icosahedron and the solution of the quintic," 2013. [arXiv:1308.0955](https://arxiv.org/abs/1308.0955). The brief discussion in Section 11 of Klein's icosahedral viewpoint follows this article.
+4. Jörg Bewersdorff, *Galois Theory for Beginners: A Historical Perspective*, 2nd ed., translated by David Kramer, American Mathematical Society, Student Mathematical Library, vol. 95. The historical thread in this article concerning casus irreducibilis and Bombelli, symmetric polynomials, Lagrange resolvents, Tschirnhaus transformations, and the Bring-Jerrard reduction follows this book.
+5. John Stillwell, "Galois Theory for Beginners," *The American Mathematical Monthly*, 101(1), 22--27, 1994. The compact proof skeleton in Section 9 for the nonsolvability by radicals of the general degree-$n$ equation follows this article.
+6. Niels Henrik Abel, *Mémoire sur les équations algébriques, où l'on démontre l'impossibilité de la résolution de l'équation générale du cinquième degré*, Christiania, 1824. The historical note in Section 8 about Abel's original proof refers to this early paper on the impossibility of solving the general quintic by radicals.
+7. V.B. Alekseev, *Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold*, Springer, 2004. The supplementary viewpoint in Section 8 on monodromy groups, the branching structure of Riemann surfaces, and a topological proof of Abel's theorem follows Sections 2.11--2.14 and the discussion in Khovanskii's appendix.
+8. Manjul Bhargava, "Galois groups of random integer polynomials and van der Waerden's Conjecture," *Annals of Mathematics*, 201(2), 339-377, 2025. [Annals page](https://annals.math.princeton.edu/2025/201-2/p01); [arXiv:2111.06507](https://arxiv.org/abs/2111.06507). The probabilistic statement in Section 10 about random integer polynomials almost always having Galois group $S_n$, and therefore random natural-number quintics almost always not being solvable by radicals, is based on this result.
+9. Jesse Schultz, *Solving the Quintic with Elliptic Functions*. The discussion in Section 11 of Hermite's and Brioschi's elliptic-modular approaches to the quintic follows this expository note.
+10. Oliver Nash, "The icosahedron and the solution of the quintic," 2013. [arXiv:1308.0955](https://arxiv.org/abs/1308.0955). The brief discussion in Section 11 of Klein's icosahedral viewpoint follows this article.
