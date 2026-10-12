@@ -232,7 +232,9 @@ The original quartic has now been split into two quadratic equations. Solve thos
 
 So Ferrari's method has the structure: reduce the quartic to a form with no cubic term, solve an auxiliary cubic to complete the square, and finally split the quartic into two quadratics. This is why quartic equations can still be solved by radicals.
 
-This turn introduces the protagonists of the story: two young geniuses. **Niels Henrik Abel** (1802--1829) was a Norwegian mathematician. At an exceptionally young age, he proved that the general quintic equation has no universal formula by radicals; this is the Abel part of what is now called the Abel-Ruffini theorem. Abel lived in poverty and died at the age of twenty-six, but his work deeply influenced algebraic equations, elliptic functions, and Abelian functions. **Évariste Galois** (1811--1832) was a French mathematician. He died in a duel at the age of twenty; yet in his very short life he did not search for a still longer quintic formula. Instead, he organized the permissible permutations of the roots into a group and turned the question "is this equation solvable by radicals?" into the question "is this group solvable?" The Galois groups and solvable groups discussed below follow this idea.
+This turn introduces the protagonists of the story: two young geniuses. **Niels Henrik Abel** (1802--1829) was a Norwegian mathematician. At an exceptionally young age, he proved that the general quintic equation has no universal formula by radicals; this is the Abel part of what is now called the Abel-Ruffini theorem. Abel himself initially tried to solve the general quintic, but once he saw that his method was not truly general, he turned the problem around and proved that a general radical formula cannot exist. Abel lived in poverty and died at the age of twenty-six, but his work deeply influenced algebraic equations, elliptic functions, and Abelian functions. **Évariste Galois** (1811--1832) was a French mathematician. He died in a duel at the age of twenty; yet in his very short life he organized the permissible permutations of an equation's roots into a group and used that group to decide whether the equation is solvable by radicals. This idea laid the foundation for Galois theory and made Galois one of the founders of modern group theory. The Galois groups and solvable groups discussed below follow this idea.
+
+Here it is important to distinguish the historical record from the modern reconstruction. Today we often summarize the story by saying: "$A_5$ is the smallest non-Abelian simple group, and therefore the general quintic has no radical formula." That is a clean later formulation in the language of group theory. Galois himself spoke more in terms of rational functions of the roots and the structure of the permissible permutations. His breakthrough was to connect solvability of equations with the permutation structure of the roots, not to write the whole modern $A_5$ proof chain in today's textbook language.
 
 It was natural to ask whether the general quintic
 
@@ -241,6 +243,10 @@ x^5+a_4x^4+a_3x^3+a_2x^2+a_1x+a_0=0
 $$
 
 also has such a universal formula.
+
+At first, a milder plan seems tempting: perhaps we do not need to write down all five roots at once. If one can find an exact **expression by radicals** for one root $r$, then the original **polynomial** can be divided by $x-r$, leaving a quartic polynomial. Since quartic equations have Ferrari's formula, the remaining four roots can then be found. So solving the quintic seems to reduce to one step: **find one root by radicals**.
+
+The plan "find one root first, then reduce to a quartic" is very natural, and it points in the right direction. The difficulty is that, for the general quintic, even such a universal radical expression for the first root does not exist. If it did, reduction to a quartic would solve the general quintic.
 
 The answer is no. But the reason is not that the formula is merely too long or that nobody has found it. The reason is structural.
 
@@ -520,6 +526,14 @@ $$
 
 The symmetric group $S_3$, the group of all permutations of three objects, is not Abelian. The order in which two permutations are composed can matter.
 
+Historically, the name "Abelian group" is not accidental. In his study of special solvable equations, Abel had already noticed that if roots can be expressed from one another by rational functions, and if the order of composing those functions does not matter, for example
+
+$$
+g(f(x))=f(g(x))
+$$
+
+then this commutative relation is a key clue that the equation can be solved step by step. Later language calls this kind of "order does not matter" structure Abelian.
+
 Why do Abelian groups appear in radical solutions? Because solving by radicals allows only one root extraction at each step. The basic symmetry introduced by adjoining an $n$-th root is controlled by multiplication by $n$-th roots of unity. That symmetry is essentially cyclic, and cyclic groups are Abelian. In other words, each radical step usually corresponds, in group-theoretic language, to one Abelian quotient.
 
 This is why the word "solvable" is used. A solvable group is not a group that has merely been "computed"; it is a group whose complexity can be reduced, along a normal subgroup chain, to Abelian quotient pieces. Since radical extraction handles precisely this kind of Abelian symmetry, solvable groups become the group-theoretic shadow of solution by radicals.
@@ -544,6 +558,8 @@ From the viewpoint of relations among the roots, this is also intuitive. Every t
 
 If the Galois group has such a normal subgroup chain, the Fundamental Theorem of Galois Theory converts it back into a chain of intermediate fields. When the quotients are Abelian, the corresponding field extensions can be constructed using radicals, after adjoining the necessary roots of unity. Thus the roots can be expressed by radicals.
 
+This equivalence has two directions. The direction used to prove impossibility is the necessary direction: if an equation is solvable by radicals, then its Galois group must be solvable. The converse is also important: in characteristic zero, if the Galois group is solvable, then the roots can indeed be constructed through a tower of cyclic extensions and radical extensions. Thus Galois theory gives both a negative test and a positive test.
+
 <figure>
   <img src="assets-en/figure-09-radicals-solvable-parallel.svg" alt="Solution by radicals and solvable groups as parallel processes">
   <figcaption>Figure 8. A radical solution gives a tower of field extensions; Galois theory translates that tower into normal subgroups and Abelian quotient groups.</figcaption>
@@ -556,6 +572,10 @@ Besides the algebraic language of Galois theory, one can also analyze radical so
 It is important to say that this was not Abel's original method of proof. The Arnold-Alekseev argument is a modern topological proof of Abel's theorem. Abel's original proof was mainly algebraic; **monodromy groups**, Riemann surfaces, and branched coverings are later language for explaining the same kind of root permutation behavior.
 
 Historically, Ruffini had already made an important attempt along a similar line. In 1824, not long after Ruffini's death, the young Norwegian mathematician Niels Henrik Abel published, at his own expense, a very short pamphlet proving that the general quintic has no formula by radicals. Because the pamphlet was extremely compressed, many details were stated very tersely. But the core idea is clear: argue by contradiction, assume that one root of the general quintic can be expressed from the coefficients by finitely many arithmetic operations and radicals, and then study how many distinct values such a radical expression can take when the five roots are permuted in all possible ways.
+
+Stewart's *Galois Theory* makes one detail especially clear. Ruffini's and Lagrange's approaches implicitly assumed that the radicals appearing during a solution ultimately remain in the world of rational functions of the roots. Expressions of this kind may be called **Ruffini radicals**. The possible loophole is this: could a true radical formula temporarily introduce radicals outside the field generated by the roots and thereby escape the restriction? One of Abel's key advances was to close that loophole. In modern language this is the **Theorem on Natural Irrationalities**: if a quantity belonging to the splitting field can be obtained inside some external radical extension, then it can also be obtained through a corresponding radical extension inside the splitting-field setting. In plain terms, borrowing radicals from outside does not let the general quintic evade its original permutation structure.
+
+Logically, Abel's proof can be separated into four steps. First, assume for contradiction that the general quintic has a radical formula. Second, show that any such radical expression can be arranged in Abel's standard form: at the outermost level, a linear combination of a fifth root and its powers. Third, show that the quantities appearing at that outermost level can ultimately be regarded as rational functions of the five roots. Thus the problem becomes one of tracking how those rational functions change when the roots are relabeled. Fourth, use Cauchy's result about the number of values under permutations: a rational function of five quantities, if it takes fewer than five values under all permutations, can take only one or two values, not exactly three or four. Abel then rules out both the five-value case and the two-value case, producing a contradiction in the number of possible values.
 
 More concretely, suppose a quintic has five distinct roots. Since the coefficients of the equation are symmetric functions of the five roots, any formula written from the coefficients must preserve the corresponding algebraic relations when the roots are relabeled. Abel proved that, if a root could really be expressed by radicals, then after peeling away the radical tower step by step, some intermediate expressions would have forms similar to
 
@@ -602,6 +622,8 @@ $$
 The meaning of a commutator is this: when a group is mapped to an Abelian group, every commutator becomes the identity. Thus, if one tries to break $S_n$ down through a chain of Abelian quotients, then as long as one stage still contains all 3-cycles, the next stage still contains all 3-cycles as well. The 3-cycles survive at every layer, so the process cannot end at the trivial group. This is a very short proof idea for the nonsolvability of $S_n$ when $n\ge5$. It also explains why five symbols are enough: besides the three symbols $a,b,c$ used by the 3-cycle itself, one needs two extra symbols $d,e$ to build the commutator above.
 
 Here "the general equation of degree $n$" does not mean one specific equation. It means the universal degree-$n$ equation whose coefficients are independent and have no extra special relations. One may think of it as the least special degree-$n$ equation.
+
+More precisely, the coefficients of the general equation are not concrete rational numbers; they are algebraically independent symbolic parameters. Thus we are not studying one specific equation such as $x^5-x-1=0$, but a universal model in which all coefficients remain free. What is ruled out is a single universal radical formula. If the universal model were solvable by radicals, then substituting concrete values for the symbolic coefficients would produce a general radical method for concrete equations. Conversely, the fact that some special quintics are solvable by radicals does not affect the nonsolvability of the general quintic by a universal radical formula.
 
 The group $S_n$ should be made explicit. Suppose the $n$ roots are $r_1,r_2,\ldots,r_n$. Then $S_n$ is the group of all permutations of this root set. "All" means that any one-to-one relabeling of the roots is included. For example, in $S_5$ the permutations $(1\,2)$, $(1\,2\,3)$, and $(1\,2\,3\,4\,5)$ all occur.
 
@@ -846,6 +868,8 @@ $$
 $$
 
 whose quotient groups are $C_5$ and $C_4$. Both are Abelian. Therefore the Galois group is solvable, and the equation can be solved by radicals. Indeed, $\alpha=\sqrt[5]{2}$ is already one root, and adjoining the fifth roots of unity gives all the roots.
+
+This also points to a small but important subtlety: strictly speaking, taking a fifth root is not just obtaining the real number $\sqrt[5]{2}$. To write all five roots, the corresponding roots of unity must be allowed as well. For $x^5-2=0$, adjoining $\alpha$ gives only one root; after adjoining the fifth root of unity $\zeta_5$, all five roots appear and the splitting field is complete.
 
 **Equation 2: $x^5-x-1=0$.**
 
@@ -1113,6 +1137,8 @@ The same criterion also gives a practical method. For a concrete quintic, first 
 
 This also explains why some special quintics can still be solved by radicals. Their Galois groups may be smaller than $S_5$ and may be solvable. What fails is not every individual quintic, but a single radical formula that works for the general quintic. This is the sense in which the quintic is a theoretical boundary: it marks the end of universal radical formulas, and the beginning of case-by-case structural judgment.
 
+Seen from another angle, the Abel-Ruffini theorem does not close the door on solving equations. It marks the boundary of the language of radicals. Irrational numbers, complex numbers, elliptic functions, and later special functions all arose when older expressive tools proved insufficient. The quintic is another instance of the same pattern: the roots still exist, can be approximated numerically, and can even be expressed through elliptic functions, modular functions, or hypergeometric functions; what is ruled out is only a finite universal formula by radicals.
+
 Thus solving equations is not only a matter of "writing down the roots." In low degrees, it appears as a sequence of clever formulas and substitutions. From the quintic onward, it becomes a structural question: how may the roots be interchanged, and can those interchanges be decomposed through Abelian quotient groups? The Galois group is what answers that question.
 
 ---
@@ -1125,7 +1151,9 @@ References:
 4. Jörg Bewersdorff, *Galois Theory for Beginners: A Historical Perspective*, 2nd ed., translated by David Kramer, American Mathematical Society, Student Mathematical Library, vol. 95. The historical thread in this article concerning casus irreducibilis and Bombelli, symmetric polynomials, Lagrange resolvents, Tschirnhaus transformations, and the Bring-Jerrard reduction follows this book.
 5. John Stillwell, "Galois Theory for Beginners," *The American Mathematical Monthly*, 101(1), 22--27, 1994. The compact proof skeleton in Section 9 for the nonsolvability by radicals of the general degree-$n$ equation follows this article.
 6. Niels Henrik Abel, *Mémoire sur les équations algébriques, où l'on démontre l'impossibilité de la résolution de l'équation générale du cinquième degré*, Christiania, 1824. The historical note in Section 8 about Abel's original proof refers to this early paper on the impossibility of solving the general quintic by radicals.
-7. V.B. Alekseev, *Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold*, Springer, 2004. The supplementary viewpoint in Section 8 on monodromy groups, the branching structure of Riemann surfaces, and a topological proof of Abel's theorem follows Sections 2.11--2.14 and the discussion in Khovanskii's appendix.
-8. Manjul Bhargava, "Galois groups of random integer polynomials and van der Waerden's Conjecture," *Annals of Mathematics*, 201(2), 339-377, 2025. [Annals page](https://annals.math.princeton.edu/2025/201-2/p01); [arXiv:2111.06507](https://arxiv.org/abs/2111.06507). The probabilistic statement in Section 10 about random integer polynomials almost always having Galois group $S_n$, and therefore random natural-number quintics almost always not being solvable by radicals, is based on this result.
-9. Jesse Schultz, *Solving the Quintic with Elliptic Functions*. The discussion in Section 11 of Hermite's and Brioschi's elliptic-modular approaches to the quintic follows this expository note.
-10. Oliver Nash, "The icosahedron and the solution of the quintic," 2013. [arXiv:1308.0955](https://arxiv.org/abs/1308.0955). The brief discussion in Section 11 of Klein's icosahedral viewpoint follows this article.
+7. Peter Pesic, *Abel's Proof: An Essay on the Sources and Meaning of Mathematical Unsolvability*, MIT Press, 2003. The additions about Abel's turn from attempting a solution to proving impossibility, the four-step structure of Abel's proof, and the meaning of mathematical unsolvability refer to this book.
+8. V.B. Alekseev, *Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold*, Springer, 2004. The supplementary viewpoint in Section 8 on monodromy groups, the branching structure of Riemann surfaces, and a topological proof of Abel's theorem follows Sections 2.11--2.14 and the discussion in Khovanskii's appendix.
+9. Manjul Bhargava, "Galois groups of random integer polynomials and van der Waerden's Conjecture," *Annals of Mathematics*, 201(2), 339-377, 2025. [Annals page](https://annals.math.princeton.edu/2025/201-2/p01); [arXiv:2111.06507](https://arxiv.org/abs/2111.06507). The probabilistic statement in Section 10 about random integer polynomials almost always having Galois group $S_n$, and therefore random natural-number quintics almost always not being solvable by radicals, is based on this result.
+10. Jesse Schultz, *Solving the Quintic with Elliptic Functions*. The discussion in Section 11 of Hermite's and Brioschi's elliptic-modular approaches to the quintic follows this expository note.
+11. Oliver Nash, "The icosahedron and the solution of the quintic," 2013. [arXiv:1308.0955](https://arxiv.org/abs/1308.0955). The brief discussion in Section 11 of Klein's icosahedral viewpoint follows this article.
+12. Ian Stewart, *Galois Theory*, 5th ed., CRC Press, 2022. The additions on Ruffini radicals, the theorem on natural irrationalities, the two directions of solvability by radicals, the precise meaning of the general polynomial, roots of unity and genuine radicals, and the historical caution about Galois's own language refer to this book.
