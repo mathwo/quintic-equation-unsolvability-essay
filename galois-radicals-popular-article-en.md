@@ -677,7 +677,7 @@ $$
 
 This geometric picture also makes the phrase "non-Abelian" concrete. If one performs two different rotations of an icosahedron in succession, the final orientation usually depends on the order in which the rotations are performed. Thus this rotation group is not Abelian.
 
-This is closely tied to the quintic: the same $A_5$ that appears inside the Galois group of the general quintic is also the rotation group of the icosahedron. Klein's later icosahedral solution of the quintic is built on this geometric form of $A_5$.
+This is closely tied to the quintic: the same $A_5$ that appears inside the Galois group of the general quintic is also the rotation group of the icosahedron. In the context of solving quintic equations, the mathematician who made this geometric picture central was **Felix Klein** (1849--1925). In his 1884 lectures on the icosahedron and equations of the fifth degree, Klein developed what is now called the **icosahedral solution of the quintic**. This is not a new formula by radicals. It translates the $A_5$ symmetry of the quintic into the rotational symmetry of the icosahedron: one first reduces the quintic to a suitable normal form, then studies invariants of the icosahedral rotation group and packages them in the **icosahedral function**. Solving the quintic then becomes an inverse-function problem: given a value of this icosahedral function, recover the corresponding parameter and then the roots. In other words, the icosahedron is not decorative imagery here; it is part of the structure of Klein's solution method.
 
 <figure>
   <img src="assets-en/figure-09a-a5-icosahedron.svg" alt="A5 as the rotation group of the regular icosahedron">
@@ -697,7 +697,7 @@ $$
 \mathrm{PSL}(2,5)\cong A_5
 $$
 
-Thus the point is that the same group $A_5$ can be seen as even permutations of five objects, as rotations of the icosahedron, and as fractional linear transformations over a finite field. Klein's later icosahedral solution connects precisely these different faces of the same group.
+Thus the point is that the same group $A_5$ can be seen as even permutations of five objects, as rotations of the icosahedron, and as fractional linear transformations over a finite field. The Klein icosahedral solution mentioned above uses precisely these translations among the different faces of the same group.
 
 <figure>
   <img src="assets-en/figure-10-platonic-rotation-groups.svg" alt="Figure 10: Platonic Rotation Groups">
@@ -745,7 +745,7 @@ Is this subgroup all of $S_5$, or is it a smaller subgroup?
 
 For an irreducible quintic polynomial, the possible transitive subgroups are quite restricted. Up to isomorphism, the transitive subgroups of $S_5$ are only a short list: the cyclic group $C_5$, the dihedral group $D_5$, the Frobenius group $F_{20}$, the alternating group $A_5$, and the full symmetric group $S_5$. In other words, once the Galois group of an irreducible quintic is viewed as a permutation group on the five roots, it must fall into one of these structural types.
 
-The first three are solvable. The group $C_5$ is just one cycle of order $5$. The group $D_5$ may be viewed as the symmetry group of a regular pentagon: it has a rotation part of order $5$ and a reflection part of order $2$, and structurally it has a chain
+At this point $A_5$ and $S_5$ are already familiar: $A_5$ is the alternating group on five letters, also visible as the rotation group of the regular icosahedron, while $S_5$ is the full permutation group on five objects. The other three names are the solvable candidates. The group $C_5$ is just one cycle of order $5$. The group $D_5$ may be viewed as the symmetry group of a regular pentagon: it has a rotation part of order $5$ and a reflection part of order $2$, and structurally it has a chain
 
 $$
 D_5\triangleright C_5\triangleright \{e\}
@@ -899,7 +899,7 @@ $$
 
 Even permutations of the roots preserve this product, while odd permutations change its sign. Thus a nonsquare discriminant shows that the Galois group is not contained in $A_5$; it contains an odd permutation.
 
-Now reduce modulo primes. Reducing modulo a prime $p$ means replacing each integer coefficient by its residue modulo $p$. We use primes because the residues modulo $p$ form a field $\mathbb F_p$, so one can factor polynomials in $\mathbb F_p[x]$ in the usual algebraic way. A few bad primes must be avoided; in this application of Dedekind's theorem, we avoid primes dividing the discriminant.
+Now use the modular criterion from Section 9. We choose primes not dividing the discriminant and read the cycle types from the factorization modulo those primes.
 
 Modulo $3$, the polynomial $x^5-x-1$ remains irreducible. By Dedekind's theorem this shows that the Galois group contains a 5-cycle. Modulo $2$,
 
@@ -1055,7 +1055,7 @@ It remains important to distinguish several statements:
 
 The last point deserves a little more explanation, because it is easily confused with the Abel-Ruffini theorem. The general quintic has no universal formula by radicals, but that does not mean it has no unified analytic expression in any broader function system. A classical route first uses a higher Tschirnhaus transformation to reduce the general quintic to the **Bring-Jerrard form**.
 
-The basic idea of a Tschirnhaus transformation is not merely to translate the variable, but to make the new unknown a polynomial function of the old root, and then choose parameters so that selected coefficients of the new equation vanish. For example, a quadratic transformation $y=x^2+px+q$ may be used to try to eliminate two high-degree terms at once. Bring went further and used a quartic transformation $y=x^4+px^3+qx^2+rx+s$ to reduce the general quintic to a standard form with only two nontrivial parameters. Choosing those parameters itself involves lower-degree equations, so this process does not contradict the Abel-Ruffini theorem; it compresses the general quintic into a form better suited to special functions.
+We already met the simplest Tschirnhaus idea in the quartic section: use a change of variable to eliminate selected terms. For the quintic, one uses a higher-degree version. The new unknown is not merely a translate of the old variable; it may be a polynomial function of the old root, with parameters chosen so that selected coefficients of the new equation vanish. For example, a quadratic transformation $y=x^2+px+q$ may be used to try to eliminate two high-degree terms at once. Bring went further and used a quartic transformation $y=x^4+px^3+qx^2+rx+s$ to reduce the general quintic to a standard form with only two nontrivial parameters. Choosing those parameters itself involves lower-degree equations, so this process does not contradict the Abel-Ruffini theorem; it compresses the general quintic into a form better suited to special functions.
 
 $$
 z^5+pz+q=0
@@ -1078,13 +1078,21 @@ Here the word radical is historical; $\operatorname{BR}(t)$ is not a radical exp
 The classical work of Hermite, Kronecker, Brioschi, and others gives solutions of the quintic in this sense. The general pattern is: reduce the quintic to a standard form, introduce an elliptic modular parameter $\tau$, express the parameter in the standard equation through elliptic modular functions, theta functions, or the $j$-invariant, and then write the roots as values of those functions at $\tau$. The formula is no longer of the form
 
 $$
-\text{root}=\text{an expression obtained from the coefficients by arithmetic operations and radicals}
+\begin{aligned}
+\text{root}
+&=\text{expression from the coefficients}\\
+&\quad\text{using arithmetic operations and radicals}
+\end{aligned}
 $$
 
 It is instead of the form
 
 $$
-\text{root}=\text{the value of an elliptic modular function, a theta function, or a related inverse function}
+\begin{aligned}
+\text{root}
+&=\text{value of an elliptic modular function,}\\
+&\quad\text{a theta function, or a related inverse function}
+\end{aligned}
 $$
 
 One Brioschi standard form is
@@ -1095,7 +1103,7 @@ $$
 
 The parameter $a$ can be related to the modular parameter of an elliptic curve. In other words, one first recovers a suitable $\tau$ from $a$, and then uses the corresponding elliptic modular functions to express the roots. Hermite's formulas follow the same spirit: they build combinations of elliptic modular functions whose values satisfy a standard quintic. What does the work is not radicals, but the richer multivalued structure of elliptic and modular functions.
 
-Klein later gave a more structural explanation. The key group behind the general quintic is $A_5$, and $A_5$ is also the rotation group of the regular icosahedron. Klein therefore connected the quintic with the **icosahedral function**. Roughly speaking, invariants of the quintic can be converted into a value of the icosahedral function; solving the quintic then amounts to inverting that function. This explains why a function beyond radicals appears: radicals resolve symmetries through Abelian quotient groups, whereas the icosahedral function can accommodate the non-Abelian $A_5$ symmetry.
+With the discussion in Section 8 in place, we only need to reconnect the threads here. Hermite's and Brioschi's approaches emphasize how elliptic modular functions express the roots of the quintic; Klein placed the same phenomenon inside the framework of $A_5$ and the rotational symmetry of the icosahedron. The geometric picture in Figures 9 and 10 is not merely a way to visualize the group; here it becomes part of the structure of the solution method. The role of the icosahedral function is to encode the $A_5$ symmetry of the quintic as an analytic function that can be inverted. Thus "solving the quintic by the icosahedral function" means following the bridge $A_5\leftrightarrow$ icosahedron and turning the root problem into the inversion of that function.
 
 There is also a hypergeometric expression for the Bring equation. For example, for the normalized equation
 
@@ -1155,5 +1163,6 @@ References:
 8. V.B. Alekseev, *Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold*, Springer, 2004. The supplementary viewpoint in Section 8 on monodromy groups, the branching structure of Riemann surfaces, and a topological proof of Abel's theorem follows Sections 2.11--2.14 and the discussion in Khovanskii's appendix.
 9. Manjul Bhargava, "Galois groups of random integer polynomials and van der Waerden's Conjecture," *Annals of Mathematics*, 201(2), 339-377, 2025. [Annals page](https://annals.math.princeton.edu/2025/201-2/p01); [arXiv:2111.06507](https://arxiv.org/abs/2111.06507). The probabilistic statement in Section 10 about random integer polynomials almost always having Galois group $S_n$, and therefore random natural-number quintics almost always not being solvable by radicals, is based on this result.
 10. Jesse Schultz, *Solving the Quintic with Elliptic Functions*. The discussion in Section 11 of Hermite's and Brioschi's elliptic-modular approaches to the quintic follows this expository note.
-11. Oliver Nash, "The icosahedron and the solution of the quintic," 2013. [arXiv:1308.0955](https://arxiv.org/abs/1308.0955). The brief discussion in Section 11 of Klein's icosahedral viewpoint follows this article.
-12. Ian Stewart, *Galois Theory*, 5th ed., CRC Press, 2022. The additions on Ruffini radicals, the theorem on natural irrationalities, the two directions of solvability by radicals, the precise meaning of the general polynomial, roots of unity and genuine radicals, and the historical caution about Galois's own language refer to this book.
+11. Felix Klein, *Lectures on the Icosahedron and the Solution of Equations of the Fifth Degree*, translated by George Gavin Morrice, Trübner, 1888. The article's historical framing of Klein's icosahedral solution follows this classic work.
+12. Oliver Nash, "The icosahedron and the solution of the quintic," 2013. [arXiv:1308.0955](https://arxiv.org/abs/1308.0955). The discussion of Klein's icosahedral solution, the icosahedral function, and the geometric form of $A_5$ follows this article.
+13. Ian Stewart, *Galois Theory*, 5th ed., CRC Press, 2022. The additions on Ruffini radicals, the theorem on natural irrationalities, the two directions of solvability by radicals, the precise meaning of the general polynomial, roots of unity and genuine radicals, and the historical caution about Galois's own language refer to this book.

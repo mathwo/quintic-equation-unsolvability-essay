@@ -800,7 +800,7 @@ $$</div>
 \operatorname{Rot}(\text{正二十面体})\cong A_5
 $$</div>
 <p>这个几何图像也能帮助理解“非 Abel”是什么意思：对一个正二十面体连续做两次不同的旋转，最终朝向通常取决于先做哪一次、后做哪一次。因此这个旋转群不是 Abel 群。</p>
-<p>这件事和五次方程的关系很深：一般五次方程的 Galois 群里出现 $A_5$ ，而同一个 $A_5$ 又是正二十面体的旋转对称群。Klein 后来的二十面体解法，正是抓住了这个几何化的 $A_5$ 结构。</p>
+<p>这件事和五次方程的关系很深：一般五次方程的 Galois 群里会出现 $A_5$ ，而同一个 $A_5$ 又是正二十面体的旋转对称群。在求解五次方程的语境中，系统地把这个几何图像推到核心位置的是 <strong>Felix Klein</strong>（1849--1925）。Klein 在 1884 年关于正二十面体和五次方程的讲义中发展了所谓<strong>二十面体解法</strong>。这不是一个新的根式公式，而是把五次方程里的 $A_5$ 对称性翻译成正二十面体的旋转对称性：先把一般五次方程化到适合研究的标准型，再研究正二十面体旋转群的不变量，并把这些不变量组织成<strong>二十面体函数</strong>（Icosahedral Function）。求根问题由此变成一个反函数问题：已知某个二十面体函数的值，怎样反解出相应的参数，再还原方程的根。也就是说，正二十面体在这里不是装饰性的比喻，而是 Klein 解法本身使用的几何结构。</p>
 <figure><img src="file:///C:/Users/rong/Documents/Codex/2026-10-06/galois-group-explainer/outputs/assets/figure-09a-a5-icosahedron.svg" alt="A5 与正二十面体旋转对称群"><figcaption>A5 与正二十面体旋转对称群</figcaption></figure>
 <p>其实 $A_5$ 还有几种等价的“面孔”。它不仅是五个对象的偶置换群，也是正二十面体和正十二面体的旋转对称群；这两个柏拉图多面体互为对偶，所以它们的旋转群相同。日常一点的例子是足球形状的截角二十面体，它保持方向的旋转对称群同样是这个 $60$ 元群。再抽象一些，正四维单纯形有五个顶点，全体对称是 $S_5$ ，其中保持取向的旋转正好对应偶置换，因此也是 $A_5$ 。</p>
 <p>在更代数的语言里， $A_5$ 还同构于 $\mathrm{PSL}(2,5)$ 。这里 $\mathrm{PSL}(2,5)$ 的全称是 <strong>projective special linear group</strong>，中文可译作<strong>二阶五元射影特殊线性群</strong>。粗略地说，先在五个元素的有限域 $\mathbb F_5=\{0,1,2,3,4\}$ 上考虑行列式为 $1$ 的 $2\times2$ 矩阵，它们组成 $\mathrm{SL}(2,5)$ 。这样的矩阵可以通过分式线性变换</p>
@@ -811,7 +811,7 @@ $$</div>
 <div class="math-block">$$
 \mathrm{PSL}(2,5)\cong A_5
 $$</div>
-<p>所以这里的意义是：同一个 $A_5$ 既可以看成五个对象的偶置换群，也可以看成正二十面体的旋转群，还可以看成有限域上的分式线性变换群。Klein 后来的二十面体解法，正是把这些不同面孔联系起来。</p>
+<p>所以这里的意义是：同一个 $A_5$ 既可以看成五个对象的偶置换群，也可以看成正二十面体的旋转群，还可以看成有限域上的分式线性变换群。上面提到的 Klein 二十面体解法，正是利用这些不同面孔之间的互相翻译。</p>
 <figure><img src="file:///C:/Users/rong/Documents/Codex/2026-10-06/galois-group-explainer/outputs/assets/figure-10-platonic-rotation-groups.svg" alt="图 10：柏拉图立体的旋转群"><figcaption>图 10：柏拉图立体的旋转群</figcaption></figure>
 <p>所谓<strong>柏拉图立体</strong>，也叫<strong>凸正多面体</strong>，是指三维空间里的凸多面体，并且满足两个条件：第一，每个面都是彼此全等的正多边形；第二，每个顶点处接合的面数都相同。符合这两个条件的立体总共只有五种：正四面体、正六面体（立方体）、正八面体、正十二面体和正二十面体。</p>
 <p>这里的“最高”不是价值判断，也不是说 $A_5$ 是所有有限旋转群中绝对最大的群。三维空间里的有限旋转群包括两个可以无限延伸的系列：循环群 $C_n$ 和二面体旋转群 $D_n$ ，这里的 $n$ 可以任意变大。除此以外，还有三类来自正多面体的“柏拉图型”旋转群：正四面体型、立方体/正八面体型、正十二面体/正二十面体型。</p>
@@ -844,7 +844,7 @@ $$</div>
 <p>第二步，把 Galois 群看成 $S_5$ 的一个子群。因为 Galois 群的元素会重新排列五个根，所以它天然嵌入到五个根的全体置换群 $S_5$ 中。问题变成：</p>
 <p>这个子群到底是 $S_5$ 本身，还是某个较小的子群？</p>
 <p>对一个不可约五次多项式来说，可能出现的传递子群并不随意。准确地说，在同构意义下， $S_5$ 的传递子群只有少数几类：循环群 $C_5$ 、二面体群 $D_5$ 、Frobenius 群 $F_{20}$ 、交错群 $A_5$ 和对称群 $S_5$ 。这句话的意思是：如果一个不可约五次方程的 Galois 群被看成五个根上的置换群，那么它只能落在这几种结构里。</p>
-<p>这几个符号可以先这样理解。 $C_5$ 是<strong>五阶循环群</strong>（Cyclic Group of Order 5），由一个五轮换生成，像是把五个根排成一圈后不断旋转。 $D_5$ 是<strong>五阶二面体群</strong>（Dihedral Group of Order 10），可以看作正五边形的对称群，包含五个旋转和五个反射。 $F_{20}$ 是一个 $20$ 元的 <strong>Frobenius 群</strong>，在这里可以理解成仿射变换群 $x\mapsto ax+b$ 在五个元素上的作用，其中 $a\in(\mathbb Z/5\mathbb Z)^\times$ ， $b\in\mathbb Z/5\mathbb Z$ 。 $A_5$ 是前面介绍过的五次交错群，只含偶置换； $S_5$ 则是五个对象的全体置换组成的对称群。它们正好覆盖了不可约五次方程可能出现的传递置换结构。</p>
+<p>这份列表里， $A_5$ 和 $S_5$ 前面已经出现过：前者是五次交错群，也可以看成正二十面体的旋转群；后者是五个对象的全体置换群。这里需要补充的是另外三个可解候选。 $C_5$ 是<strong>五阶循环群</strong>（Cyclic Group of Order 5），由一个五轮换生成，像是把五个根排成一圈后不断旋转。 $D_5$ 是<strong>五阶二面体群</strong>（Dihedral Group of Order 10），可以看作正五边形的对称群，包含五个旋转和五个反射。 $F_{20}$ 是一个 $20$ 元的 <strong>Frobenius 群</strong>，在这里可以理解成仿射变换群 $x\mapsto ax+b$ 在五个元素上的作用，其中 $a\in(\mathbb Z/5\mathbb Z)^\times$ ， $b\in\mathbb Z/5\mathbb Z$ 。这五类群正好覆盖了不可约五次方程可能出现的传递置换结构。</p>
 <p>其中前三类是可解群。 $C_5$ 只有一个 $5$ 阶循环，结构最简单； $D_5$ 可以理解为正五边形的对称群，它有一个 $5$ 阶旋转部分和一个 $2$ 阶反射部分，结构上可以分成</p>
 <div class="math-block">$$
 D_5\triangleright C_5\triangleright \{e\}
@@ -961,20 +961,7 @@ $$</div>
 $$</div>
 <p>偶置换保持这个乘积不变，奇置换会把它变成相反数。因此，如果判别式在 $\mathbb Q$ 里是平方，那么这个平方根已经在基础域 $\mathbb Q$ 里，被所有 Galois 自同构固定，Galois 群只能包含偶置换。反过来，如果判别式不是有理数平方，就说明 Galois 群不可能完全落在 $A_5$ 里；换句话说，这个 Galois 群里一定有奇置换。</p>
 <p>再看它在不同素数模意义下的分解情况：</p>
-<p>这里的“模 $p$ 化简”意思是：把多项式的每个整数系数都只保留除以 $p$ 的余数。例如在模 $3$ 意义下， $-1$ 和 $2$ 是同一个数。之所以特别取素数 $p$ ，是因为模 $p$ 的余数会组成一个数域 $\mathbb F_p$ ，于是可以在 $\mathbb F_p[x]$ 里正常讨论多项式是否不可约、怎样分解。少数“坏素数”需要避开；在这里，就是避开整除判别式的素数。</p>
-<p>我们先简化阐述一下 <strong>Dedekind 定理</strong>（Dedekind's Theorem）。设 $f(x)$ 是一个整系数不可约多项式，次数为 $n$ ，它在 $\mathbb Q$ 上的 Galois 群可以看成 $n$ 个根上的一个置换群。取一个素数 $p$ ，只要 $p$ 不整除 $f$ 的判别式，就可以把 $f(x)$ 的系数模 $p$ 化简。如果模 $p$ 以后， $f(x)$ 分解成若干个不可约因子：</p>
-<div class="math-block">$$
-f(x)\equiv f_1(x)f_2(x)\cdots f_k(x)\pmod p
-$$</div>
-<p>且这些不可约因子的次数分别是</p>
-<div class="math-block">$$
-d_1,d_2,\ldots,d_k
-$$</div>
-<p>那么原来的 Galois 群里一定存在一个置换，它的循环长度正好是</p>
-<div class="math-block">$$
-(d_1,d_2,\ldots,d_k)
-$$</div>
-<p>例如，一个不可约五次因子对应一个五轮换；一个二次不可约因子乘一个三次不可约因子，对应一个循环类型为 $(2)(3)$ 的置换。</p>
+<p>这里不再重新展开 Dedekind 定理，只沿用第九节的判据：选取不整除判别式的素数 $p$ ，模 $p$ 后的不可约因子次数会给出 Galois 群里的相应循环类型。因此下面只需要看两个模素数分解。</p>
 <div class="math-block">$$
 x^5-x-1\pmod 3
 $$</div>
@@ -1043,7 +1030,7 @@ $$</div>
 <p>但“一般 $n$ 次方程没有通用根式求解公式”仍然不表示“高次方程都不能解”。这里要分清几件事：</p>
 <ul><li>某些特殊的高次方程仍然可以用根式解，因为它们的 Galois 群可能是可解群。</li><li>即使不能用根式解，方程仍然有根。复数范围内，每个非常数多项式都有根。</li><li>实际计算中可以用<strong>数值方法</strong>（Numerical Methods）逼近根，比如<strong>牛顿法</strong>（Newton's Method）。</li><li>如果允许超出根式的<strong>特殊函数</strong>（Special Functions），某些五次或更高次方程也可以用更广义的函数表达。</li></ul>
 <p>这里最后一点值得稍微展开，因为它容易和 Abel-Ruffini 定理混在一起。一般五次方程不能用根式给出通用公式，但这不表示它不能用任何统一的解析函数表达。经典做法是先通过更高阶的 Tschirnhaus 变换，把一般五次方程化成 <strong>Bring-Jerrard 形式</strong>（Bring-Jerrard Form）。</p>
-<p>Tschirnhaus 变换的基本想法是：不只是平移变量，而是把新未知量设成旧根的多项式函数，再让新方程的若干项系数消失。例如二次式变换 $y=x^2+px+q$ 可以用来尝试同时消去新方程中的两个高次项。Bring 的工作更进一步，使用四次式变换 $y=x^4+px^3+qx^2+rx+s$ ，通过选择参数把一般五次方程化到只剩两个非平凡参数的标准形。这里的参数选择本身会牵涉低次方程，所以这一步仍然不违背 Abel-Ruffini 定理；它只是把一般五次方程压缩到一个更适合用特殊函数研究的形式。</p>
+<p>前面讲四次方程时，已经见过 Tschirnhaus 变换的最简单版本：通过换元消去某些项。到了五次方程这里，用的是更高阶的版本：新未知量不只是旧变量的平移，而可以设成旧根的多项式函数，再通过选择参数让新方程的若干项系数消失。例如二次式变换 $y=x^2+px+q$ 可以用来尝试同时消去新方程中的两个高次项。Bring 的工作更进一步，使用四次式变换 $y=x^4+px^3+qx^2+rx+s$ ，通过选择参数把一般五次方程化到只剩两个非平凡参数的标准形。这里的参数选择本身会牵涉低次方程，所以这一步仍然不违背 Abel-Ruffini 定理；它只是把一般五次方程压缩到一个更适合用特殊函数研究的形式。</p>
 <div class="math-block">$$
 z^5+pz+q=0
 $$</div>
@@ -1069,7 +1056,7 @@ $$</div>
 y^5+10y^3+45y+a=0
 $$</div>
 <p>这个方程的参数 $a$ 可以和椭圆曲线的模参数联系起来；换句话说，先由 $a$ 反推出某个模参数 $\tau$ ，再用相应的椭圆模函数表达根。Hermite 的公式也是类似精神：它构造若干椭圆模函数，使得由这些函数组合出来的量满足一个标准五次方程。这里真正起作用的不是根式，而是椭圆函数和模函数自身的多值结构。</p>
-<p>Klein 后来给出了一条更结构化的解释：一般五次方程背后的关键群是 $A_5$ ，而 $A_5$ 正好也是正二十面体的旋转对称群。所以 Klein 把五次方程和<strong>二十面体函数</strong>（Icosahedral Function）联系起来。粗略地说，五次方程的某些不变量可以转化成二十面体函数的取值；反过来，求根就变成反解这个二十面体函数。这条路线把“为什么五次方程需要比根式更高的函数”解释得很清楚：根式只能逐层处理 Abel 商群，而二十面体函数能够容纳 $A_5$ 这种非 Abel 对称性。</p>
+<p>有了第八节里的说明，这里只需要把线索接回来。Hermite、Brioschi 这一路强调椭圆模函数怎样表达五次方程的根；Klein 则把同一件事放到 $A_5$ 与正二十面体旋转群的框架中理解。图 9 和图 10 中的几何图像，在这里承担的是解法结构，而不只是帮助想象群的形状。二十面体函数的角色，是把五次方程中的 $A_5$ 对称性编码成一个可以反解的解析函数。因此，所谓“用二十面体函数解五次方程”，本质上就是沿着 $A_5\leftrightarrow$ 正二十面体这条桥，把求根问题转化为反解二十面体函数。</p>
 <p>如果不走椭圆函数和二十面体函数，也可以用超几何函数表达 Bring 方程的根。例如，对于标准方程</p>
 <div class="math-block">$$
 x^5+x+a=0
@@ -1101,6 +1088,6 @@ $$</div>
 <p>因此，解方程不只是“把根写出来”。在低次情形，它表现为一套套精巧的公式和换元；到了五次及以上，它变成一个结构判断问题：根之间允许怎样互换？这些互换能不能沿 Abel 商群逐层拆开？答案正是由 Galois 群给出的。</p>
 <p>---</p>
 <p>参考文献：</p>
-<ol><li>Emil Artin, <em>Galois Theory</em>. 本文的严谨结构参考这部讲义中关于 extension fields、splitting fields、Fundamental Theorem of Galois Theory、solvable groups、solution by radicals 和 general equation of degree $n$ 的论证路线；正文采用面向科普读者的重述和例子展开。</li><li>Po-Shen Loh, “A Simple Proof of the Quadratic Formula,” 2019. <a href="https://poshenloh.com/quadraticdetail">方法说明</a>；<a href="https://arxiv.org/abs/1910.06709">arXiv:1910.06709</a>。本文第一节关于二次方程“平均数 $\pm$ 偏移量”的推导，参考这篇说明。</li><li>MacTutor History of Mathematics Archive, <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Cardan/">“Girolamo Cardano”</a>；<a href="https://mathshistory.st-andrews.ac.uk/HistTopics/Quadratic_etc_equations/">“Quadratic, cubic and quartic equations”</a>。本文第一节关于三次方程公式历史、del Ferro、Tartaglia、Cardano 和 <em>Ars Magna</em> 的简述，参考这些资料。</li><li>Jörg Bewersdorff, <em>Galois Theory for Beginners: A Historical Perspective</em>, 2nd ed., translated by David Kramer, American Mathematical Society, Student Mathematical Library, vol. 95. 本文第一节关于 casus irreducibilis 和 Bombelli 的说明，以及对称多项式、Lagrange resolvent、Tschirnhaus 变换和 Bring-Jerrard 化简的历史线索，参考该书。</li><li>John Stillwell, “Galois Theory for Beginners,” <em>The American Mathematical Monthly</em>, 101(1), 22--27, 1994. 本文第九节关于一般 $n$ 次方程不可根式通解的极简证明骨架，参考这篇短文。</li><li>Niels Henrik Abel, <em>Mémoire sur les équations algébriques, où l'on démontre l'impossibilité de la résolution de l'équation générale du cinquième degré</em>, Christiania, 1824. 本文第八节关于 Abel 原始证明的历史说明，参考 Abel 这篇关于一般五次方程不可根式求解的早期论文。</li><li>Peter Pesic, <em>Abel's Proof: An Essay on the Sources and Meaning of Mathematical Unsolvability</em>, MIT Press, 2003. 本文关于 Abel 从尝试求解转向证明不可解、Abel 证明的四步结构，以及“不可解性”观念意义的补充，参考该书。</li><li>V.B. Alekseev, <em>Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold</em>, Springer, 2004. 本文第八节关于单值群（Monodromy Group）、黎曼曲面分支结构和 Abel 定理拓扑证明的补充视角，参考该书第 2.11--2.14 节以及 Khovanskii 附录中的说明。</li><li>Manjul Bhargava, “Galois groups of random integer polynomials and van der Waerden's Conjecture,” <em>Annals of Mathematics</em>, 201(2), 339-377, 2025. <a href="https://annals.math.princeton.edu/2025/201-2/p01">Annals 页面</a>；<a href="https://arxiv.org/abs/2111.06507">arXiv:2111.06507</a>。本文第十节关于随机整系数多项式的 Galois 群几乎总是 $S_n$ ，以及自然数系数五次方程几乎总是不能用根式求解的判断，参考这一结果。</li><li>Jesse Schultz, <em>Solving the Quintic with Elliptic Functions</em>. 本文第十一节关于 Hermite、Brioschi 型五次方程和椭圆模函数解法的简述，参考这份讲义式说明。</li><li>Oliver Nash, “The icosahedron and the solution of the quintic,” 2013. <a href="https://arxiv.org/abs/1308.0955">arXiv:1308.0955</a>。本文第十一节关于 Klein 二十面体视角的简述，参考这篇文章。</li><li>Ian Stewart, <em>Galois Theory</em>, 5th ed., CRC Press, 2022. 本文关于 Ruffini radicals、自然无理量定理、根式可解性的必要方向和充分方向、一般多项式的严格含义、单位根与“真正根式”的说明，以及对 Galois 历史表述的谨慎区分，参考该书相关章节。</li></ol>
+<ol><li>Emil Artin, <em>Galois Theory</em>. 本文的严谨结构参考这部讲义中关于 extension fields、splitting fields、Fundamental Theorem of Galois Theory、solvable groups、solution by radicals 和 general equation of degree $n$ 的论证路线；正文采用面向科普读者的重述和例子展开。</li><li>Po-Shen Loh, “A Simple Proof of the Quadratic Formula,” 2019. <a href="https://poshenloh.com/quadraticdetail">方法说明</a>；<a href="https://arxiv.org/abs/1910.06709">arXiv:1910.06709</a>。本文第一节关于二次方程“平均数 $\pm$ 偏移量”的推导，参考这篇说明。</li><li>MacTutor History of Mathematics Archive, <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Cardan/">“Girolamo Cardano”</a>；<a href="https://mathshistory.st-andrews.ac.uk/HistTopics/Quadratic_etc_equations/">“Quadratic, cubic and quartic equations”</a>。本文第一节关于三次方程公式历史、del Ferro、Tartaglia、Cardano 和 <em>Ars Magna</em> 的简述，参考这些资料。</li><li>Jörg Bewersdorff, <em>Galois Theory for Beginners: A Historical Perspective</em>, 2nd ed., translated by David Kramer, American Mathematical Society, Student Mathematical Library, vol. 95. 本文第一节关于 casus irreducibilis 和 Bombelli 的说明，以及对称多项式、Lagrange resolvent、Tschirnhaus 变换和 Bring-Jerrard 化简的历史线索，参考该书。</li><li>John Stillwell, “Galois Theory for Beginners,” <em>The American Mathematical Monthly</em>, 101(1), 22--27, 1994. 本文第九节关于一般 $n$ 次方程不可根式通解的极简证明骨架，参考这篇短文。</li><li>Niels Henrik Abel, <em>Mémoire sur les équations algébriques, où l'on démontre l'impossibilité de la résolution de l'équation générale du cinquième degré</em>, Christiania, 1824. 本文第八节关于 Abel 原始证明的历史说明，参考 Abel 这篇关于一般五次方程不可根式求解的早期论文。</li><li>Peter Pesic, <em>Abel's Proof: An Essay on the Sources and Meaning of Mathematical Unsolvability</em>, MIT Press, 2003. 本文关于 Abel 从尝试求解转向证明不可解、Abel 证明的四步结构，以及“不可解性”观念意义的补充，参考该书。</li><li>V.B. Alekseev, <em>Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold</em>, Springer, 2004. 本文第八节关于单值群（Monodromy Group）、黎曼曲面分支结构和 Abel 定理拓扑证明的补充视角，参考该书第 2.11--2.14 节以及 Khovanskii 附录中的说明。</li><li>Manjul Bhargava, “Galois groups of random integer polynomials and van der Waerden's Conjecture,” <em>Annals of Mathematics</em>, 201(2), 339-377, 2025. <a href="https://annals.math.princeton.edu/2025/201-2/p01">Annals 页面</a>；<a href="https://arxiv.org/abs/2111.06507">arXiv:2111.06507</a>。本文第十节关于随机整系数多项式的 Galois 群几乎总是 $S_n$ ，以及自然数系数五次方程几乎总是不能用根式求解的判断，参考这一结果。</li><li>Jesse Schultz, <em>Solving the Quintic with Elliptic Functions</em>. 本文第十一节关于 Hermite、Brioschi 型五次方程和椭圆模函数解法的简述，参考这份讲义式说明。</li><li>Felix Klein, <em>Lectures on the Icosahedron and the Solution of Equations of the Fifth Degree</em>, translated by George Gavin Morrice, Trübner, 1888. 本文关于 Klein 二十面体解法的历史定位，参考这部经典著作。</li><li>Oliver Nash, “The icosahedron and the solution of the quintic,” 2013. <a href="https://arxiv.org/abs/1308.0955">arXiv:1308.0955</a>。本文关于 Klein 二十面体解法、二十面体函数和 $A_5$ 几何化视角的简述，参考这篇文章。</li><li>Ian Stewart, <em>Galois Theory</em>, 5th ed., CRC Press, 2022. 本文关于 Ruffini radicals、自然无理量定理、根式可解性的必要方向和充分方向、一般多项式的严格含义、单位根与“真正根式”的说明，以及对 Galois 历史表述的谨慎区分，参考该书相关章节。</li></ol>
 </body>
 </html>
