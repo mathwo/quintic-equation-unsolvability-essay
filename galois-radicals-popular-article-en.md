@@ -236,6 +236,8 @@ This turn introduces the protagonists of the story: two young geniuses. **Niels 
 
 Here it is important to distinguish the historical record from the modern reconstruction. Today we often summarize the story by saying: "$A_5$ is the smallest non-Abelian simple group, and therefore the general quintic has no radical formula." That is a clean later formulation in the language of group theory. Galois himself spoke more in terms of rational functions of the roots and the structure of the permissible permutations. His breakthrough was to connect solvability of equations with the permutation structure of the roots, not to write the whole modern $A_5$ proof chain in today's textbook language.
 
+In language closer to Galois's original viewpoint, he did not begin by asking what the formula should look like. He asked: relative to the quantities currently regarded as known, which permutations of the roots preserve all rational relations among them? The collection of such permissible substitutions is the equation's **groupe**. When one adjoins a new quantity to the known quantities, Galois called this an **adjonction**. Once more is known, roots that previously could be interchanged may become distinguishable, so the allowed substitutions shrink and the groupe becomes smaller. Solvability by radicals then becomes a question about whether this shrinking can proceed in an orderly way: after adjoining radicals step by step, does the groupe undergo a controlled **proper decomposition** (décomposition propre)? Modern language rewrites this as follows: an equation is solvable by radicals exactly when its Galois group is solvable, meaning that it can be decomposed through a normal subgroup chain with Abelian quotients.
+
 It was natural to ask whether the general quintic
 
 $$
@@ -296,7 +298,7 @@ Over the base field $\mathbb Q$, the rational root $1$ is already singled out. T
 
 <figure>
   <img src="assets-en/figure-03-two-quadratics-contrast.svg" alt="Three types of roots in one quintic">
-  <figcaption>Figure 1. In this quintic, the rational root, the real irrational pair, and the conjugate complex pair behave as three stable packets over $\mathbb Q$.</figcaption>
+  <figcaption>Figure 1. In this quintic, the rational root, the real irrational pair, and the conjugate complex pair behave as three stable packets over ℚ.</figcaption>
 </figure>
 
 This is the first hint of the Galois-theoretic idea: solving an equation means adding enough information to distinguish roots that were previously indistinguishable.
@@ -448,6 +450,30 @@ $$
 
 The larger the intermediate field, the more elements it asks automorphisms to fix, so the smaller the corresponding subgroup becomes.
 
+This is also where Dedekind's influence on modern Galois theory becomes visible. Galois himself mostly began with permutations of roots; Dedekind pushed the language toward **field extensions** and **field automorphisms**. The German word **Körper** is what we now call a **field**: a number system closed under addition, subtraction, multiplication, and division by nonzero elements. Enlarging a base field $F$ to a larger field $L$ is written $L/F$ and is called a field extension. Thus the Galois group is no longer merely a list of possible root interchanges; it is $\mathrm{Gal}(L/F)$, the group of all automorphisms of $L$ that fix $F$ and preserve addition and multiplication. For a polynomial, the root permutations are still there, but they are now placed inside a more stable structure: they must come from automorphisms of the splitting field.
+
+Dedekind also introduced and developed the concept of an **ideal** in algebraic number theory. Briefly, in a ring, an ideal is a substructure closed under addition and able to absorb multiplication by arbitrary elements of the ring. This article does not need ideal theory itself. What matters here is the structural point behind it: to study an algebraic object, one should look not only at individual calculations, but also at internal substructures that remain stable under the operations. Intermediate fields, normal subgroups, and quotient groups become clear precisely in this structural language.
+
+In the 1920s, the abstract algebra associated with Emmy Noether and the Göttingen school pushed this structural viewpoint further. Instead of treating algebra as a collection of special calculations, it began from basic structures such as groups, rings, fields, and modules. Emil Artin's modern formulation of Galois theory belongs to this setting. Artin treats a field extension $L/K$ as a vector space over $K$, whose dimension is the extension degree $[L:K]$. For a finite extension, the number of automorphisms fixing $K$ is always at most $[L:K]$; when
+
+$$
+|\mathrm{Gal}(L/K)|=[L:K]
+$$
+
+the extension $L/K$ is Galois. Equivalently, in the familiar characteristic-zero setting, it is a normal and separable extension.
+
+In this modern form, the **Galois correspondence** says the following. For a finite Galois extension $L/K$, intermediate fields $M$ correspond one-to-one with subgroups $H$ of $G=\mathrm{Gal}(L/K)$ by
+
+$$
+H\longmapsto L^H=\{x\in L:\sigma(x)=x\text{ for every }\sigma\in H\}
+$$
+
+This correspondence reverses containment: the larger the subgroup, the smaller its fixed field. If $H$ is a normal subgroup of $G$, then the corresponding intermediate field $M=L^H$ is itself a Galois extension of $K$, and
+
+$$
+\mathrm{Gal}(M/K)\cong G/H
+$$
+
 In the example $K=\mathbb Q(\sqrt3,\sqrt{-2})$, write $a$ for the automorphism that interchanges $\sqrt3$ and $-\sqrt3$, and $b$ for the automorphism that interchanges $\sqrt{-2}$ and $-\sqrt{-2}$. Then
 
 $$
@@ -490,6 +516,10 @@ $$
 This is well defined precisely because $N$ is normal.
 
 Normal subgroups and quotient groups are the mechanism by which a complicated group can be decomposed into simpler pieces.
+
+Historically, this is the point where Galois's original language passes into the later Jordan-style language of permutation groups. Galois's **décomposition propre** can be made precise through normal subgroups and quotient groups: a normal subgroup records a layer of symmetry that remains stable, while a quotient group records the structure of the step between two neighboring layers after the internal changes of that layer have been identified. One must be slightly careful here: **adjonction** most directly means enlarging the base field and thereby reducing the allowed root permutations to a subgroup; the quotient group describes the piece of symmetry isolated between two adjacent layers when normality is present.
+
+When a normal subgroup chain has been refined as far as possible, so that every quotient in the chain is a **simple group**, the chain is called a **composition series**. A simple group may be thought of as an "atom" of group theory: it has no nontrivial normal subgroups, so it cannot be further decomposed by the normal-subgroup-and-quotient procedure. This metaphor is only about this particular kind of decomposition, not about size; cyclic groups of prime order are the simplest Abelian simple groups, while $A_5$, which appears below, is the smallest non-Abelian simple group.
 
 ## 7. Abelian Groups and Solvable Groups
 
@@ -536,6 +566,10 @@ then this commutative relation is a key clue that the equation can be solved ste
 
 Why do Abelian groups appear in radical solutions? Because solving by radicals allows only one root extraction at each step. The basic symmetry introduced by adjoining an $n$-th root is controlled by multiplication by $n$-th roots of unity. That symmetry is essentially cyclic, and cyclic groups are Abelian. In other words, each radical step usually corresponds, in group-theoretic language, to one Abelian quotient.
 
+Equivalently, for finite groups, a group is solvable precisely when all of its composition factors are cyclic groups of prime order. In other words, if the final "atoms" obtained by decomposition are all Abelian, then the group belongs to the world accessible by radicals. If one layer contains a non-Abelian simple group such as $A_5$, this step-by-step radical route cannot continue.
+
+The Jordan-Hölder theorem further says that different composition series have the same composition factors, up to order and isomorphism. Thus the statement "all composition factors are cyclic groups of prime order" is not an accident of a chosen chain; it is a property of the group itself.
+
 This is why the word "solvable" is used. A solvable group is not a group that has merely been "computed"; it is a group whose complexity can be reduced, along a normal subgroup chain, to Abelian quotient pieces. Since radical extraction handles precisely this kind of Abelian symmetry, solvable groups become the group-theoretic shadow of solution by radicals.
 
 ## 8. Radical Solvability Is Equivalent to a Solvable Galois Group, and Other Viewpoints
@@ -545,6 +579,22 @@ Now we give the proof framework. To avoid technical side issues, we first state 
 The central theorem can be stated as follows:
 
 > A polynomial is solvable by radicals if and only if its Galois group is a solvable group.
+
+In the field-extension language that became standard after Dedekind, solution by radicals means the following. Starting from the base field $F$, one can build a tower of fields
+
+$$
+F=L_0\subset L_1\subset \cdots \subset L_m
+$$
+
+and each step is obtained by adjoining a radical:
+
+$$
+L_{i+1}=L_i(\alpha_i),\qquad \alpha_i^{n_i}=a_i\in L_i
+$$
+
+If all roots of the equation lie in the final field $L_m$, the equation is solvable by radicals. In a fully rigorous treatment, one often also adjoins the necessary roots of unity and passes to normal closures; these operations do not change the essential fact that the field was built step by step from radicals. After these preparations, each radical step contributes a cyclic, or at least Abelian, Galois group. Therefore the whole tower translates into a normal subgroup chain with Abelian quotients.
+
+An extension that can be embedded in such a radical tower is often called a **solvable extension**. For a finite Galois extension, this statement translates into group theory: the extension is solvable if and only if its Galois group is solvable. For a polynomial, the object to test is its splitting field; asking whether that splitting field embeds in a radical tower is equivalent to asking whether its Galois group is solvable.
 
 Here is the intuitive content of the two directions.
 
@@ -597,11 +647,27 @@ Here $z$ is treated as a complex parameter, and $w$ is a root varying with $z$. 
 
 The permutations produced by "going once around a branch point" form the monodromy group of this multi-valued function. In the setting of this article, the **monodromy group** can be defined as follows: choose a parameter value that is not a branch point, and label the local roots there; let the parameter travel along closed curves that avoid the branch points and return to the starting value; while doing so, continue each root analytically. At the end of such a loop, the root set has undergone a permutation. The group formed by all permutations produced in this way is the monodromy group of the multi-valued function. Geometrically, one may imagine the five roots as five sheets of a **Riemann surface**. Each sheet corresponds to one local root. When the parameter $z$ winds around a branch point, the path may carry us from one sheet to another. The monodromy group records precisely how the sheets are interchanged after such winding.
 
+Two similar-sounding terms should not be confused. A **simple group** is a group-theoretic concept: it means a group with no nontrivial normal subgroups. When we said earlier that $A_5$ is the smallest non-Abelian simple group, we were saying that it cannot be further decomposed along normal subgroups. A **monodromy group**, by contrast, belongs to complex analysis and topology: it records how the branches of a multi-valued function are permuted after analytic continuation along loops. A monodromy group need not be a simple group; it is simply a group that records branch interchange under winding.
+
 Radical functions themselves also have branches. For example, after $\sqrt[n]{z}$ winds once around $0$, it is multiplied by an $n$-th root of unity. This basic branching behavior corresponds to a cyclic group, and cyclic groups are Abelian. Finite combinations of arithmetic operations, compositions, and radical extractions can only build these cyclic branching structures layer by layer. Therefore a multi-valued function expressible by radicals must have a solvable monodromy group. This is the key point in the Arnold-Alekseev route.
 
 Conversely, the root function of the quintic family above has five sheets. By analyzing its branch points and the way the sheets of the Riemann surface are connected, the book proves that the permutations obtained by winding around these branch points generate the whole group $S_5$. Since $S_5$ is not solvable, this root function cannot be expressed by radicals. Moreover, if the general quintic really had a universal formula by radicals, then specializing the coefficients to this family would give a radical expression for this root function, contradicting the fact that its monodromy group is $S_5$. Therefore the general quintic has no universal radical formula.
 
 This viewpoint and Galois theory are not two contradictory theories. For algebraic functions, the monodromy group and the corresponding Galois group describe, in a natural sense, the same root-interchange structure. The difference is one of language: Galois theory says that radical solution fails because the group of root permutations preserving algebraic relations is too complicated; the monodromy viewpoint says that radical solution fails because the branching topology of the roots as multi-valued functions is too complicated. The former emphasizes automorphisms that fix the base field; the latter emphasizes how roots are interchanged after analytic continuation around branch points. Both descriptions lead to the same test: if this permutation structure is not solvable, then no radical formula exists.
+
+Looking still further outward, Grothendieck's **étale fundamental group** pushes this idea into much broader algebraic geometry. The phrase "go once around a branch point" uses paths and topology in the complex plane. Over $\mathbb{Q}$, over a finite field $\mathbb{F}_p$, or over a general scheme, there is no equally useful ordinary path space. Grothendieck's move was to let paths recede into the background and study all finite unbranched algebraic covers directly: the **finite étale covers**.
+
+This is exactly where category theory enters. One studies not just one cover, but the whole category of finite étale covers of $X$, together with the maps between them. After choosing a geometric point $\bar{x}$, each cover has a finite fiber above $\bar{x}$, giving a **fiber functor** from the category of finite étale covers to the category of finite sets. The étale fundamental group $\pi_1^{\mathrm{et}}(X,\bar{x})$ of a scheme $X$ may be understood as the automorphism group of this fiber functor. It is a profinite group whose finite quotients control the finite étale covers of $X$.
+
+This framework includes two familiar cases at once. If $X=\operatorname{Spec}K$, then
+
+$$
+\pi_1^{\mathrm{et}}(\operatorname{Spec}K)\cong \mathrm{Gal}(K^{\mathrm{sep}}/K)
+$$
+
+so the absolute Galois group of a field can be seen as the étale fundamental group of a one-point arithmetic space. If $X$ is a well-behaved complex algebraic variety, its étale fundamental group corresponds to the profinite completion of its usual topological fundamental group. Thus field extensions in classical Galois theory, monodromy groups of complex multi-valued functions, and covering spaces in topology become parts of one larger picture.
+
+Returning to equations, a parameterized algebraic equation gives a finite cover from the space of roots to the space of parameters; after removing the bad points where roots collide, this becomes a finite étale cover. Its monodromy group may be viewed as the finite permutation group obtained from the corresponding fundamental group acting on one fiber. If this cover can be decomposed into a tower of cyclic covers, then the associated group is solvable. If its monodromy group is already a nonsolvable group such as $S_5$, then one cannot build the roots by radicals layer by layer. This does not replace the Galois-group criterion above; it says that the same failure of radical solvability can also be read geometrically as the failure of a cover to decompose into cyclic layers.
 
 ## 9. Why the General Quintic Is Not Solvable by Radicals, and the Decision Strategy
 
@@ -745,13 +811,74 @@ Is this subgroup all of $S_5$, or is it a smaller subgroup?
 
 For an irreducible quintic polynomial, the possible transitive subgroups are quite restricted. Up to isomorphism, the transitive subgroups of $S_5$ are only a short list: the cyclic group $C_5$, the dihedral group $D_5$, the Frobenius group $F_{20}$, the alternating group $A_5$, and the full symmetric group $S_5$. In other words, once the Galois group of an irreducible quintic is viewed as a permutation group on the five roots, it must fall into one of these structural types.
 
-At this point $A_5$ and $S_5$ are already familiar: $A_5$ is the alternating group on five letters, also visible as the rotation group of the regular icosahedron, while $S_5$ is the full permutation group on five objects. The other three names are the solvable candidates. The group $C_5$ is just one cycle of order $5$. The group $D_5$ may be viewed as the symmetry group of a regular pentagon: it has a rotation part of order $5$ and a reflection part of order $2$, and structurally it has a chain
+At this point $A_5$ and $S_5$ are already familiar: $A_5$ is the alternating group on five letters, also visible as the rotation group of the regular icosahedron, while $S_5$ is the full permutation group on five objects. The other three names are the solvable candidates. The group $C_5$ is just one cycle of order $5$. The group $D_5$ may be viewed as the symmetry group of a regular pentagon: it has five rotations and five reflections. These five groups cover the possible transitive permutation structures for irreducible quintic equations.
+
+The group that deserves a little extra attention is $F_{20}$. It is a **Frobenius group** with $20$ elements, and it is isomorphic to the one-dimensional affine group $\operatorname{AGL}(1,5)$. Temporarily label the five root positions by the finite field $\mathbb F_5=\{0,1,2,3,4\}$. Then $F_{20}$ can be viewed as the group of all affine transformations of $\mathbb F_5$:
+
+$$
+x\longmapsto ax+b,\qquad a\in\mathbb F_5^\times,\quad b\in\mathbb F_5
+$$
+
+There are $4$ choices for $a$ and $5$ choices for $b$, hence $20$ transformations. When $a=1$, these are translations $x\mapsto x+b$, forming a normal copy of $C_5$; geometrically, this is the rotation part of a pentagon. If one only allows $a=\pm1$ together with all translations, one obtains $D_5$. The extra choices $a=2,3$ add transformations of order $4$, enlarging the group from the $10$ elements of $D_5$ to $20$ elements. Thus, among the transitive subgroups relevant to irreducible quintics, $F_{20}$ is the largest solvable candidate.
+
+The pentagon picture makes this more concrete. In Figure 11 the vertices are labeled $1,2,3,4,5$ for visual readability; algebraically, relabel the same five positions as the finite field $\mathbb F_5=\{0,1,2,3,4\}$. Then the translation
+
+$$
+x\mapsto x+1
+$$
+
+is rotation by one step, corresponding to the 5-cycle
+
+$$
+(0\,1\,2\,3\,4)
+$$
+
+All maps $x\mapsto x+b$ give the five rotations. Next consider
+
+$$
+x\mapsto -x
+$$
+
+It fixes the vertex $0$ and swaps $1\leftrightarrow4$ and $2\leftrightarrow3$, giving
+
+$$
+(1\,4)(2\,3)
+$$
+
+Composing this reflection with the five rotations gives the five reflections in $D_5$. The group $F_{20}$ is larger than $D_5$ because it also allows transformations such as
+
+$$
+\tau:x\mapsto 2x
+$$
+
+This fixes $0$ and cycles the other four vertices as
+
+$$
+\tau=(1\,2\,4\,3)
+$$
+
+Then $\tau^2:x\mapsto4x=-x$ is the reflection above, while $\tau^3:x\mapsto3x$ is another order-$4$ transformation. Composing $\tau$ and $\tau^3$ with the five rotations gives the $10$ transformations outside $D_5$. This is the sense in which $F_{20}$ is larger than the ordinary pentagon symmetry group: it preserves the finite-field affine structure on the five labels, not merely the rigid geometric symmetries of a regular pentagon.
+
+<figure>
+  <img src="assets-en/figure-11-f20-pentagon.svg" alt="Figure 11: The pentagon picture of F20">
+  <figcaption>Figure 11. Drawing the five root positions as a pentagon, translations give the five rotations and a = -1 gives the five reflections; adding the affine maps with a = 2, 3 gives the 20 elements of F₂₀.</figcaption>
+</figure>
+
+The first three groups are solvable. The group $C_5$ is the simplest. The group $D_5$ has the normal chain
 
 $$
 D_5\triangleright C_5\triangleright \{e\}
 $$
 
-whose successive quotients are $C_2$ and $C_5$, both Abelian. Thus $D_5$ is solvable. The group $F_{20}$ may be thought of as the $20$-element group $C_5\rtimes C_4$: it has a cyclic part of order $5$, acted on by a group of order $4$. It also has a normal subgroup chain with Abelian quotients, so it is solvable. By contrast, $A_5$ and $S_5$ contain the nonsolvable $A_5$-type structure. If the Galois group reaches one of these two cases, the equation is not solvable by radicals.
+whose successive quotients are $C_2$ and $C_5$, both Abelian. Thus $D_5$ is solvable. The group $F_{20}$ can be written as
+
+$$
+F_{20}\cong C_5\rtimes C_4
+$$
+
+That is, it has a normal $C_5$ translation part, with a $C_4$ multiplicative part acting on it. It therefore also has a normal subgroup chain with Abelian quotients, so it is solvable. By contrast, $A_5$ and $S_5$ contain the nonsolvable $A_5$-type structure. If the Galois group reaches one of these two cases, the equation is not solvable by radicals.
+
+In practical tests, $F_{20}$ is useful because it marks the largest solvable transitive possibility. If the Galois group of an irreducible quintic lies inside $F_{20}$, the equation may still be solvable by radicals, even though its group is larger than $C_5$ or $D_5$. If modular factorizations reveal a cycle type that $F_{20}$ cannot contain, such as $(2)(3)$, then this largest solvable candidate is ruled out. More refined tests can construct quantities fixed by the $F_{20}$ action but moved by larger groups; such quantities help detect whether the Galois group really lies inside $F_{20}$.
 
 Thus the later computations usually do not list every Galois automorphism. Instead, they look for enough permutation evidence to rule out the smaller possibilities. For example, if we can show that the Galois group contains cycle types that cannot occur in $C_5$, $D_5$, or $F_{20}$, and also cannot be contained entirely in $A_5$, then the only remaining possibility is $S_5$.
 
@@ -1029,7 +1156,7 @@ $$
 $$
 
 <figure>
-  <img src="assets-en/figure-11-s5-a5-obstruction.svg" alt="Figure 11: The A5 structure inside S5 is the structural reason why the general quintic has no radical formula">
+  <img src="assets-en/figure-12-s5-a5-obstruction.svg" alt="Figure 12: The A5 structure inside S5 is the structural reason why the general quintic has no radical formula">
 </figure>
 
 ## 11. Solvability of Equations Above Degree Five
@@ -1125,6 +1252,16 @@ $$
 
 Here ${}_4F_3$ is a **generalized hypergeometric function**. Outside the convergence region, analytic continuation is needed. This formula shows the precise distinction: quintics can be represented uniformly in a larger system of special functions, but that representation is not a solution by radicals.
 
+This thread continues naturally near degree seven, where it meets **Hilbert's thirteenth problem**. In 1900, Hilbert asked whether the solution of the general seventh-degree equation could fail to be expressible by functions of only two variables. One standard form he singled out can be written as
+
+$$
+f^7+xf^3+yf^2+zf+1=0
+$$
+
+Here the root $f$ is regarded as a function of the three coefficients $x,y,z$. This is not the same question as Abel-Ruffini. Abel-Ruffini asks whether roots can be obtained by arithmetic operations and radicals; Hilbert's thirteenth problem asks whether, if one allows more general composition of functions, a three-variable algebraic function can be built from two-variable functions.
+
+Kolmogorov and Arnold gave a surprising answer in 1957: if arbitrary continuous functions are allowed, then multivariable continuous functions can indeed be represented by finite superpositions of continuous functions of fewer variables. Thus Hilbert's expected negative answer does not hold in the continuous setting. If one restricts the allowed functions to algebraic functions, analytic functions, or other more rigid classes, the problem becomes much more delicate and closer to Hilbert's original algebraic motivation. In the context of this article, the point is: the absence of a universal radical formula above degree five does not mean there is no unified expression at all. Everything depends on which functions are allowed and whether those functions can carry the multivaluedness, branching, and symmetry of the roots.
+
 There is also a natural question: is the problem merely that we are working inside the complex numbers? Would enlarging the number system further remove the structural reason?
 
 The answer is no in the relevant sense. As a place where algebraic roots live, the complex field $\mathbb C$ is already large enough. By the **Fundamental Theorem of Algebra**, every nonconstant polynomial with complex coefficients splits into linear factors over $\mathbb C$. The roots are not hidden in some ordinary larger field beyond $\mathbb C$.
@@ -1159,10 +1296,16 @@ References:
 4. Jörg Bewersdorff, *Galois Theory for Beginners: A Historical Perspective*, 2nd ed., translated by David Kramer, American Mathematical Society, Student Mathematical Library, vol. 95. The historical thread in this article concerning casus irreducibilis and Bombelli, symmetric polynomials, Lagrange resolvents, Tschirnhaus transformations, and the Bring-Jerrard reduction follows this book.
 5. John Stillwell, "Galois Theory for Beginners," *The American Mathematical Monthly*, 101(1), 22--27, 1994. The compact proof skeleton in Section 9 for the nonsolvability by radicals of the general degree-$n$ equation follows this article.
 6. Niels Henrik Abel, *Mémoire sur les équations algébriques, où l'on démontre l'impossibilité de la résolution de l'équation générale du cinquième degré*, Christiania, 1824. The historical note in Section 8 about Abel's original proof refers to this early paper on the impossibility of solving the general quintic by radicals.
-7. Peter Pesic, *Abel's Proof: An Essay on the Sources and Meaning of Mathematical Unsolvability*, MIT Press, 2003. The additions about Abel's turn from attempting a solution to proving impossibility, the four-step structure of Abel's proof, and the meaning of mathematical unsolvability refer to this book.
-8. V.B. Alekseev, *Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold*, Springer, 2004. The supplementary viewpoint in Section 8 on monodromy groups, the branching structure of Riemann surfaces, and a topological proof of Abel's theorem follows Sections 2.11--2.14 and the discussion in Khovanskii's appendix.
-9. Manjul Bhargava, "Galois groups of random integer polynomials and van der Waerden's Conjecture," *Annals of Mathematics*, 201(2), 339-377, 2025. [Annals page](https://annals.math.princeton.edu/2025/201-2/p01); [arXiv:2111.06507](https://arxiv.org/abs/2111.06507). The probabilistic statement in Section 10 about random integer polynomials almost always having Galois group $S_n$, and therefore random natural-number quintics almost always not being solvable by radicals, is based on this result.
-10. Jesse Schultz, *Solving the Quintic with Elliptic Functions*. The discussion in Section 11 of Hermite's and Brioschi's elliptic-modular approaches to the quintic follows this expository note.
-11. Felix Klein, *Lectures on the Icosahedron and the Solution of Equations of the Fifth Degree*, translated by George Gavin Morrice, Trübner, 1888. The article's historical framing of Klein's icosahedral solution follows this classic work.
-12. Oliver Nash, "The icosahedron and the solution of the quintic," 2013. [arXiv:1308.0955](https://arxiv.org/abs/1308.0955). The discussion of Klein's icosahedral solution, the icosahedral function, and the geometric form of $A_5$ follows this article.
-13. Ian Stewart, *Galois Theory*, 5th ed., CRC Press, 2022. The additions on Ruffini radicals, the theorem on natural irrationalities, the two directions of solvability by radicals, the precise meaning of the general polynomial, roots of unity and genuine radicals, and the historical caution about Galois's own language refer to this book.
+7. Évariste Galois, "Mémoire sur les conditions de résolubilité des équations par radicaux," 1831, published in *Journal de mathématiques pures et appliquées*, 1846. The discussion of Galois's original language of groupe, adjonction, and décomposition propre refers to this memoir.
+8. Camille Jordan, *Traité des substitutions et des équations algébriques*, Gauthier-Villars, 1870. The historical note on Jordan's systematization of permutation groups, normal subgroups, quotient groups, simple groups, composition series, and Galois theory refers to this work.
+9. Richard Dedekind, "Über die Theorie der ganzen algebraischen Zahlen," Supplement XI to Dirichlet's *Vorlesungen über Zahlentheorie* (from 1871 onward, revised in later editions). The discussion of Körper, field extensions, ideals, and the shift from root permutations to field automorphisms refers to Dedekind's theoretical tradition.
+10. Emmy Noether, "Idealtheorie in Ringbereichen," *Mathematische Annalen*, 83, 24--66, 1921. The historical note on the axiomatic turn in twentieth-century abstract algebra, including rings, ideals, and structural thinking, refers to Noether's theoretical tradition.
+11. Peter Pesic, *Abel's Proof: An Essay on the Sources and Meaning of Mathematical Unsolvability*, MIT Press, 2003. The additions about Abel's turn from attempting a solution to proving impossibility, the four-step structure of Abel's proof, and the meaning of mathematical unsolvability refer to this book.
+12. V.B. Alekseev, *Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold*, Springer, 2004. The supplementary viewpoint in Section 8 on monodromy groups, the branching structure of Riemann surfaces, and a topological proof of Abel's theorem follows Sections 2.11--2.14 and the discussion in Khovanskii's appendix.
+13. Manjul Bhargava, "Galois groups of random integer polynomials and van der Waerden's Conjecture," *Annals of Mathematics*, 201(2), 339-377, 2025. [Annals page](https://annals.math.princeton.edu/2025/201-2/p01); [arXiv:2111.06507](https://arxiv.org/abs/2111.06507). The probabilistic statement in Section 10 about random integer polynomials almost always having Galois group $S_n$, and therefore random natural-number quintics almost always not being solvable by radicals, is based on this result.
+14. Jesse Schultz, *Solving the Quintic with Elliptic Functions*. The discussion in Section 11 of Hermite's and Brioschi's elliptic-modular approaches to the quintic follows this expository note.
+15. Felix Klein, *Lectures on the Icosahedron and the Solution of Equations of the Fifth Degree*, translated by George Gavin Morrice, Trübner, 1888. The article's historical framing of Klein's icosahedral solution follows this classic work.
+16. Oliver Nash, "The icosahedron and the solution of the quintic," 2013. [arXiv:1308.0955](https://arxiv.org/abs/1308.0955). The discussion of Klein's icosahedral solution, the icosahedral function, and the geometric form of $A_5$ follows this article.
+17. Ian Stewart, *Galois Theory*, 5th ed., CRC Press, 2022. The additions on Ruffini radicals, the theorem on natural irrationalities, the two directions of solvability by radicals, the precise meaning of the general polynomial, roots of unity and genuine radicals, and the historical caution about Galois's own language refer to this book.
+18. Alexander Grothendieck, *Revêtements étales et groupe fondamental (SGA 1)*, Lecture Notes in Mathematics 224, Springer, 1971. The brief note in Section 8 on étale fundamental groups, finite étale covers, and absolute Galois groups refers to this classic source.
+19. David Hilbert, "Mathematical Problems," *Bulletin of the American Mathematical Society*, 8(10), 437--479, 1902; A.N. Kolmogorov, "On the representation of continuous functions of many variables by superposition of continuous functions of one variable and addition," *Doklady Akademii Nauk SSSR*, 114, 953--956, 1957; V.I. Arnold, "On functions of three variables," *Doklady Akademii Nauk SSSR*, 114, 679--681, 1957. The brief discussion in Section 11 of Hilbert's thirteenth problem and the Kolmogorov-Arnold representation theorem refers to these classic sources.

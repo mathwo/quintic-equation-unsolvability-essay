@@ -240,6 +240,8 @@ $$
 
 不过这里也要谨慎区分历史原貌和现代整理。今天我们常把主线概括为“$A_5$ 是最小的非 Abel 单群，所以一般五次方程不能用根式通解”；这是后来用群论语言整理出的清晰版本。Galois 自己的表述更接近“根之间的有理函数关系”和“允许的根置换结构”。他的真正突破，是把方程可解性和根的置换结构联系起来，而不是按今天教材的形式完整写出一条 $A_5$ 证明链。
 
+用更接近 Galois 原初语言的话说，他不是先问“公式长什么样”，而是先问：在当前已经承认的已知量下，方程的根还有哪些置换不会破坏所有有理关系？这些允许置换组成的整体，就是方程的 **groupe**。如果再把某个新量加入已知量中，Galois 称为 **adjonction**；已知量变多以后，原来还能互换的根可能被区分开来，于是允许置换会减少，groupe 会变小。根式求解的关键，就变成这个缩小过程能不能有秩序地进行：每加入一个根式，groupe 是否能发生一种可控的**适当分解**（décomposition propre）。现代语言把这件事整理成：方程根式可解，当且仅当它的 Galois 群是可解群，也就是可以通过正规子群链逐层分解成 Abel 商群。
+
 于是自然会问：一般五次方程是否也有一个万能公式？也就是说，对于
 
 $$
@@ -739,6 +741,30 @@ $$
 
 更具体地说，分裂域 $K$ 和基础域 $F$ 之间的中间域，会对应 Galois 群 $G=\mathrm{Gal}(K/F)$ 的子群。
 
+这里也可以看出 Dedekind 对现代 Galois 理论的影响。Galois 本人主要从根的置换出发；Dedekind 则把视角推进到**域扩张**（Field Extension）和**域自同构**（Field Automorphism）。德语 **Körper** 就是后来所谓的**域**（Field）：一个能自由做加、减、乘，以及非零数除法的数系。基础域从 $F$ 扩大到 $L$ ，这个过程记作 $L/F$ 。于是 Galois 群不再只是“根可以怎样互换”的集合，而是 $\mathrm{Gal}(L/F)$ ： $L$ 中所有固定 $F$ 、并保持加法和乘法的自同构组成的群。对多项式来说，根的置换仍然存在，但它被放进了更稳固的结构里：这些置换必须来自分裂域的自同构。
+
+Dedekind 在代数整数论中还引入并发展了**理想**（Ideal）的概念。简单说，在一个环里，理想是对加法封闭、并且能吸收环中任意元素乘法的子结构。本文不需要展开理想理论；这里真正要借用的是它背后的结构眼光：研究一个代数对象，不只看单个元素怎样计算，还要看哪些内部子结构在运算下保持稳定。Galois 理论里的中间域、正规子群和商群，正是在这种结构眼光下变得清晰起来的。
+
+到了 20 世纪 20 年代，Emmy Noether 代表的 Göttingen 抽象代数学进一步强调公理化方法：从群、环、域、模这些基本结构出发，研究运算和子结构本身。Emil Artin 后来给出的现代 Galois 理论版本，正是在这种背景下形成的。Artin 把域扩张 $L/K$ 看成 $K$ 上的向量空间，扩张次数 $[L:K]$ 就是这个向量空间的维数。对有限扩张来说，固定 $K$ 的自同构个数总是不超过 $[L:K]$ ；当
+
+$$
+|\mathrm{Gal}(L/K)|=[L:K]
+$$
+
+时， $L/K$ 就是 Galois 扩张。等价地说，在常见的特征 $0$ 情形下，它就是既正规又可分的扩张。
+
+用这个现代版本来概括，**Galois 对应**（Galois Correspondence）说的是：有限 Galois 扩张 $L/K$ 的中间域 $M$ 与 Galois 群 $G=\mathrm{Gal}(L/K)$ 的子群 $H$ 之间存在一一对应，具体为
+
+$$
+H\longmapsto L^H=\{x\in L:\sigma(x)=x\text{ 对所有 }\sigma\in H\text{ 都成立}\}
+$$
+
+这个对应会反转包含关系：子群越大，固定住的元素越多，对应的中间域越小。若 $H$ 是 $G$ 的正规子群，则对应的中间域 $M=L^H$ 在 $K$ 上也是 Galois 扩张，并且
+
+$$
+\mathrm{Gal}(M/K)\cong G/H
+$$
+
 在说明 Galois 基本定理的对应关系之前，先把几个会用到的名词说清楚：子群、正规子群、商群、正规扩张。
 
 先说**子群**（Subgroup）。子群是群里的一部分元素，或者说一部分变换；子群里的元素自己也能复合、撤销，也有单位元，所以这些元素单独拿出来仍然构成一个群。
@@ -787,6 +813,8 @@ $$
 Galois 群里固定 $B$ 的自同构，必须固定 $B$ 里的**所有数**，不只是根。
 
 Galois 基本定理的对应关系解释了为什么解方程会牵涉正规子群和商群：基础域一步步扩大，在对应的 Galois 群里就表现为允许的对称性一步步减少。
+
+历史上，这一步也是从 Galois 原初语言走向后来 Jordan 式置换群语言的关键。Galois 所说的 décomposition propre，后来可以用正规子群和商群来严格表达：正规子群表示某一层可以稳定保留下来的对称性，商群表示把这一层内部变化视为同类以后，相邻两层之间剩下的那一步结构。这里要稍微小心：adjonction 最直接对应的是“基础域扩大、允许的根置换减少”，也就是 Galois 群缩小到一个子群；商群描述的则是在正规性成立时，相邻两层之间被单独抽出来考察的对称性。
 
 在这个例子中，对应关系可以画得很具体。令 $a$ 表示只把 $\sqrt3$ 变成 $-\sqrt3$ 的自同构，令 $b$ 表示只把 $\sqrt{-2}$ 变成 $-\sqrt{-2}$ 的自同构。那么
 
@@ -839,6 +867,8 @@ $$
 那么每一节对应的商群 $G_{i-1}/G_i$ 就表示从较小群 $G_i$ 到较大群 $G_{i-1}$ 新增的那部分对称性。
 
 通过正规子群链分解群，不是把群分割成互不相交的几块，而是逐步考察相邻两个群之间的商群结构。每走一步，就问当前这一节对应的商群是什么。
+
+如果一条正规子群链已经细到不能再继续拆，并且每一节 $G_{i-1}/G_i$ 都是单群（Simple Group），这样的链叫**合成列**（Composition Series）。单群可以通俗地看成群论里的“原子”：它们没有非平凡正规子群，因此不能再用正规子群和商群的办法继续分解。这里的“原子”只针对这种正规分解方式，不是说它一定很小；例如素数阶循环群是最简单的 Abel 单群，而后面要遇到的 $A_5$ 则是最小的非 Abel 单群。
 
 例如 $S_3$ 有正规链
 
@@ -902,6 +932,10 @@ $$
 
 并且每一节对应的商群 $G_{i-1}/G_i$ 都是 Abel 群。
 
+换成合成列的语言说，对于有限群，群可解等价于它的合成因子全都是**素数阶循环群**。也就是说，最后分解出来的“原子”如果全是 Abel 的，那么这个群属于根式可解的世界；如果某一层出现 $A_5$ 这样的非 Abel 单群，根式这种逐层拆解的路线就走不通。
+
+Jordan-Hölder 定理进一步保证：不同合成列的合成因子虽然排列顺序可能不同，但作为单群类型是一样的。因此，“合成因子全是素数阶循环群”不是依赖某条分解链的偶然说法，而是群本身的性质。
+
 等价地说，可以写成 $G=G_0\supset G_1\supset\cdots\supset G_s=1$ ，其中每个 $G_i$ 是前一个的正规子群，且 $G_{i-1}/G_i$ 是 Abel 群。
 
 可解群的名字来自方程求解。“可解群”不是说“群本身被算出来了”，而是说这个群的复杂性可以沿着正规子群链逐步还原成 Abel 商群。由于根式每一步能处理的正是这种 Abel 式对称性，可解群就成了根式求解的群论影子。
@@ -910,9 +944,25 @@ $$
 
 现在给出证明框架。为了避免技术枝节，先在最常见的数域情形下说明：基础域的**特征**（Characteristic）为 $0$ ，例如 $\mathbb{Q}$ 、 $\mathbb{R}$ 、 $\mathbb{C}$ 都是这样。特征为 $0$ 的意思是，不管把 $1$ 加多少次，都不会突然等于 $0$ 。另外先假设必要的单位根已经加入。这个单位根假设可以通过进一步的定理移除，所以最后结论并不依赖这个临时假设。
 
+用 Dedekind 之后的域扩张语言说，根式求解不是一次性写出一个神秘表达式，而是说：从基础域 $F$ 出发，可以构造一串域扩张
+
+$$
+F=L_0\subset L_1\subset \cdots \subset L_m
+$$
+
+并且每一步都是加入一个根式：
+
+$$
+L_{i+1}=L_i(\alpha_i),\qquad \alpha_i^{n_i}=a_i\in L_i
+$$
+
+如果方程的所有根都落在最终域 $L_m$ 里，就说这个方程可以用根式求解。严格处理时，常常还要把必要的单位根加入进去，并把扩张正规化；这些操作不会改变“由根式逐步生成”的本质。做完这些准备后，每一步根式扩张对应的 Galois 群通常是循环群，至少是 Abel 群。于是整座扩张塔翻译到群论里，就会给出一条 Abel 商群组成的正规子群链。
+
+有时也把能够嵌入这种根式扩张塔的扩张称为**可解扩张**（Solvable Extension）。在有限 Galois 扩张的情形下，这句话可以翻译成群论语言：扩张可解，当且仅当它的 Galois 群是可解群。对多项式来说，判断对象就是它的分裂域；分裂域能否嵌入某个根式扩张塔，等价于这个分裂域对应的 Galois 群是否可解。
+
 **首先：能用根式解 $\Rightarrow$ Galois 群可解**
 
-若某个方程能用根式解，这个方程的分裂域就包含在某个根式扩张里。也就是说，我们可以从基础域 $F$ 出发，一步步加入 $\alpha_i$ ，每个 $\alpha_i$ 满足 $\alpha_i^{n_i}=a_i$ 。
+换句话说，若某个方程能用根式解，这个方程的分裂域就包含在某个根式扩张里。
 
 从“根的关系”来看，这个过程也很好理解：每加入一个新的根式，基础域就变大，能被识别的数和代数关系就更多。必须保持不变的东西变多以后，允许的根的置换就只能减少。所以根式求解不是一次性把根抓出来，而是通过逐步扩大基础域，让原来还可以互换的根被一层层区分开来。
 
@@ -993,11 +1043,27 @@ $$
 
 这些由“绕分支点一圈”产生的根的置换，组成这个多值函数的单值群。更具体地说，在本文语境下，单值群可以这样定义：选定一个不在分支点上的参数值，把此时的几个局部根编号；让参数沿着避开分支点的闭曲线运动一圈并回到原处，同时连续追踪每个根，最终会得到根集合的一个置换；所有这种闭曲线产生的置换组成的群，就是这个多值函数的单值群。从图像上看，可以把五个根想成一张五层的**黎曼曲面**（Riemann Surface）；每一层对应一个局部根。参数 $z$ 绕分支点运动时，路径可能把我们从一层带到另一层。单值群记录的正是这种“绕行以后各层怎样互换”的拓扑信息。
 
+这里容易混淆两个只差一个字的概念。**单群**（Simple Group）是群论里的概念，指没有非平凡正规子群的群；前面说 $A_5$ 是最小的非 Abel 单群，说的是它内部无法再沿正规子群分解。**单值群**（Monodromy Group）则是复变函数和拓扑里的概念，指多值函数沿闭曲线解析延拓后，各个分支被怎样置换。单值群本身未必是单群；它只是用来记录“绕行导致的分支互换”。
+
 根式函数本身也有分支。比如 $\sqrt[n]{z}$ 绕 $0$ 一圈以后，会乘上一个 $n$ 次单位根；这种基本分支行为对应的是循环群，而循环群是 Abel 群。有限次四则运算、复合和开根，只会把这些循环式分支结构一层层组合起来。因此，能用根式表示的多值函数，它的单值群必须是可解群。这正是 Arnold-Alekseev 路线中的关键命题。
 
 反过来，上面这族五次方程的根函数有五层。书中通过分析它的分支点和黎曼曲面的连接方式，证明绕这些分支点得到的置换会生成整个 $S_5$ 。而 $S_5$ 不是可解群，所以这个根函数不可能由根式表示。进一步说，如果一般五次方程真的存在通用根式公式，那么把系数特殊化成这一族方程，就会得到这个根函数的根式表达式；这与它的单值群为 $S_5$ 矛盾。因此一般五次方程不存在通用根式公式。
 
 这个视角和 Galois 群论并不是两套互相矛盾的理论。对于代数函数来说，单值群和相应的 Galois 群在自然意义下描述的是同一个根的互换结构。区别在于语言：Galois 理论说，根式求解失败，是因为保持代数关系的根置换群太复杂；单值群视角说，根式求解失败，是因为根作为多值函数的分支拓扑太复杂。前者强调“固定系数域的自同构”，后者强调“绕分支点解析延拓后根如何互换”。两种说法最后落到同一个判断标准：只要这个置换结构不可解，根式公式就不存在。
+
+再往外看，Grothendieck 后来的 **étale 基本群**（Étale Fundamental Group）把这种思想推到了更一般的代数几何里。上面在复数平面中说“绕分支点走一圈”，依赖的是复数世界里的路径和拓扑；但在 $\mathbb{Q}$ 、有限域 $\mathbb{F}_p$ 或更一般的概形上，并没有同样好用的普通路径空间。Grothendieck 的做法是把“路径”退到幕后，直接研究所有有限的、无分支的代数覆盖，也就是**有限 étale 覆盖**。
+
+这里正是范畴论语言发挥作用的地方：不只研究某一个覆盖，而是把 $X$ 的所有有限 étale 覆盖，以及覆盖之间的映射，组织成一个范畴。选定一个几何点 $\bar{x}$ 后，每个覆盖在 $\bar{x}$ 上方的纤维都是一个有限集合，于是得到一个从“有限 étale 覆盖范畴”到“有限集合范畴”的**纤维函子**（Fiber Functor）。一个概形 $X$ 的 étale 基本群 $\pi_1^{\mathrm{et}}(X,\bar{x})$ 可以理解为这个纤维函子的自同构群；它是一个投射有限群，通过自己的有限商群控制 $X$ 的有限 étale 覆盖。
+
+这正好同时包住两个熟悉例子。若 $X=\operatorname{Spec}K$ ，那么
+
+$$
+\pi_1^{\mathrm{et}}(\operatorname{Spec}K)\cong \mathrm{Gal}(K^{\mathrm{sep}}/K)
+$$
+
+也就是说，域的绝对 Galois 群可以看成一个“一点空间”的 étale 基本群。若 $X$ 是复数域上的好几何对象，则它的 étale 基本群对应于普通拓扑基本群的投射有限完备化。于是，经典 Galois 理论里的域扩张、复变函数里的单值群、拓扑里的覆盖空间，在这个更高层次上被统一起来。
+
+放回方程求解这件事：一个含参数的代数方程给出一个“根空间到参数空间”的有限覆盖；去掉使根重合的坏点后，它就是一个有限 étale 覆盖。这个覆盖的单值群，可以看成相应基本群作用在一根纤维上的有限置换群。若这个覆盖能够被分解成一串循环覆盖，群论上就对应可解群；若单值群已经是 $S_5$ 这样不可解的群，就不能指望用根式把它逐层拆出来。这样说并不是替代前面的 Galois 群论判断，而是说明：同一个不可根式求解现象，也可以被理解为“覆盖不能分解成循环层”的几何事实。
 
 ## 9. 五次方程为何不可根式求解及可解性判断思路
 
@@ -1009,13 +1075,13 @@ $$
 
 第三步，根式扩张的 Galois 群是可解群，而**可解群的同态像**（Homomorphic Image）仍然可解。这里的“同态像”指的是：一个群通过保持群运算的映射 $\varphi:G\to H$ 送出去后，得到的像 $\varphi(G)$ 。于是如果一般 $n$ 次方程有通用根式公式，完整的 $S_n$ 也应当是可解群。问题就在这里：当 $n\ge5$ 时， $S_n$ 不可解。于是“一般方程需要完整的 $S_n$ 对称性”和“根式扩张只能给出可解群”之间发生冲突，这就是一般五次及以上方程没有通用根式公式的核心原因。
 
-为什么 $S_n$ 从 $n=5$ 开始不可解？一个很短的看法是，五个不同符号已经足够把任意三轮换写成两个三轮换的**换位子**（Commutator）。例如在通常从右到左复合置换的约定下，若 $a,b,c,d,e$ 两两不同，就有
+为什么 $S_n$ 从 $n=5$ 开始不可解？一个很短的看法是，五个不同符号已经足够把任意三轮换写成两个三轮换的**交换子**（commutator）。例如在通常从右到左复合置换的约定下，若 $a,b,c,d,e$ 两两不同，就有
 
 $$
 (a\,b\,c)=(d\,a\,c)^{-1}(c\,e\,b)^{-1}(d\,a\,c)(c\,e\,b)
 $$
 
-换位子的意义在于：一旦把群映到 Abel 群里，所有换位子都会变成单位元。于是，如果试图用一串 Abel 商群把 $S_n$ 一层层拆掉，只要某一层还含有所有三轮换，下一层仍然会含有所有三轮换；三轮换会在每一层都留下来，最后不可能降到只有单位元。这就是 $S_n$ 在 $n\ge5$ 时不可解的一个极短证明思路，也解释了为什么五个符号刚好够用：除了三轮换本身用到的 $a,b,c$ ，还需要额外两个符号 $d,e$ 来构造上面的换位子。
+交换子的意义在于：一旦把群映到 Abel 群里，所有交换子都会变成单位元。于是，如果试图用一串 Abel 商群把 $S_n$ 一层层拆掉，只要某一层还含有所有三轮换，下一层仍然会含有所有三轮换；三轮换会在每一层都留下来，最后不可能降到只有单位元。这就是 $S_n$ 在 $n\ge5$ 时不可解的一个极短证明思路，也解释了为什么五个符号刚好够用：除了三轮换本身用到的 $a,b,c$ ，还需要额外两个符号 $d,e$ 来构造上面的交换子。
 
 这里“一般 $n$ 次方程”不是指某一个具体方程，而是指系数彼此独立、没有额外特殊关系的通用 $n$ 次方程。可以把它理解成“最没有特殊性的 $n$ 次方程”。
 
@@ -1127,7 +1193,7 @@ $$
 
 这就具体说明了 $A_5$ 不是 Abel 群。按照可解群的定义，正规子群链中每一节对应的商群都必须是 Abel 群；所以如果某一节对应的商群直接是 $A_5$ 这样的非 Abel 群，它就不是合格的 Abel 商群。
 
-第二， $A_5$ 是**单群**（Simple Group）：它没有非平凡的正规子群。这里“非平凡”是指除了 $\{e\}$ 和群本身以外的正规子群。没有这样的中间正规子群，就意味着不能继续把这个群拆成更小的若干 Abel 商群。
+第二，前面说过， $A_5$ 是**单群**（Simple Group）：它没有非平凡的正规子群。这里“非平凡”是指除了 $\{e\}$ 和群本身以外的正规子群。没有这样的中间正规子群，就意味着不能继续把这个群拆成更小的若干 Abel 商群。
 
 先看几个例子。
 
@@ -1163,7 +1229,58 @@ $$
 
 对一个不可约五次多项式来说，可能出现的传递子群并不随意。准确地说，在同构意义下， $S_5$ 的传递子群只有少数几类：循环群 $C_5$ 、二面体群 $D_5$ 、Frobenius 群 $F_{20}$ 、交错群 $A_5$ 和对称群 $S_5$ 。这句话的意思是：如果一个不可约五次方程的 Galois 群被看成五个根上的置换群，那么它只能落在这几种结构里。
 
-这份列表里， $A_5$ 和 $S_5$ 前面已经出现过：前者是五次交错群，也可以看成正二十面体的旋转群；后者是五个对象的全体置换群。这里需要补充的是另外三个可解候选。 $C_5$ 是**五阶循环群**（Cyclic Group of Order 5），由一个五轮换生成，像是把五个根排成一圈后不断旋转。 $D_5$ 是**五阶二面体群**（Dihedral Group of Order 10），可以看作正五边形的对称群，包含五个旋转和五个反射。 $F_{20}$ 是一个 $20$ 元的 **Frobenius 群**，在这里可以理解成仿射变换群 $x\mapsto ax+b$ 在五个元素上的作用，其中 $a\in(\mathbb Z/5\mathbb Z)^\times$ ， $b\in\mathbb Z/5\mathbb Z$ 。这五类群正好覆盖了不可约五次方程可能出现的传递置换结构。
+这份列表里， $A_5$ 和 $S_5$ 前面已经出现过：前者是五次交错群，也可以看成正二十面体的旋转群；后者是五个对象的全体置换群。这里需要补充的是另外三个可解候选。 $C_5$ 是**五阶循环群**（Cyclic Group of Order 5），由一个五轮换生成，像是把五个根排成一圈后不断旋转。 $D_5$ 是**五阶二面体群**（Dihedral Group of Order 10），可以看作正五边形的对称群，包含五个旋转和五个反射。这五类群正好覆盖了不可约五次方程可能出现的传递置换结构。
+
+其中最值得稍微停一下的是 $F_{20}$ 。它是一个 $20$ 元的 **Frobenius 群**，也同构于一维仿射群 $\operatorname{AGL}(1,5)$ 。把五个根的位置暂时编号为有限域 $\mathbb F_5=\{0,1,2,3,4\}$ ，那么 $F_{20}$ 可以看成 $\mathbb F_5$ 上所有仿射变换组成的群：
+
+$$
+x\longmapsto ax+b,\qquad a\in\mathbb F_5^\times,\quad b\in\mathbb F_5
+$$
+
+这里 $a$ 有 $4$ 种选择， $b$ 有 $5$ 种选择，所以一共有 $20$ 个变换。若 $a=1$ ，得到的是平移 $x\mapsto x+b$ ，它们组成一个正规 $C_5$ ，对应五边形的旋转；若只允许 $a=\pm1$ ，再加上所有平移，就得到 $D_5$ 。而 $a=2,3$ 带来额外的四阶变换，使群从 $D_5$ 的 $10$ 个元素扩大到 $20$ 个元素。因此在不可约五次方程的传递子群列表中， $F_{20}$ 可以看成最大的可解候选。
+
+把这件事画成五边形会更直观。图 11 里为了方便观看，把五个顶点标成 $1,2,3,4,5$ ；做代数计算时，再把这五个位置重命名为有限域 $\mathbb F_5$ 的 $0,1,2,3,4$ 。此时平移
+
+$$
+x\mapsto x+1
+$$
+
+就是把五边形旋转一格，对应五轮换
+
+$$
+(0\,1\,2\,3\,4)
+$$
+
+所有 $x\mapsto x+b$ 给出五个旋转。再看
+
+$$
+x\mapsto -x
+$$
+
+它固定顶点 $0$ ，交换 $1\leftrightarrow 4$ 和 $2\leftrightarrow 3$ ，对应
+
+$$
+(1\,4)(2\,3)
+$$
+
+把这个翻折再和五个旋转复合，就得到 $D_5$ 的五个翻折。 $F_{20}$ 比 $D_5$ 更大，是因为它还允许例如
+
+$$
+\tau:x\mapsto 2x
+$$
+
+这个变换固定 $0$ ，并把其余四个点按
+
+$$
+\tau=(1\,2\,4\,3)
+$$
+
+循环起来。 $\tau^2:x\mapsto 4x=-x$ 回到上面的翻折， $\tau^3:x\mapsto 3x$ 是另一个四阶变换。把 $\tau$ 和 $\tau^3$ 再分别与五个旋转复合，就得到 $D_5$ 之外的 $10$ 个变换。这就是 $F_{20}$ 比五边形对称群更大的地方：它保留了五个点的有限域仿射结构，而不只是普通几何五边形的刚体对称。
+
+<figure>
+  <img src="assets/figure-11-f20-pentagon.svg" alt="图 11：F20 的五边形视角">
+  <figcaption>图 11：把五个根的位置画成五边形时，平移给出五个旋转，a = -1 给出五个翻折；再加入 a = 2, 3 的仿射变换，就得到 20 个元素的 F₂₀。</figcaption>
+</figure>
 
 其中前三类是可解群。 $C_5$ 只有一个 $5$ 阶循环，结构最简单； $D_5$ 可以理解为正五边形的对称群，它有一个 $5$ 阶旋转部分和一个 $2$ 阶反射部分，结构上可以分成
 
@@ -1171,7 +1288,15 @@ $$
 D_5\triangleright C_5\triangleright \{e\}
 $$
 
-相邻商群分别是 $C_2$ 和 $C_5$ ，都是 Abel 群，所以 $D_5$ 可解。 $F_{20}$ 可以理解为 $C_5\rtimes C_4$ 那种 $20$ 元子群：先有一个 $5$ 阶循环部分，再让一个 $4$ 阶群作用在它上面。它也有一条由 Abel 商群组成的正规子群链，所以仍然可解。相反， $A_5$ 和 $S_5$ 都含有 $A_5$ 式的不可解结构；只要 Galois 群达到这两类，就不能用根式求解。
+相邻商群分别是 $C_2$ 和 $C_5$ ，都是 Abel 群，所以 $D_5$ 可解。 $F_{20}$ 则可以写成
+
+$$
+F_{20}\cong C_5\rtimes C_4
+$$
+
+也就是说，它先有一个正规 $C_5$ 平移部分，再让一个 $C_4$ 乘法部分作用在上面。因此它也有一条由 Abel 商群组成的正规子群链，所以仍然可解。相反， $A_5$ 和 $S_5$ 都含有 $A_5$ 式的不可解结构；只要 Galois 群达到这两类，就不能用根式求解。
+
+实际判别时， $F_{20}$ 也很有用：如果一个不可约五次方程的 Galois 群落在 $F_{20}$ 里，那么它虽然不一定像 $C_5$ 或 $D_5$ 那样简单，但仍然可以用根式求解；如果模素数分解暴露出 $F_{20}$ 不可能容纳的循环类型，例如 $(2)(3)$ ，那就能把这个最大可解候选排除掉。更精细的判别还可以构造某些在 $F_{20}$ 作用下保持不变、但在更大群作用下会改变的量，用来检测 Galois 群是否真的落在 $F_{20}$ 中。
 
 于是后面的计算常常不是把 Galois 群的每个元素都列出来，而是寻找足够有辨识度的“置换证据”，用来排除较小的可能性。比如，如果我们能证明 Galois 群含有某些循环类型，而这些循环类型不可能出现在 $C_5$ 、 $D_5$ 或 $F_{20}$ 中，也不可能完全落在 $A_5$ 中，那么最后就只能是 $S_5$ 。
 
@@ -1438,7 +1563,7 @@ $$
 $$
 
 <figure>
-  <img src="assets/figure-11-s5-a5-obstruction.svg" alt="图 11：S5 中的 A5 是一般五次方程不能用根式通解的结构原因">
+  <img src="assets/figure-12-s5-a5-obstruction.svg" alt="图 12：S5 中的 A5 是一般五次方程不能用根式通解的结构原因">
 </figure>
 
 ## 11. 五次以上方程的可解性
@@ -1536,6 +1661,16 @@ $$
 
 这里的 ${}_4F_3$ 是**广义超几何函数**（Generalized Hypergeometric Function）。超出收敛范围时，还要使用解析延拓。这个公式很直观地说明：五次方程可以在更大的特殊函数体系中被统一表达，但这种表达已经不是根式求解。
 
+这条线索到了七次方程附近，还和 **Hilbert 第十三问题**（Hilbert's Thirteenth Problem）连在一起。1900 年，Hilbert 在他的二十三个问题中提出：一般七次方程是否不能借助只含两个变量的函数来表示其解？他特别关注的一个标准型可以写成
+
+$$
+f^7+xf^3+yf^2+zf+1=0
+$$
+
+这里把根 $f$ 看成三个系数 $x,y,z$ 的函数。这个问题和 Abel-Ruffini 定理不在同一层面：Abel-Ruffini 问的是能不能用四则运算和开根；Hilbert 第十三问题问的是，如果允许更一般的函数复合，三变量的代数函数能否由二变量函数拼出来。
+
+后来 Kolmogorov 和 Arnold 在 1957 年给出了一个出人意料的答案：如果允许任意连续函数，那么多元连续函数确实可以由较低变量数的连续函数经过有限复合表示。这说明 Hilbert 原来关于“连续函数”的猜想方向并不成立。不过，若把问题限制在代数函数、解析函数或其它结构更强的函数类别中，情形就细得多，也更接近 Hilbert 当初从代数方程出发的动机。放在本文这里看，它提醒我们：五次以上没有通用根式公式，并不等于没有任何统一表达；关键总在于允许使用怎样的函数，以及这些函数能不能承载方程根的多值性、分支结构和对称性。
+
 这里还可能产生一个自然追问：一般五次方程不能用根式求解，是不是只是因为我们把方程放在复数域里看？如果继续扩大数域，结论会不会改变？
 
 这个问题要分开回答。
@@ -1574,11 +1709,17 @@ Galois 群的判别标准也解释了为什么有些特殊五次方程仍然可�
 4. Jörg Bewersdorff, *Galois Theory for Beginners: A Historical Perspective*, 2nd ed., translated by David Kramer, American Mathematical Society, Student Mathematical Library, vol. 95. 本文第一节关于 casus irreducibilis 和 Bombelli 的说明，以及对称多项式、Lagrange resolvent、Tschirnhaus 变换和 Bring-Jerrard 化简的历史线索，参考该书。
 5. John Stillwell, “Galois Theory for Beginners,” *The American Mathematical Monthly*, 101(1), 22--27, 1994. 本文第九节关于一般 $n$ 次方程不可根式通解的极简证明骨架，参考这篇短文。
 6. Niels Henrik Abel, *Mémoire sur les équations algébriques, où l'on démontre l'impossibilité de la résolution de l'équation générale du cinquième degré*, Christiania, 1824. 本文第八节关于 Abel 原始证明的历史说明，参考 Abel 这篇关于一般五次方程不可根式求解的早期论文。
-7. Peter Pesic, *Abel's Proof: An Essay on the Sources and Meaning of Mathematical Unsolvability*, MIT Press, 2003. 本文关于 Abel 从尝试求解转向证明不可解、Abel 证明的四步结构，以及“不可解性”观念意义的补充，参考该书。
-8. V.B. Alekseev, *Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold*, Springer, 2004. 本文第八节关于单值群（Monodromy Group）、黎曼曲面分支结构和 Abel 定理拓扑证明的补充视角，参考该书第 2.11--2.14 节以及 Khovanskii 附录中的说明。
-9. Manjul Bhargava, “Galois groups of random integer polynomials and van der Waerden's Conjecture,” *Annals of Mathematics*, 201(2), 339-377, 2025. [Annals 页面](https://annals.math.princeton.edu/2025/201-2/p01)；[arXiv:2111.06507](https://arxiv.org/abs/2111.06507)。本文第十节关于随机整系数多项式的 Galois 群几乎总是 $S_n$ ，以及自然数系数五次方程几乎总是不能用根式求解的判断，参考这一结果。
-10. Jesse Schultz, *Solving the Quintic with Elliptic Functions*. 本文第十一节关于 Hermite、Brioschi 型五次方程和椭圆模函数解法的简述，参考这份讲义式说明。
-11. Felix Klein, *Lectures on the Icosahedron and the Solution of Equations of the Fifth Degree*, translated by George Gavin Morrice, Trübner, 1888. 本文关于 Klein 二十面体解法的历史定位，参考这部经典著作。
-12. Oliver Nash, “The icosahedron and the solution of the quintic,” 2013. [arXiv:1308.0955](https://arxiv.org/abs/1308.0955)。本文关于 Klein 二十面体解法、二十面体函数和 $A_5$ 几何化视角的简述，参考这篇文章。
-13. Ian Stewart, *Galois Theory*, 5th ed., CRC Press, 2022. 本文关于 Ruffini radicals、自然无理量定理、根式可解性的必要方向和充分方向、一般多项式的严格含义、单位根与“真正根式”的说明，以及对 Galois 历史表述的谨慎区分，参考该书相关章节。
+7. Évariste Galois, “Mémoire sur les conditions de résolubilité des équations par radicaux,” 1831, published in *Journal de mathématiques pures et appliquées*, 1846. 本文关于 Galois 原初语言中的 groupe、adjonction 和 décomposition propre 的说明，参考这篇论文。
+8. Camille Jordan, *Traité des substitutions et des équations algébriques*, Gauthier-Villars, 1870. 本文关于 Jordan 对置换群、正规子群、商群、单群、合成列和 Galois 理论系统化的历史说明，参考这部著作。
+9. Richard Dedekind, “Über die Theorie der ganzen algebraischen Zahlen,” Supplement XI to Dirichlet's *Vorlesungen über Zahlentheorie* (from 1871 onward, revised in later editions). 本文关于 Körper、域扩张、理想以及从根的置换走向域自同构语言的说明，参考 Dedekind 的这一理论传统。
+10. Emmy Noether, “Idealtheorie in Ringbereichen,” *Mathematische Annalen*, 83, 24--66, 1921. 本文关于 20 世纪抽象代数学公理化转向、环、理想和结构观点的历史说明，参考 Noether 的这一理论传统。
+11. Peter Pesic, *Abel's Proof: An Essay on the Sources and Meaning of Mathematical Unsolvability*, MIT Press, 2003. 本文关于 Abel 从尝试求解转向证明不可解、Abel 证明的四步结构，以及“不可解性”观念意义的补充，参考该书。
+12. V.B. Alekseev, *Abel's Theorem in Problems and Solutions: Based on the Lectures of Professor V.I. Arnold*, Springer, 2004. 本文第八节关于单值群（Monodromy Group）、黎曼曲面分支结构和 Abel 定理拓扑证明的补充视角，参考该书第 2.11--2.14 节以及 Khovanskii 附录中的说明。
+13. Manjul Bhargava, “Galois groups of random integer polynomials and van der Waerden's Conjecture,” *Annals of Mathematics*, 201(2), 339-377, 2025. [Annals 页面](https://annals.math.princeton.edu/2025/201-2/p01)；[arXiv:2111.06507](https://arxiv.org/abs/2111.06507)。本文第十节关于随机整系数多项式的 Galois 群几乎总是 $S_n$ ，以及自然数系数五次方程几乎总是不能用根式求解的判断，参考这一结果。
+14. Jesse Schultz, *Solving the Quintic with Elliptic Functions*. 本文第十一节关于 Hermite、Brioschi 型五次方程和椭圆模函数解法的简述，参考这份讲义式说明。
+15. Felix Klein, *Lectures on the Icosahedron and the Solution of Equations of the Fifth Degree*, translated by George Gavin Morrice, Trübner, 1888. 本文关于 Klein 二十面体解法的历史定位，参考这部经典著作。
+16. Oliver Nash, “The icosahedron and the solution of the quintic,” 2013. [arXiv:1308.0955](https://arxiv.org/abs/1308.0955)。本文关于 Klein 二十面体解法、二十面体函数和 $A_5$ 几何化视角的简述，参考这篇文章。
+17. Ian Stewart, *Galois Theory*, 5th ed., CRC Press, 2022. 本文关于 Ruffini radicals、自然无理量定理、根式可解性的必要方向和充分方向、一般多项式的严格含义、单位根与“真正根式”的说明，以及对 Galois 历史表述的谨慎区分，参考该书相关章节。
+18. Alexander Grothendieck, *Revêtements étales et groupe fondamental (SGA 1)*, Lecture Notes in Mathematics 224, Springer, 1971. 本文第八节关于 étale 基本群、有限 étale 覆盖与绝对 Galois 群之间关系的补充说明，参考这部经典文献。
+19. David Hilbert, “Mathematical Problems,” *Bulletin of the American Mathematical Society*, 8(10), 437--479, 1902；A.N. Kolmogorov, “On the representation of continuous functions of many variables by superposition of continuous functions of one variable and addition,” *Doklady Akademii Nauk SSSR*, 114, 953--956, 1957；V.I. Arnold, “On functions of three variables,” *Doklady Akademii Nauk SSSR*, 114, 679--681, 1957. 本文第十一节关于 Hilbert 第十三问题和 Kolmogorov-Arnold 表示定理的简述，参考这些经典文献。
 
